@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "momentum";
+  src:url("./momentum.eot");
+  src:url("./momentum.eot?#iefix") format("embedded-opentype"),
+    url("./momentum.woff") format("woff"),
+    url("./momentum.ttf") format("truetype"),
+    url("./momentum.svg#momentum") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}

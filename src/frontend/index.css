@@ -1,5 +1,175 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+/*Reset and base*/
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: none;
 }
+
+a, abbr, acronym, address, applet, article, aside, audio,
+b, blockquote, big, body,
+center, canvas, caption, cite, code, command,
+datalist, dd, del, details, dfn, dl, div, dt,
+em, embed,
+fieldset, figcaption, figure, footer,
+h1, h2, h3, h4, h5, h6, header, hgroup, html,
+i, iframe, img, ins,
+kbd,
+keygen,
+label, legend, li,
+meter,
+nav,
+object, ol, output,
+p, pre, progress,
+q,
+s, samp, section, small, span, source, strike, strong, sub, sup,
+table, th, td, video, tt,
+u, ul,
+var, form {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  vertical-align: top;
+}
+img, fieldset, legend, iframe {
+  border: 0 none;
+}
+li {
+  list-style: none;
+}
+
+article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure,
+footer, header, hgroup, keygen, meter, nav, output, progress, section, source,
+video {
+  display: block;
+}
+mark, rp, rt, ruby, summary, time {
+  display: inline;
+}
+
+img {
+  border: 0;
+}
+
+caption {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}
+
+legend {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none
+}
+
+a:active, a:hover {
+  outline: 0
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+button {
+  overflow: visible;
+  padding: 0;
+  border: 0;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+input {
+  line-height: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+label {cursor: pointer;}
+
+textarea {
+  overflow: auto;
+}
+
+abbr {
+  border-bottom: 0;
+}
+
+em {
+  font-style: normal;
+}
+
+a {
+  cursor: pointer;
+}
+
+a.active {
+  color: #000;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+  font-weight: normal;
+}
+
+html {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  color: #212121;
+  font-size: 14px;
+  font-family: helvetica,sans-serif;
+  font-weight: 100;
+}
+
+img {
+  width: 100%;
+}
+
+.screenReaderOnly {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+}
+
+@import url('styles/fonts/font.css');
