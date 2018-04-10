@@ -57,9 +57,12 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "backEndDev": "node scripts/development.js",
+    "backEndTest": "node ./node_modules/mocha/bin/mocha --require babel-register --recursive ./**/*.spec.js",
+    "backEndStart": "NODE_PATH=src/backend ./node_modules/.bin/babel-node src/backend/server.js",
+    "frontEndStart": "NODE_PATH=src/frontend node scripts/start.js",
+    "frontEndBuild": "NODE_PATH=src/frontend node scripts/build.js",
+    "frontEndTest": "node scripts/test.js --env=jsdom"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -87,12 +90,12 @@
     },
     "moduleFileExtensions": [
       "web.js",
+      "mjs",
       "js",
       "json",
       "web.jsx",
       "jsx",
-      "node",
-      "mjs"
+      "node"
     ]
   },
   "babel": {
@@ -102,5 +105,6 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  }
+  },
+  "proxy": "http://localhost:4000/"
 }
