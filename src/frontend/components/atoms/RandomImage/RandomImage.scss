@@ -1,0 +1,39 @@
+@import 'style';
+
+.randomImage {
+  position: relative;
+  img {
+    height: 100vh;
+  }
+  .dim {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    min-width: 230px;
+    min-height: 420px;
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    background-color: rgba(0,0,0,0.8);
+  }
+  .titleWrap {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    width: 100%;
+    margin-top: -51px;
+    text-align: center;
+    .title {
+      color: $white-base;
+      font-size: 22px;
+      line-height: 1.4;
+    }
+    .start {
+      display: inline-block;
+      margin-top: 15px;
+      color: $white-base;
+      font-size: 18px;
+      text-decoration: underline;
+    }
+  }
+}
