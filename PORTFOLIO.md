@@ -12,7 +12,7 @@
 ## 번개장터
 - 번개카 웹사이트 (http://dealer.buncar.co.kr) 개발
 - 번개장터 웹, 모바일웹 사이트 (http://m.bunjang.co.kr/) 개발
-- 번개장터 웹 리뉴얼 프로젝트 진행중 (django, React 사용)
+- 번개장터 웹 리뉴얼 프로젝트 진행 (django, React 사용)
 - 웹 표준, 웹 접근성 준수
 - 반응형 웹 개발
 - 크로스 브라우징 (Ie10, Ie11, Chrome, Safari, Firefox, Opera)
