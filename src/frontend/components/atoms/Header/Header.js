@@ -11,6 +11,17 @@ class Header extends Component {
   }
 
   render() {
+    const {search, searchIconClick} = this.props;
+
+    const makeHeaderSearch = () => {
+      return (
+        <div className={styles.headerSearch}>
+          <input className={styles.input} type="text" placeholder="영화를 검색해보세요." title="검색어 입력" ref={(ref) => this.searchInput = ref} />
+          <a className={[styles.btn, styles.btnSearch].join(' ')}><i className="momentum-icon momentum-icon-search" /></a>
+        </div>
+      );
+    };
+
     return (
       <div>
         <div className={[styles.header, styles.clearFix].join(' ')}>
@@ -18,14 +29,15 @@ class Header extends Component {
             <Link to="/search" className={styles.logo}>Momentum</Link>
           </h1>
           <div className={styles.menu}>
-            <a className={styles.btnSearch}>
+            <a className={styles.btnSearch} onClick={searchIconClick}>
               <i className="momentum-icon momentum-icon-search" />
             </a>
           </div>
         </div>
+        {search.isHeaderSearch ? makeHeaderSearch() : ''}
       </div>
     );
   }
 }
 
-export default Header;
+export default withRouter(Header);
