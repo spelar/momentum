@@ -11,12 +11,12 @@ class Header extends Component {
   }
 
   render() {
-    const {search, searchIconClick} = this.props;
+    const {search, searchIconClick, searchInputKeyUp} = this.props;
 
     const makeHeaderSearch = () => {
       return (
         <div className={styles.headerSearch}>
-          <input className={styles.input} type="text" placeholder="영화를 검색해보세요." title="검색어 입력" ref={(ref) => this.searchInput = ref} />
+          <input className={styles.input} onKeyUp={searchInputKeyUp} type="text" placeholder="영화를 검색해보세요." title="검색어 입력" ref={(ref) => this.searchInput = ref} />
           <a className={[styles.btn, styles.btnSearch].join(' ')}><i className="momentum-icon momentum-icon-search" /></a>
         </div>
       );
