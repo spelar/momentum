@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 import Header from 'components/atoms/Header/Header'
+import SearchList from 'components/atoms/SearchList/SearchList';
 import {
   searchIconClick,
   getAutoComplete,
@@ -32,6 +33,9 @@ class SearchContainer extends Component {
           search={search}
           searchIconClick={this.props.searchIconClick}
           searchInputKeyUp={this.searchInputKeyUp}
+        />
+        <SearchList
+          search={search}
         />
       </div>
     )
