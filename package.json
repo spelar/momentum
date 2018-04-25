@@ -57,7 +57,7 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "NODE_PATH=src/backend node src/backend/server.js",
+    "start": "node server.js",
     "backEndDev": "node scripts/development.js",
     "backEndTest": "node ./node_modules/mocha/bin/mocha --require babel-register --recursive ./**/*.spec.js",
     "backEndStart": "NODE_PATH=src/backend ./node_modules/.bin/babel-node src/backend/server.js",

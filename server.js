@@ -7,10 +7,10 @@ const app = express();
 const client_id = 'od8X2RmrYUSyIz27osG2';
 const client_secret = 'nD2kytSJQj';
 
-app.use(express.static(path.join(__dirname, '../../build/')));
+app.use(express.static(path.join(__dirname, '/build/')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'../../build/index.html'));
+  res.sendFile(path.join(__dirname+'/build/index.html'));
 });
 
 app.get('/movies/:query', function (req, res) {
