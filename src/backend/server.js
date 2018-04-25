@@ -36,4 +36,3 @@ app.listen(port);
 
 console.log(`Momentum app listening on port ${port}`);
 
-module.exports = server;
