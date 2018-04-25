@@ -7,6 +7,8 @@ const app = express();
 const client_id = 'od8X2RmrYUSyIz27osG2';
 const client_secret = 'nD2kytSJQj';
 
+const port = process.env.PORT || 4000;
+
 app.use(express.static(path.join(__dirname, '/build/')));
 
 app.get('*', (req, res) => {
@@ -30,8 +32,6 @@ app.get('/movies/:query', function (req, res) {
   });
 });
 
-
-const port = process.env.PORT || 4000;
 app.listen(port);
 
 console.log(`Momentum app listening on port ${port}`);
