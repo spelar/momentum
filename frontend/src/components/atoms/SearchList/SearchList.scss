@@ -17,20 +17,40 @@
     }
   }
   .movie {
-    position: relative;
     padding: 10px;
     border-bottom: 1px solid $gray-base;
-    .image {
-      position: absolute;
-      img {
-        width: 37px;
+    a {
+      width: 100%;
+      min-height: 66px;
+      display: table;
+      .image {
+        float: left;
+        position: relative;
+        min-width: 60px;
+        min-height: 87px;
+        img {
+          width: 100%;
+        }
+        .noimage {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 26px;
+          height: 24px;
+          margin-top: -12px;
+          margin-left: -13px;
+          background-image: url('static/images/noimage.png');
+          background-size: 26px 24px;
+        }
       }
-    }
-    .info {
-      padding-left: 52px;
-      h2 {
-        margin-top: 3px;
-        margin-bottom: 5px;
+      .info {
+        display: table-cell;
+        width: 92%;
+        padding-left: 15px;
+        h2 {
+          margin-top: 3px;
+          margin-bottom: 5px;
+        }
       }
     }
   }

@@ -21,7 +21,9 @@ class SearchContainer extends Component {
     if (e.target.value.length > 0) {
       this.props.getAutoComplete(e.target.value);
     } else if (e.target.value.length === 0) {
-      this.props.emptyAutoComplete();
+      setTimeout(() => {
+        this.props.emptyAutoComplete();
+      }, 300);
     }
   }
 

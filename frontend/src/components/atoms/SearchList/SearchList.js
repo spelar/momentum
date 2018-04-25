@@ -21,13 +21,15 @@ class SearchList extends Component {
       return search.autoCompleteKeywords.map((movie, i) => {
         return (
           <li key={'movie' + i} className={liStyle}>
-            <div className={styles.image}>
-              <img src={movie.image} alt="영화 포스터" />
-            </div>
-            <div className={styles.info}>
-              <h2 dangerouslySetInnerHTML={{__html: movie.title}} />
-              <span>{movie.pubDate}</span>
-            </div>
+            <a>
+              <div className={styles.image}>
+                {movie.image !== "" ? <img src={movie.image} alt="영화 포스터" /> : <span className={styles.noimage} />}
+              </div>
+              <div className={styles.info}>
+                <h2 dangerouslySetInnerHTML={{__html: movie.title}} />
+                <span>{movie.pubDate}</span>
+              </div>
+            </a>
           </li>
         )
       });
