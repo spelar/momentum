@@ -9,10 +9,10 @@ const client_secret = 'nD2kytSJQj';
 
 const port = process.env.PORT || 4000;
 
-app.use(express.static(path.join(__dirname, '../../build')));
+app.use(express.static(path.join(__dirname, '../../build/')));
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, '../../build', 'index.html'));
+  res.sendFile(path.join(__dirname, '../../build/', 'index.html'));
 });
 
 // const expressStatic = express.static(path.join(__dirname, '../../build/'));
