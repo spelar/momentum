@@ -7,8 +7,16 @@ const app = express();
 const client_id = 'od8X2RmrYUSyIz27osG2';
 const client_secret = 'nD2kytSJQj';
 
-const expressStatic = express.static(path.join(__dirname, '../../build/'));
-app.use('/', expressStatic);
+const port = process.env.PORT || 4000;
+
+app.use(express.static(path.join(__dirname, '../../build')));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, '../../build', 'index.html'));
+});
+
+// const expressStatic = express.static(path.join(__dirname, '../../build/'));
+// app.use('/', expressStatic);
 
 app.get('/movies/:query', function (req, res) {
   const api_url = `https://openapi.naver.com/v1/search/movie.json?query=${encodeURI(req.params.query)}&display=5`; // json 결과
@@ -27,8 +35,6 @@ app.get('/movies/:query', function (req, res) {
   });
 });
 
-
-const port = process.env.PORT || 4000;
 const server = app.listen(port, function () {
   console.log(`Momentum app listening on port ${port}!`);
 });
