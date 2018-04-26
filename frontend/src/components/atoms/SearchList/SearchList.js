@@ -19,15 +19,27 @@ class SearchList extends Component {
     const makeSearchList = () => {
       const liStyle = [styles.movie, styles.clearFix].join(' ');
       return search.autoCompleteKeywords.map((movie, i) => {
+        const makeActorList = () => {
+          let actor = movie.actor.replace(/\|/gi, ", ").slice(0,-2);
+          return (
+            <span dangerouslySetInnerHTML={{__html: actor}}/>
+          )
+        };
         return (
           <li key={'movie' + i} className={liStyle}>
-            <a>
-              <div className={styles.image}>
-                {movie.image !== "" ? <img src={movie.image} alt="영화 포스터" /> : <span className={styles.noimage} />}
-              </div>
+            <a target="_blank" href={movie.link}>
+              {movie.image !== "" ? <div className={styles.image}><img src={movie.image} alt="영화 포스터" /></div> : <div className={[styles.image, styles.noimage].join(' ')}><span /></div>}
               <div className={styles.info}>
-                <h2 dangerouslySetInnerHTML={{__html: movie.title}} />
-                <span>{movie.pubDate}</span>
+                <div className={styles.clearFix}>
+                  <h2 dangerouslySetInnerHTML={{__html: movie.title}} /><span className={styles.pubDate}> (<span dangerouslySetInnerHTML={{__html: movie.pubDate}} />)</span>
+                </div>
+                <div className={styles.userRating}>
+                  <i className="momentum-icon momentum-icon-star" />
+                  <span className={styles.score} dangerouslySetInnerHTML={{__html: movie.userRating}}/>
+                </div>
+                <div className={styles.actor}>
+                  {makeActorList()}
+                </div>
               </div>
             </a>
           </li>
