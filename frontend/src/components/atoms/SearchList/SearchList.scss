@@ -85,4 +85,37 @@
       }
     }
   }
+  .movie:first-child {
+    padding-top: 20px;
+  }
+  .moreMovie {
+    margin-top: -1px;
+    a {
+      display: block;
+      position: relative;
+      height: 48px;
+      border-top: 1px solid #eaeef2;
+      border-bottom: 1px solid #e2e5e8;
+      background-color: #f4f7f8;
+      font-size: 17px;
+      color: #424242;
+      line-height: 48px;
+      text-align: center;
+    }
+  }
+  .noMovieListMessage {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    strong {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -112px;
+      margin-left: -95px;
+      color: $black-base;
+      font-size: 22px;
+    }
+  }
 }
