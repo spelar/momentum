@@ -1,22 +1,33 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
 import { delay } from 'redux-saga'
 import * as searchActions from 'store/modules/search';
+import * as searchResultSearchActions from 'store/modules/searchResult';
 import {
-  getAutoComplete
+  getMovieList
 } from "lib/api/search";
+import {GET_MOVIE_LIST} from "../modules/search";
+import {GET_SEARCH_RESULT_MOVIE_LIST, GET_MORE_MOVIE_LIST} from "../modules/searchResult";
 
 
-function* getAutoCompleteSaga(action) {
+function* getMovieListSaga(action) {
   yield delay(300);
-  if (action.payload && action.payload.trim().length > 0) {
-    const receiveAutoComplete = yield call(getAutoComplete, action.payload);
-    if (action.payload) {
-      receiveAutoComplete.searchKeyword = action.payload;
+  if (action.payload.searchKeyword && action.payload.searchKeyword.trim().length > 0) {
+    const receiveMovieList = yield call(getMovieList, action.payload);
+    if (action.payload.searchKeyword) {
+      receiveMovieList.searchKeyword = action.payload.searchKeyword;
     }
-    yield put(searchActions.responseAutoComplete(receiveAutoComplete));
+    if (action.type === GET_MOVIE_LIST) {
+      yield put(searchActions.responseMovieList(receiveMovieList));
+    } else if (action.type === GET_SEARCH_RESULT_MOVIE_LIST) {
+      yield put(searchResultSearchActions.responseSearchResultMovieList(receiveMovieList));
+    } else if (action.type === GET_MORE_MOVIE_LIST) {
+      yield put(searchResultSearchActions.responseMoreMovieList(receiveMovieList));
+    }
   }
 }
 
-export function* autoCompleteSage() {
-  yield takeLatest(searchActions.GET_AUTO_COMPLETE, getAutoCompleteSaga)
+export function* movieListSaga() {
+  yield takeLatest(searchActions.GET_MOVIE_LIST, getMovieListSaga);
+  yield takeLatest(searchResultSearchActions.GET_SEARCH_RESULT_MOVIE_LIST, getMovieListSaga);
+  yield takeLatest(searchResultSearchActions.GET_MORE_MOVIE_LIST, getMovieListSaga);
 }

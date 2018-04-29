@@ -1,10 +1,10 @@
 import { all } from 'redux-saga/effects'
 import {
-  autoCompleteSage
+  movieListSaga
 } from './search';
 
 export function* rootSaga() {
   yield all([
-    autoCompleteSage()
+    movieListSaga()
   ])
 }

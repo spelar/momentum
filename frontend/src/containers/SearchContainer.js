@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 import Header from 'components/atoms/Header/Header'
-import SearchList from 'components/atoms/SearchList/SearchList';
 import {
-  searchIconClick,
-  getAutoComplete,
+  getMovieList,
   emptyAutoComplete
 } from 'store/modules/search';
 
@@ -14,16 +12,28 @@ class SearchContainer extends Component {
   constructor(props) {
     super(props);
     this.searchInputKeyUp = this.searchInputKeyUp.bind(this);
+    this.searchBtnClick = this.searchBtnClick.bind(this);
   }
-
 
   searchInputKeyUp(e) {
     if (e.target.value.length > 0) {
-      this.props.getAutoComplete(e.target.value);
+      let searchData = {
+        searchKeyword : e.target.value
+      };
+      this.props.getMovieList(searchData);
     } else if (e.target.value.length === 0) {
       setTimeout(() => {
         this.props.emptyAutoComplete();
-      }, 300);
+      }, 600);
+    }
+  }
+
+  searchBtnClick() {
+    const {history, search} = this.props;
+    if (search.searchKeyword === "") {
+      alert("영화 제목을 입력해주세요.")
+    } else {
+      history.push('/searchResult?search=' + encodeURIComponent(search.searchKeyword));
     }
   }
 
@@ -33,11 +43,8 @@ class SearchContainer extends Component {
       <div>
         <Header
           search={search}
-          searchIconClick={this.props.searchIconClick}
           searchInputKeyUp={this.searchInputKeyUp}
-        />
-        <SearchList
-          search={search}
+          searchBtnClick={this.searchBtnClick}
         />
       </div>
     )
@@ -51,8 +58,7 @@ export default connect(
     };
   },
   (dispatch) => ({
-    searchIconClick: () => dispatch(searchIconClick()),
-    getAutoComplete: (searchKeyword) => dispatch(getAutoComplete(searchKeyword)),
+    getMovieList: (searchData) => dispatch(getMovieList(searchData)),
     emptyAutoComplete: () => dispatch(emptyAutoComplete())
   })
 )(withRouter(SearchContainer));
