@@ -17,13 +17,13 @@ class Header extends Component {
   }
 
   render() {
-    const {search, searchInputKeyUp, searchBtnClick} = this.props;
+    const {search, searchInputKeyUp, searchBtnClick, logoClick} = this.props;
 
     return (
       <div>
         <div className={[styles.header, styles.clearFix].join(' ')}>
           <h1>
-            <Link to="/search" className={styles.logo}>Momentum</Link>
+            <Link to="/search" className={styles.logo} onClick={logoClick}>Momentum</Link>
           </h1>
           <div className={styles.headerSearch}>
             <input className={styles.input} onKeyUp={searchInputKeyUp} type="text" placeholder="영화를 검색해보세요." title="검색어 입력" ref={(ref) => this.searchInput = ref} />
@@ -41,7 +41,8 @@ class Header extends Component {
 Header.propTypes = {
   search: PropTypes.object.isRequired,
   searchInputKeyUp: PropTypes.func.isRequired,
-  searchBtnClick: PropTypes.func.isRequired
+  searchBtnClick: PropTypes.func.isRequired,
+  logoClick: PropTypes.func.isRequired
 };
 
 export default withRouter(Header);

@@ -42,6 +42,7 @@ class SearchResultContainer extends Component {
 
   logoClick() {
     this.props.emptyMovieList();
+    this.props.emptyAutoComplete();
   }
 
   searchBtnClick() {
