@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import styles from './RandomImage.scss';
 
 class RandomImage extends Component {
@@ -24,5 +25,13 @@ class RandomImage extends Component {
     );
   }
 }
+
+RandomImage.propTypes = {
+  randomImage: PropTypes.string.isRequired
+};
+
+RandomImage.defaultProps = {
+  randomImage: ''
+};
 
 export default RandomImage;

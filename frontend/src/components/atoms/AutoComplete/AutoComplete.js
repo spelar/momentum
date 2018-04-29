@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import styles from './AutoComplete.scss';
 import {withRouter} from "react-router-dom";
+import PropTypes from 'prop-types';
 
 class AutoComplete extends Component {
   render() {
@@ -47,5 +48,9 @@ class AutoComplete extends Component {
     );
   }
 }
+
+AutoComplete.propTypes = {
+  search: PropTypes.object.isRequired
+};
 
 export default  withRouter(AutoComplete);
