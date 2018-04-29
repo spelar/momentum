@@ -13,5 +13,8 @@
     "backEndDev": "node scripts/development.js",
     "backEndTest": "node ./node_modules/mocha/bin/mocha --require babel-register --recursive ./**/*.spec.js",
     "backEndStart": "NODE_PATH=src/backend ./node_modules/.bin/babel-node src/backend/server.js"
+  },
+  "engines": {
+    "node": "7.10.1"
   }
 }
