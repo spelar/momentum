@@ -7,6 +7,7 @@ import styles from './Header.scss';
 import AutoComplete from 'components/atoms/AutoComplete/AutoComplete';
 
 class Header extends Component {
+
   componentDidMount() {
     const {history} = this.props;
     const params = history.location.search;
@@ -17,11 +18,10 @@ class Header extends Component {
   }
 
   render() {
-    const {search, searchInputKeyUp, searchBtnClick, logoClick} = this.props;
-
+    const {search, searchInputKeyUp, searchBtnClick, logoClick, searchResult} = this.props;
     return (
       <div>
-        <div className={[styles.header, styles.clearFix].join(' ')}>
+        <div className={searchResult.isScroll ? [styles.header, styles.clearFix, styles.headerFixed].join(' ') : [styles.header, styles.clearFix].join(' ')}>
           <h1>
             <Link to="/search" className={styles.logo} onClick={logoClick}>Momentum</Link>
           </h1>

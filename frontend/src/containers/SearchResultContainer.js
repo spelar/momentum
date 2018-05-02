@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import Header from 'components/atoms/Header/Header'
 import SearchList from 'components/atoms/SearchList/SearchList';
 import {emptyAutoComplete, getMovieList, searchIconClick, searchResultEmptyAutoComplete} from "../store/modules/search";
-import {getSearchResultMovieList, emptyMovieList, getMoreMovieList} from "../store/modules/searchResult";
+import {getSearchResultMovieList, emptyMovieList, getMoreMovieList, setScrollState} from "../store/modules/searchResult";
 import queryString from "query-string";
 
 class SearchResultContainer extends Component {
@@ -14,12 +14,22 @@ class SearchResultContainer extends Component {
     this.searchBtnClick = this.searchBtnClick.bind(this);
     this.logoClick = this.logoClick.bind(this);
     this.moreMovieClick = this.moreMovieClick.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
   }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  };
+
+  handleScroll(e) {
+    this.props.setScrollState();
+  };
 
   componentDidMount() {
     const {history} = this.props;
     const params = history.location.search;
     const parsed = queryString.parse(params);
+    window.addEventListener('scroll', this.handleScroll);
     let searchData = {
       searchKeyword: parsed.search
     };
@@ -95,6 +105,7 @@ class SearchResultContainer extends Component {
           searchInputKeyUp={this.searchInputKeyUp}
           searchBtnClick={this.searchBtnClick}
           logoClick={this.logoClick}
+          searchResult={searchResult}
         />
         <SearchList
           searchResult={searchResult}
@@ -119,6 +130,7 @@ export default connect(
     getSearchResultMovieList: (searchData) => dispatch(getSearchResultMovieList(searchData)),
     emptyMovieList: () => dispatch(emptyMovieList()),
     getMoreMovieList: (searchData) => dispatch(getMoreMovieList(searchData)),
-    searchResultEmptyAutoComplete: (searchKeyword) => dispatch(searchResultEmptyAutoComplete(searchKeyword))
+    searchResultEmptyAutoComplete: (searchKeyword) => dispatch(searchResultEmptyAutoComplete(searchKeyword)),
+    setScrollState: () => dispatch(setScrollState())
   })
 )(withRouter(SearchResultContainer));

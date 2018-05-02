@@ -4,6 +4,7 @@ Naver Open Api(https://developers.naver.com/docs/search/movie/) 를 사용해서
 URL : https://spelar-momentum.herokuapp.com/
 
 Heroku 무료 호스팅을 사용하는데..Region이 미국이라 좀 많이 느리네요ㅜㅜ
+
 다른 Node.js 배포 방법을 찾아보고 있습니다.
 
 ## 사용 기술

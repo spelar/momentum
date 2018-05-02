@@ -27,6 +27,12 @@
   }
 }
 
+.headerFixed {
+  z-index: 20;
+  position: fixed;
+  top: 0px;
+}
+
 .headerSearch {
   position: relative;
   width: 100%;

@@ -39,12 +39,14 @@ class SearchContainer extends Component {
 
   render() {
     const search = this.props.search;
+    const searchResult = this.props.searchResult;
     return (
       <div>
         <Header
           search={search}
           searchInputKeyUp={this.searchInputKeyUp}
           searchBtnClick={this.searchBtnClick}
+          searchResult={searchResult}
         />
       </div>
     )
@@ -54,7 +56,8 @@ class SearchContainer extends Component {
 export default connect(
   (state) => {
     return {
-      search: state.search
+      search: state.search,
+      searchResult: state.searchResult
     };
   },
   (dispatch) => ({

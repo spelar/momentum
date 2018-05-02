@@ -47,7 +47,7 @@ class SearchList extends Component {
     };
 
     return (
-      <div className={styles.searchList}>
+      <div className={searchResult.isScroll ? [styles.searchList, styles.listStyle].join(' ') : styles.searchList} >
         <ul>
           {searchResult.movieList.length === 0 ? makeNoMovieList() : makeSearchList()}
         </ul>
