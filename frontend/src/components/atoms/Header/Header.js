@@ -42,7 +42,7 @@ Header.propTypes = {
   search: PropTypes.object.isRequired,
   searchInputKeyUp: PropTypes.func.isRequired,
   searchBtnClick: PropTypes.func.isRequired,
-  logoClick: PropTypes.func.isRequired
+  logoClick: PropTypes.func
 };
 
 export default withRouter(Header);

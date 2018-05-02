@@ -17,7 +17,7 @@ class SearchResultContainer extends Component {
   }
 
   componentDidMount() {
-    const {history, search} = this.props;
+    const {history} = this.props;
     const params = history.location.search;
     const parsed = queryString.parse(params);
     let searchData = {

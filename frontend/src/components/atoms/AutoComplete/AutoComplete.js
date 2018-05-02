@@ -5,9 +5,7 @@ import PropTypes from 'prop-types';
 
 class AutoComplete extends Component {
   render() {
-    const {search} = this.props;
-    const {history} = this.props;
-
+    const {search, history} = this.props;
     const makeSearchMessage = () => {
       return (
         <div>

@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 class SearchList extends Component {
   render() {
     const {searchResult, moreMovieClick} = this.props;
-
     const makeNoMovieList = () => {
       return (
         <div>
