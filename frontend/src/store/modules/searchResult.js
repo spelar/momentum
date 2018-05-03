@@ -38,20 +38,18 @@ export default handleActions({
     return {...state, "movieList": [], "isScroll": false}
   },
   [RESPONSE_MORE_MOVIE_LIST]: (state, action) => {
-    const moreMovieList = action.payload.items;
+    let moreMovieList = action.payload.items;
     const startIndex = action.payload.start;
     const totalMovie = action.payload.total;
     let movieList = state.movieList;
     let isLastMovie = state.isLastMovie;
-    moreMovieList.map((movie) => {
-      return movieList.push(movie);
-    });
+    moreMovieList = movieList.concat(moreMovieList);
     if (movieList.length === totalMovie) {
       isLastMovie = true;
     } else {
       isLastMovie = false;
     }
-    return {...state, "movieList": movieList, "startIndex": startIndex, "isLastMovie": isLastMovie}
+    return {...state, "movieList": moreMovieList, "startIndex": startIndex, "isLastMovie": isLastMovie}
   },
   [SET_SCROLL_STATE]: (state) => {
     return {...state, "isScroll": true}
