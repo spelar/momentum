@@ -51,7 +51,13 @@ export default handleActions({
     }
     return {...state, "movieList": moreMovieList, "startIndex": startIndex, "isLastMovie": isLastMovie}
   },
-  [SET_SCROLL_STATE]: (state) => {
-    return {...state, "isScroll": true}
+  [SET_SCROLL_STATE]: (state, action) => {
+    let isScroll = state.isScroll;
+    if (action.payload) {
+      isScroll = true;
+    } else {
+      isScroll = false;
+    }
+    return {...state, "isScroll": isScroll}
   }
 }, initialState);

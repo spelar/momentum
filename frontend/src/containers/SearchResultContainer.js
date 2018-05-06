@@ -22,7 +22,7 @@ class SearchResultContainer extends Component {
   };
 
   handleScroll(e) {
-    this.props.setScrollState();
+    this.props.setScrollState(true);
   };
 
   componentDidMount() {
@@ -46,6 +46,7 @@ class SearchResultContainer extends Component {
     } else if (e.target.value.length === 0) {
       setTimeout(() => {
         this.props.emptyAutoComplete();
+        this.props.setScrollState(false);
       }, 600);
     }
   }
@@ -108,6 +109,7 @@ class SearchResultContainer extends Component {
           searchResult={searchResult}
         />
         <SearchList
+          search={search}
           searchResult={searchResult}
           moreMovieClick={this.moreMovieClick}
         />
@@ -131,6 +133,6 @@ export default connect(
     emptyMovieList: () => dispatch(emptyMovieList()),
     getMoreMovieList: (searchData) => dispatch(getMoreMovieList(searchData)),
     searchResultEmptyAutoComplete: (searchKeyword) => dispatch(searchResultEmptyAutoComplete(searchKeyword)),
-    setScrollState: () => dispatch(setScrollState())
+    setScrollState: (isScroll) => dispatch(setScrollState(isScroll))
   })
 )(withRouter(SearchResultContainer));

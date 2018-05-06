@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 class SearchList extends Component {
   render() {
-    const {searchResult, moreMovieClick} = this.props;
+    const {search, searchResult, moreMovieClick} = this.props;
     const makeNoMovieList = () => {
       return (
         <div>
@@ -47,17 +47,21 @@ class SearchList extends Component {
     };
 
     return (
-      <div className={searchResult.isScroll ? [styles.searchList, styles.listStyle].join(' ') : styles.searchList} >
-        <ul>
-          {searchResult.movieList.length === 0 ? makeNoMovieList() : makeSearchList()}
-        </ul>
-        {searchResult.movieList.length > 0 && searchResult.isLastMovie === false ?
-          <div className={styles.moreMovie}>
-            <a onClick={moreMovieClick}>
-            더보기 <i className="momentum-icon momentum-icon-long-arrow-right" />
-            </a>
-          </div>
-        : ""}
+      <div>
+        {search.isAutoComplete !== true ?
+        <div className={searchResult.isScroll ? [styles.searchList, styles.listStyle].join(' ') : styles.searchList} >
+          <ul>
+            {searchResult.movieList.length === 0 ? makeNoMovieList() : makeSearchList()}
+          </ul>
+          {searchResult.movieList.length > 0 && searchResult.isLastMovie === false ?
+            <div className={styles.moreMovie}>
+              <a onClick={moreMovieClick}>
+              더보기 <i className="momentum-icon momentum-icon-long-arrow-right" />
+              </a>
+            </div>
+          : ""}
+        </div>
+          : ""}
       </div>
     );
   }
