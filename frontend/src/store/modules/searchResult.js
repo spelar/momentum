@@ -44,7 +44,7 @@ export default handleActions({
     let movieList = state.movieList;
     let isLastMovie = state.isLastMovie;
     moreMovieList = movieList.concat(moreMovieList);
-    if (movieList.length === totalMovie) {
+    if (moreMovieList.length === totalMovie) {
       isLastMovie = true;
     } else {
       isLastMovie = false;
