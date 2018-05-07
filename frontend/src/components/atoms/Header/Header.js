@@ -21,7 +21,7 @@ class Header extends Component {
     const {search, searchInputKeyUp, searchBtnClick, logoClick, searchResult} = this.props;
     return (
       <div>
-        <div className={searchResult.isScroll ? [styles.header, styles.clearFix, styles.headerFixed].join(' ') : [styles.header, styles.clearFix].join(' ')}>
+        <div className={searchResult.isScroll === true && search.isAutoComplete === false ? [styles.header, styles.clearFix, styles.headerFixed].join(' ') : [styles.header, styles.clearFix].join(' ')}>
           <h1>
             <Link to="/search" className={styles.logo} onClick={logoClick}>Momentum</Link>
           </h1>

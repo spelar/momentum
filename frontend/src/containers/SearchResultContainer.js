@@ -47,7 +47,7 @@ class SearchResultContainer extends Component {
       setTimeout(() => {
         this.props.emptyAutoComplete();
         this.props.setScrollState(false);
-      }, 1000);
+      }, 1500);
     }
   }
 
