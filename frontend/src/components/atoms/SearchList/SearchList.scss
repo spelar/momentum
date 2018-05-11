@@ -1,6 +1,10 @@
 @import 'style';
 
 .searchList {
+  z-index: 10;
+  position: absolute;
+  top: 98px;
+  left: 0px;
   .message {
     position: relative;
     width: 100%;
@@ -118,8 +122,4 @@
       font-size: 22px;
     }
   }
-}
-
-.listStyle {
-  margin-top: 98px;
 }

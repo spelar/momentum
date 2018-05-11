@@ -1,9 +1,7 @@
 @import 'style';
 
 .autoCompleteList {
-  z-index: 10;
   height: 100vh;
-  position: absolute;
   background-color: $white-base;
   .message {
     position: fixed;
@@ -56,7 +54,7 @@
       }
       .info {
         display: table-cell;
-        width: 92%;
+        width: 97%;
         padding-left: 12px;
         overflow: hidden;
         h2 {
