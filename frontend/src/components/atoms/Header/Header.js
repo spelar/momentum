@@ -27,7 +27,7 @@ class Header extends Component {
           </h1>
           <div className={styles.headerSearch}>
             <input className={styles.input} onKeyUp={searchInputKeyUp} type="text" placeholder="영화를 검색해보세요." title="검색어 입력" ref={(ref) => this.searchInput = ref} />
-            <a className={[styles.btn, styles.btnSearch].join(' ')} onClick={searchBtnClick}><i className="momentum-icon momentum-icon-search" /></a>
+            <a className={[styles.btn, styles.btnSearch].join(' ')} onClick={searchBtnClick}><i className="momentum-icon momentum-icon-search"><span className="screenReaderOnly">검색</span></i></a>
           </div>
         </div>
         <AutoComplete

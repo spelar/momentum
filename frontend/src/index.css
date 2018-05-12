@@ -167,9 +167,11 @@ img {
   position: absolute;
   overflow: hidden;
   clip: rect(0 0 0 0);
-  margin: -1px;
   width: 1px;
   height: 1px;
+  margin: -1px;
+  padding: 0px;
+  border: 0px;
 }
 
 @import url('styles/fonts/font.css');
