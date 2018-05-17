@@ -8,7 +8,8 @@
     "request": "^2.85.0"
   },
   "scripts": {
-    "start": "node frontend/scripts/development.js",
+    "start": "node server.js",
+    "backEndDev": "node frontend/scripts/development.js",
     "heroku-postbuild": "cd frontend && npm install --only=dev && npm install && npm run frontEndBuild",
     "backEndTest": "node ./node_modules/mocha/bin/mocha --require babel-register --recursive ./**/*.spec.js"
   },
