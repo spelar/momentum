@@ -121,8 +121,8 @@ class SearchResultContainer extends Component {
 export default connect(
   (state) => {
     return {
-      search: state.search,
-      searchResult: state.searchResult
+      search: state.search.toJS(),
+      searchResult: state.searchResult.toJS()
     };
   },
   (dispatch) => ({
