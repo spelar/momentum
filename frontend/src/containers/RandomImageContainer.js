@@ -13,7 +13,7 @@ class RandomImageContainer extends Component {
 
   render() {
     return (
-      <RandomImage randomImage={this.props.randomImage}/>
+      <RandomImage randomImage={this.props.randomImages.randomImage}/>
     )
   }
 }
@@ -21,7 +21,7 @@ class RandomImageContainer extends Component {
 export default connect(
   (state) => {
     return {
-      randomImage: state.randomImages.randomImage
+      randomImages: state.randomImages.toJS()
     };
   },
   (dispatch) => ({
