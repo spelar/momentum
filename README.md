@@ -3,19 +3,42 @@ Naver Open Api(https://developers.naver.com/docs/search/movie/) 를 사용해서
 
 URL : https://spelar-momentum.herokuapp.com/
 
-Heroku 7달러 유료 호스팅을 사용하는데..Region이 미국이라 좀 많이 느리네요ㅜㅜ
+Heroku 유료 호스팅을 사용하는데..Region이 미국이라 좀 많이 느리네요..양해 부탁드립니다.
 
 ## 사용 기술
-- Heroku
-- Node.js
-- Express
-- React.js
-- Redux
-- Redux-saga
-- Redux-actions
-- React-router-dom
-- Sass
-- Webpack
-- Babel
-- isomorphic-fetch
-- create-react-app
+
+* 배포
+    * 배포는 Heroku를 사용했습니다. Heroku는 Node.js로 서버에 올릴 수 있고 git push로 depolying 할 수 있어서 사용했습니다.
+
+* 백엔드
+    * 서버는 Node.js, Express를 사용해서 구현했습니다.
+    * Node.js를 사용한 이유는 자바스크립트로 서버를 구현할 수 있고, Express는 간편한 코드로 훌륭한 웹 어플리케이션을 만들 수 있기 때문에 사용했습니다.
+
+* 프론트엔드
+    * 프론트엔드는 React, Redux, Redux-Saga, Redux-actions, create-react-app, Webpack, Babel, Sass를 사용했습니다.
+    * React는 페이스북과 인스타그램에서 개발한 오픈소스 자바스크립트 라이브러리입니다. React를 선택한 이유는 가상 DOM 을 사용한 어플리케이션의 성능 향상, 
+    Component의 가독성이 매우 높고 간단하여 쉬운 유지 보수가 가능하고 재사용성이 높습니다. 또한 다른 프레임워크나 라이브러리와 혼용이 가능하며 광범위한 생태계를 갖추고 있어 선택했습니다.
+    * React는 view만을 책임지는 라이브러리이고, MVC 패턴 규모가 큰 프로그램에서는 데이터를 어떻게 관리가 중요한데 Redux가 클라이언트쪽 state를 효율적으로 관리할 수 있어 사용했습니다.
+    * Redux-Saga는 redux의 비동기 액션을 처리하기 위한 라이브러리입니다. redux-saga 에서는 Generator라는 것을 사용해서 function* 같은 문법을 사용하게 되는데 액션을 dispatch하기도 쉬우며, 문법 또한 직관적이어서 사용하게 됐습니다.
+    * Redux-actions는 action, action-type, reducer의 반복되는 코드를 createAction과 handleActions를 사용해 깔끔하게 구현해줄 수 있어 사용했습니다.
+    * create-react-app은 React 작업환경을 쉽게 설정할 수 있는 공식 도구입니다. eject을 한 후 react-hot-loader, Sass 설정 등을 추가로 해줘야 하지만, Webpack/babel 세팅에 소요되는 시간을 절약해줘 사용했습니다.
+    * Webpack은 노드 모듈이며 웹에서 사용되는 모든 자원을 번들링 해주는 도구입니다. 웹팩을 사용하면 자바스크립트 내에서 필요한 css나 image와 같은 파일도 번들링 해서 하나의 파일로 합쳐줘서 네트워크 요청을 최소화시킬 수 있고, 
+    CSS 전처리기나 JS 파일들의 컴파일에도 사용할 수 있습니다. 또한 hot 리로딩을 지원해주기 때문에 사용했습니다.
+    * babel은 자바스크립트 es6 버전을 쓸 수 있도록 해주는 transpiler입니다. 바벨 로더를 이용하여 jsx 나 es6을 사용할 수가 있기 때문에 선택했습니다.
+    * Sass는 CSS를 효율적으로 작성할 수 있도록 도와주는 preprocessor입니다. 기존의 CSS의 유지 보수의 불편함 등을 SASS를 사용해서 component 형태로 사용했습니다.
+    
+## 실행
+
+* 백엔드 개발 서버 실행
+    * 백엔드 개발 서버를 실행하려면 루트 디렉토리에서 다음 명령을 실행하세요.   
+```bash
+$ npm run backEndDev
+``` 
+
+* 프론트엔드 개발 서버 실행
+    * 프론트엔드 개발 서버를 실행하려면 frontend 디렉토리에서 다음 명령을 실행하세요.
+```bash
+$ npm run frontEndStart
+``` 
+                        
+
