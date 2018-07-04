@@ -1,9 +1,6 @@
 # momentum
 Naver Open Api(https://developers.naver.com/docs/search/movie/) 를 사용해서 영화 검색 서비스를 만들었습니다.
 
-URL : https://spelar-momentum.herokuapp.com/
-
-Heroku 유료 호스팅을 사용하는데..Region이 미국이라 좀 많이 느리네요..양해 부탁드립니다.
 
 ## 사용 기술
 
