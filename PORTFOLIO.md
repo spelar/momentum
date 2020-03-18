@@ -8,10 +8,19 @@
 - Heroku, NodeJS, Express, React, Webpack, Sass 사용.
 - SVG ICON 사용
 
+## 머니투데이
+- 머니S 모바일웹 (https://m.moneys.mt.co.kr/) 개발
+- the300 웹  (https://the300.mt.co.kr/) 개발
+- 이벤트 페이지 (https://m.mt.co.kr/renew/visual/angerQuiz.html?MTVIEW_02) 개발
+- html5, css3(Less), jQuery 사용
+- github, zeplin 사용
+
+
 ## 위메프
 - 웹 로그 개발 (https://m.wonder-shopping.com/home)
 - 원더쇼핑 패밀리세일 이벤트페이지(맘큐, 제로투세븐) 개발 (vueJs, Sass)
 - github, zeplin 사용 
+
 
 ## 번개장터
 - 번개카 웹사이트 (http://dealer.buncar.co.kr) 개발
