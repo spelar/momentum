@@ -6,7 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import configureStore from 'store/configure';
 import { AppContainer as HotContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
-import App from 'components/App';
+import App from './App';
 import 'index.css';
 
 const store = configureStore();
