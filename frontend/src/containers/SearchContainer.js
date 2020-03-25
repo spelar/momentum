@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 import Header from 'components/atoms/Header/Header'
 import {
+	setSearchStatus,
   getMovieList,
   emptyAutoComplete
 } from 'store/modules/search';
@@ -20,11 +21,10 @@ class SearchContainer extends Component {
       let searchData = {
         searchKeyword : e.target.value
       };
+			this.props.setSearchStatus();
       this.props.getMovieList(searchData);
-    } else if (e.target.value.length === 0) {
-      setTimeout(() => {
-        this.props.emptyAutoComplete();
-      }, 1500);
+    } else if (e.target.value === '') {
+      this.props.emptyAutoComplete();
     }
   }
 
@@ -61,6 +61,7 @@ export default connect(
     };
   },
   (dispatch) => ({
+		setSearchStatus: () => dispatch(setSearchStatus()),
     getMovieList: (searchData) => dispatch(getMovieList(searchData)),
     emptyAutoComplete: () => dispatch(emptyAutoComplete())
   })
