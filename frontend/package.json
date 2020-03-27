@@ -27,7 +27,6 @@
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
-    "node-sass": "^4.8.3",
     "nodemon": "^1.17.3",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
@@ -46,8 +45,10 @@
   "dependencies": {
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
+    "cross-env": "^7.0.2",
     "express": "^4.16.3",
     "immutable": "^3.8.2",
+    "node-sass": "^4.13.1",
     "prop-types": "^15.6.1",
     "query-string": "^5.0.0",
     "raf": "3.4.0",
@@ -64,7 +65,7 @@
     "resolve": "1.6.0"
   },
   "scripts": {
-    "frontEndStart": "NODE_PATH=src node scripts/start.js",
+    "frontEndStart": "cross-env NODE_PATH=src node scripts/start.js",
     "frontEndBuild": "NODE_PATH=src node scripts/build.js",
     "frontEndTest": "node scripts/test.js --env=jsdom"
   },
