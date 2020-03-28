@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 import Header from 'components/atoms/Header/Header'
 import SearchList from 'components/atoms/SearchList/SearchList';
-import {emptyAutoComplete, getMovieList, searchIconClick, searchResultEmptyAutoComplete} from "../store/modules/search";
+import {setSearchStatus, emptyAutoComplete, getMovieList, searchIconClick, searchResultEmptyAutoComplete} from "../store/modules/search";
 import {getSearchResultMovieList, emptyMovieList, getMoreMovieList, setScrollState} from "../store/modules/searchResult";
 import queryString from "query-string";
 
@@ -42,12 +42,11 @@ class SearchResultContainer extends Component {
       let searchData = {
         searchKeyword : e.target.value
       };
+			this.props.setSearchStatus();
       this.props.getMovieList(searchData);
-    } else if (e.target.value.length === 0) {
-      setTimeout(() => {
-        this.props.emptyAutoComplete();
-        this.props.setScrollState(false);
-      }, 1500);
+    } else if (e.target.value === '') {
+			this.props.emptyAutoComplete();
+			this.props.setScrollState(false);
     }
   }
 
@@ -126,6 +125,7 @@ export default connect(
     };
   },
   (dispatch) => ({
+		setSearchStatus: () => dispatch(setSearchStatus()),
     searchIconClick: () => dispatch(searchIconClick()),
     getMovieList: (searchKeyword) => dispatch(getMovieList(searchKeyword)),
     emptyAutoComplete: () => dispatch(emptyAutoComplete()),
