@@ -52,7 +52,7 @@ class SearchList extends Component {
         <div className={searchResult.isScroll ? [styles.searchList, styles.listStyle].join(' ') : styles.searchList} >
 					<div className="title">검색 결과</div>
           <ul>
-            {searchResult.movieList.length === 0 && search.searchKeyword.length === 0 ? makeNoMovieList() : makeSearchList()}
+            {searchResult.movieList.length === 0 ? makeNoMovieList() : makeSearchList()}
           </ul>
           {searchResult.movieList.length > 0 && searchResult.isLastMovie === false ?
             <div className={styles.moreMovie}>
