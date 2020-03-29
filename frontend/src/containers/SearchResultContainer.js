@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 import Header from 'components/atoms/Header/Header'
 import SearchList from 'components/atoms/SearchList/SearchList';
-import {setSearchStatus, emptyAutoComplete, getMovieList, searchIconClick, searchResultEmptyAutoComplete} from "../store/modules/search";
-import {getSearchResultMovieList, emptyMovieList, getMoreMovieList, setScrollState} from "../store/modules/searchResult";
+import {setSearchState, emptyAutoComplete, getMovieList, searchIconClick, searchResultEmptyAutoComplete} from "../store/modules/search";
+import {getSearchResultMovieList, emptyMovieList, getMoreMovieList, setScrollState, setLoadingState} from "../store/modules/searchResult";
 import queryString from "query-string";
 
 class SearchResultContainer extends Component {
@@ -42,7 +42,7 @@ class SearchResultContainer extends Component {
       let searchData = {
         searchKeyword : e.target.value
       };
-			this.props.setSearchStatus();
+			this.props.setSearchState(true);
       this.props.getMovieList(searchData);
     } else if (e.target.value === '') {
 			this.props.emptyAutoComplete();
@@ -67,6 +67,7 @@ class SearchResultContainer extends Component {
       };
       this.props.getSearchResultMovieList(searchData);
     } else {
+			this.props.setLoadingState(true);
       history.push('/searchResult?search=' + encodeURIComponent(search.searchKeyword));
       const params = history.location.search;
       const parsed = queryString.parse(params);
@@ -125,7 +126,7 @@ export default connect(
     };
   },
   (dispatch) => ({
-		setSearchStatus: () => dispatch(setSearchStatus()),
+		setSearchState: (isSearch) => dispatch(setSearchState(isSearch)),
     searchIconClick: () => dispatch(searchIconClick()),
     getMovieList: (searchKeyword) => dispatch(getMovieList(searchKeyword)),
     emptyAutoComplete: () => dispatch(emptyAutoComplete()),
@@ -133,6 +134,7 @@ export default connect(
     emptyMovieList: () => dispatch(emptyMovieList()),
     getMoreMovieList: (searchData) => dispatch(getMoreMovieList(searchData)),
     searchResultEmptyAutoComplete: (searchKeyword) => dispatch(searchResultEmptyAutoComplete(searchKeyword)),
-    setScrollState: (isScroll) => dispatch(setScrollState(isScroll))
+    setScrollState: (isScroll) => dispatch(setScrollState(isScroll)),
+		setLoadingState: (isLoading) => dispatch(setLoadingState(isLoading))
   })
 )(withRouter(SearchResultContainer));

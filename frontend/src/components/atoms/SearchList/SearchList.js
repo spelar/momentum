@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './SearchList.scss';
 import PropTypes from "prop-types";
+import { is } from 'immutable';
 
 class SearchList extends Component {
   render() {
@@ -50,9 +51,10 @@ class SearchList extends Component {
       <div>
         {search.isAutoComplete !== true ?
         <div className={searchResult.isScroll ? [styles.searchList, styles.listStyle].join(' ') : styles.searchList} >
-					<div className="title">검색 결과</div>
+					{searchResult.isLoading ? '' : <div className="title">검색 결과</div>}
           <ul>
-            {searchResult.movieList.length === 0 ? makeNoMovieList() : makeSearchList()}
+						<div className={searchResult.isLoading ? styles.loader : ''}></div>
+						{searchResult.isLoading ? '' : (searchResult.movieList.length === 0 ? makeNoMovieList() : makeSearchList())}
           </ul>
           {searchResult.movieList.length > 0 && searchResult.isLastMovie === false ?
             <div className={styles.moreMovie}>
