@@ -30,6 +30,7 @@ class SearchResultContainer extends Component {
     const params = history.location.search;
     const parsed = queryString.parse(params);
     window.addEventListener('scroll', this.handleScroll);
+		this.props.setLoadingState(true);
     let searchData = {
       searchKeyword: parsed.search
     };
@@ -60,6 +61,7 @@ class SearchResultContainer extends Component {
     const {history, search} = this.props;
     if (search.searchKeyword === "") {
       alert("영화 제목을 입력해주세요.")
+			this.props.setLoadingState(true);
       const params = history.location.search;
       const parsed = queryString.parse(params);
       let searchData = {
