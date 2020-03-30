@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styles from './SearchList.scss';
 import PropTypes from "prop-types";
-import { is } from 'immutable';
 
 class SearchList extends Component {
   render() {
