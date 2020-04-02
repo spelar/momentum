@@ -14,6 +14,6 @@
     "backEndTest": "node ./node_modules/mocha/bin/mocha --require babel-register --recursive ./**/*.spec.js"
   },
   "engines": {
-    "node": "7.10.1"
+    "node": "12.16.1"
   }
 }
