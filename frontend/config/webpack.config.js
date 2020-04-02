@@ -291,10 +291,10 @@ module.exports = function(webpackEnv) {
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
         // Allows for better profiling with ReactDevTools
-        ...(isEnvProductionProfile && {
-          'react-dom$': 'react-dom/profiling',
-          'scheduler/tracing': 'scheduler/tracing-profiling',
-        }),
+        // ...(isEnvProductionProfile && {
+        //   'react-dom$': 'react-dom/profiling',
+        //   'scheduler/tracing': 'scheduler/tracing-profiling',
+        // }),
         ...(modules.webpackAliases || {}),
       },
       plugins: [
