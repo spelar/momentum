@@ -1,10 +1,9 @@
-import { put, call, takeLatest } from 'redux-saga/effects'
-import { delay } from 'redux-saga'
-import * as searchActions from 'store/modules/search';
-import * as searchResultSearchActions from 'store/modules/searchResult';
+import { put, call, takeLatest, delay } from 'redux-saga/effects'
+import * as searchActions from '../modules/search';
+import * as searchResultSearchActions from '../modules/searchResult';
 import {
   getMovieList
-} from "lib/api/search";
+} from "../../lib/api/search";
 import {GET_MOVIE_LIST} from "../modules/search";
 import {GET_SEARCH_RESULT_MOVIE_LIST, GET_MORE_MOVIE_LIST} from "../modules/searchResult";
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import styles from './AutoComplete.scss';
+import './AutoComplete.scss';
 import {withRouter} from "react-router-dom";
 import PropTypes from 'prop-types';
 
@@ -9,7 +9,7 @@ class AutoComplete extends Component {
     const makeSearchMessage = () => {
       return (
         <div>
-          <p className={styles.message}>
+          <p className="message">
             <strong>관심있는 영화를<br />
               검색해 보세요 !</strong>
           </p>
@@ -18,16 +18,15 @@ class AutoComplete extends Component {
     };
 
     const makeSearchList = () => {
-      const liStyle = [styles.movie, styles.clearFix].join(' ');
       return search.autoCompleteKeywords.map((movie, i) => {
         return (
-          <li key={'movie' + i} className={liStyle}>
-            <a target="_blank" href={movie.link}>
-              {movie.image !== "" ? <div className={styles.image}><img src={movie.image} alt="영화 포스터" /></div> : <div className={[styles.image, styles.noimage].join(' ')}><span /></div>}
-              <div className={styles.info}>
-                <div className={styles.clearFix}>
+          <li key={'movie' + i} className="movie clearFix">
+            <a target="_blank" href={movie.link} rel="noopener noreferrer"> 
+              {movie.image !== "" ? <div className="image"><img src={movie.image} alt="영화 포스터" /></div> : <div className="image noimage"><span /></div>}
+              <div className="info">
+                <div className="clearFix">
                   <h2 dangerouslySetInnerHTML={{__html: movie.title}} />
-                  <span className={styles.pubDate} dangerouslySetInnerHTML={{__html: movie.pubDate}} />
+                  <span className="pubDate" dangerouslySetInnerHTML={{__html: movie.pubDate}} />
                 </div>
               </div>
             </a>
@@ -37,7 +36,7 @@ class AutoComplete extends Component {
     };
 
     return (
-      <div className={styles.autoCompleteList}>
+      <div className="autoCompleteList">
         <ul>
           {search.autoCompleteKeywords.length === 0 && history.location.pathname !== '/searchResult' ? makeSearchMessage() : makeSearchList()}
         </ul>

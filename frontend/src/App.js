@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import RandomImageContainer from 'containers/RandomImageContainer';
-import SearchContainer from 'containers/SearchContainer';
-import SearchResultContainer from 'containers/SearchResultContainer';
+import RandomImageContainer from './containers/RandomImageContainer';
+import SearchContainer from './containers/SearchContainer';
+import SearchResultContainer from './containers/SearchResultContainer';
 
 
 class App extends Component {

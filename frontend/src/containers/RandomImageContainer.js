@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {withRouter} from "react-router-dom";
 import RandomImage from 'components/atoms/RandomImage/RandomImage';
 import {getRandomImage} from 'store/modules/randomImages';
-import {randomImageLength} from "../store/modules/randomImages";
+import {randomImageLength} from "store/modules/randomImages";
 
 class RandomImageContainer extends Component {
 
