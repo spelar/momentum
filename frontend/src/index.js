@@ -8,10 +8,8 @@ import { Provider } from 'react-redux';
 import App from './App';
 import 'index.css';
 
-const store = configureStore();
-
 ReactDOM.render(
-	<Provider store={store}>
+	<Provider store={configureStore}>
 		<BrowserRouter >
       <Route path="/" component={App}/>
     </BrowserRouter>
