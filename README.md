@@ -24,6 +24,8 @@
     CSS 전처리기나 JS 파일들의 컴파일에도 사용할 수 있습니다. 또한 hot 리로딩을 지원해주기 때문에 사용했습니다.
     * babel은 자바스크립트 es6 버전을 쓸 수 있도록 해주는 transpiler입니다. 바벨 로더를 이용하여 jsx 나 es6을 사용할 수가 있기 때문에 선택했습니다.
     * Sass는 CSS를 효율적으로 작성할 수 있도록 도와주는 preprocessor입니다. 기존의 CSS의 유지 보수의 불편함 등을 SASS를 사용해서 component 형태로 사용했습니다.
+		* typescript
+		* code splitting
     
 ## 실행
 
