@@ -16,13 +16,15 @@ const initialState = Map({
 });
 
 
-const randomImages = [poster1, poster2, poster3, poster4, poster5];
+const randomMovieImages = [poster1, poster2, poster3, poster4, poster5];
 
-export const randomImageLength = randomImages.length;
+export const randomImageLength = randomMovieImages.length;
 
-export default handleActions({
+const randomImages = handleActions({
   [GET_RANDOM_IMAGE] : (state, {payload: index}) => {
-    const randomImage = randomImages[index];
+    const randomImage = randomMovieImages[index];
     return state.set("randomImage", randomImage);
   }
 }, initialState);
+
+export default randomImages;

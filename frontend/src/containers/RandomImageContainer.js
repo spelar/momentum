@@ -1,32 +1,19 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import {withRouter} from "react-router-dom";
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import RandomImage from 'components/atoms/RandomImage/RandomImage';
 import {getRandomImage} from 'store/modules/randomImages';
 import {randomImageLength} from "store/modules/randomImages";
 
-class RandomImageContainer extends Component {
+function RandomImageContainer() {
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(getRandomImage(Math.floor(Math.random() * randomImageLength)));
+	},[dispatch]);
+	const randomImages = useSelector(state => state.randomImages.toJS());
 
-  componentDidMount() {
-    this.props.getRandomImage();
-  }
-
-  render() {
-    return (
-      <RandomImage randomImage={this.props.randomImages.randomImage}/>
-    )
-  }
+	return (
+		<RandomImage randomImage={randomImages.randomImage}/>
+	)
 }
 
-export default connect(
-  (state) => {
-    return {
-      randomImages: state.randomImages.toJS()
-    };
-  },
-  (dispatch) => ({
-    getRandomImage: () => {
-      return dispatch(getRandomImage(Math.floor(Math.random() * randomImageLength)));
-    }
-  })
-)(withRouter(RandomImageContainer));
+export default RandomImageContainer;
