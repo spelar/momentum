@@ -169,10 +169,11 @@
   }
   .moreMovie {
     margin-top: -1px;
-    a {
+    .btn {
       display: block;
       position: relative;
       height: 48px;
+			padding: 0px;
       border-top: 1px solid #eaeef2;
       border-bottom: 1px solid #e2e5e8;
       background-color: #f4f7f8;
