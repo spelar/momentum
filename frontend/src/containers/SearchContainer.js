@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from "react-router-dom";
+import React, { useCallback } from 'react';
+import { useHistory } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from 'components/atoms/Header/Header'
 import {
 	setSearchState,
@@ -11,63 +11,43 @@ import {
 	setLoadingState
 } from 'store/modules/searchResult';
 
-class SearchContainer extends Component {
+function SearchContainer() {
+	const dispatch = useDispatch();
+	const history = useHistory();
+	const search = useSelector(state => state.search.toJS());
+	const searchResult = useSelector(state => state.searchResult.toJS());
 
-  constructor(props) {
-    super(props);
-    this.searchInputKeyUp = this.searchInputKeyUp.bind(this);
-    this.searchBtnClick = this.searchBtnClick.bind(this);
-  }
-
-  searchInputKeyUp(e) {
+  const searchInputKeyUp = useCallback((e) => {
     if (e.target.value.length > 0) {
       let searchData = {
         searchKeyword : e.target.value
       };
-			this.props.setSearchState(true);
-      this.props.getMovieList(searchData);
+			dispatch(setSearchState(true));
+			dispatch(getMovieList(searchData));
     } else if (e.target.value === '') {
-      this.props.emptyAutoComplete();
+			dispatch(emptyAutoComplete());
     }
-  }
+	},[dispatch]);
 
-  searchBtnClick() {
-    const {history, search} = this.props;
+  const searchBtnClick = useCallback(() => {
     if (search.searchKeyword === "") {
       alert("영화 제목을 입력해주세요.")
     } else {
-			this.props.setLoadingState(true);
+			dispatch(setLoadingState(true));
       history.push('/searchResult?search=' + encodeURIComponent(search.searchKeyword));
     }
-  }
+	},[dispatch, history, search]);
 
-  render() {
-    const search = this.props.search;
-    const searchResult = this.props.searchResult;
     return (
       <div>
         <Header
           search={search}
-          searchInputKeyUp={this.searchInputKeyUp}
-          searchBtnClick={this.searchBtnClick}
+          searchInputKeyUp={searchInputKeyUp}
+          searchBtnClick={searchBtnClick}
           searchResult={searchResult}
         />
       </div>
     )
-  }
 }
 
-export default connect(
-  (state) => {
-    return {
-      search: state.search.toJS(),
-      searchResult: state.searchResult.toJS()
-    };
-  },
-  (dispatch) => ({
-		setSearchState: (isSearch) => dispatch(setSearchState(isSearch)),
-    getMovieList: (searchData) => dispatch(getMovieList(searchData)),
-    emptyAutoComplete: () => dispatch(emptyAutoComplete()),
-		setLoadingState: (isLoading) => dispatch(setLoadingState(isLoading))
-  })
-)(withRouter(SearchContainer));
+export default SearchContainer;
