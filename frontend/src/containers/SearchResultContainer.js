@@ -1,142 +1,101 @@
-import React, {Component} from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from "react-router-dom";
+import React, { useEffect, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import queryString from "query-string";
 import Header from 'components/atoms/Header/Header'
 import SearchList from 'components/atoms/SearchList/SearchList';
-import {setSearchState, emptyAutoComplete, getMovieList, searchIconClick, searchResultEmptyAutoComplete} from "../store/modules/search";
-import {getSearchResultMovieList, emptyMovieList, getMoreMovieList, setScrollState, setLoadingState} from "../store/modules/searchResult";
-import queryString from "query-string";
+import { setSearchState, emptyAutoComplete, getMovieList, searchIconClick, searchResultEmptyAutoComplete } from "../store/modules/search";
+import { getSearchResultMovieList, emptyMovieList, getMoreMovieList, setScrollState, setLoadingState } from "../store/modules/searchResult";
 
-class SearchResultContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.searchInputKeyUp = this.searchInputKeyUp.bind(this);
-    this.searchBtnClick = this.searchBtnClick.bind(this);
-    this.logoClick = this.logoClick.bind(this);
-    this.moreMovieClick = this.moreMovieClick.bind(this);
-    this.handleScroll = this.handleScroll.bind(this);
-  }
+function SearchResultContainer() {
+	const dispatch = useDispatch();
+	const history = useHistory();
+	const params = history.location.search;
+	const parsed = queryString.parse(params);
+	const search = useSelector(state => state.search.toJS());
+	const searchResult = useSelector(state => state.searchResult.toJS());
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  };
+	const handleScroll = useCallback(() => {
+		dispatch(setScrollState(true));
+	}, [dispatch]);
 
-  handleScroll(e) {
-    this.props.setScrollState(true);
-  };
-
-  componentDidMount() {
-    const {history} = this.props;
-    const params = history.location.search;
-    const parsed = queryString.parse(params);
-    window.addEventListener('scroll', this.handleScroll);
-		this.props.setLoadingState(true);
-    let searchData = {
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+		dispatch(setLoadingState(true));
+		let searchData = {
       searchKeyword: parsed.search
     };
-    this.props.searchResultEmptyAutoComplete(searchData);
-    this.props.getSearchResultMovieList(searchData);
-  }
+		dispatch(searchResultEmptyAutoComplete(searchData));
+		dispatch(getSearchResultMovieList(searchData));
+  }, [dispatch, handleScroll, parsed.search]);
 
-  searchInputKeyUp(e) {
+  const searchInputKeyUp = useCallback((e) => {
     if (e.target.value.length > 0) {
       let searchData = {
         searchKeyword : e.target.value
       };
-			this.props.setSearchState(true);
-      this.props.getMovieList(searchData);
+			dispatch(setSearchState(true));
+      dispatch(getMovieList(searchData));
     } else if (e.target.value === '') {
-			this.props.emptyAutoComplete();
-			this.props.setScrollState(false);
+			dispatch(emptyAutoComplete());
+			dispatch(setScrollState(false));
     }
-  }
+  }, [dispatch]);
 
-  logoClick() {
-    this.props.emptyMovieList();
-    this.props.emptyAutoComplete();
-  }
+  const logoClick = useCallback(() => {
+    dispatch(emptyMovieList());
+    dispatch(emptyAutoComplete());
+  }, [dispatch]);
 
-  searchBtnClick() {
-    this.props.emptyMovieList();
-    const {history, search} = this.props;
+  const searchBtnClick = useCallback(() => {
+    dispatch(emptyMovieList());
     if (search.searchKeyword === "") {
       alert("영화 제목을 입력해주세요.")
-			this.props.setLoadingState(true);
-      const params = history.location.search;
-      const parsed = queryString.parse(params);
+			dispatch(setLoadingState(true));
       let searchData = {
         searchKeyword: parsed.search
       };
-      this.props.getSearchResultMovieList(searchData);
+      dispatch(getSearchResultMovieList(searchData));
     } else {
-			this.props.setLoadingState(true);
+			dispatch(setLoadingState(true));
       history.push('/searchResult?search=' + encodeURIComponent(search.searchKeyword));
-      const params = history.location.search;
-      const parsed = queryString.parse(params);
       let searchData = {
         searchKeyword: parsed.search
       };
       let searchKeyword = {
         searchKeyword: search.searchKeyword
-      }
-      this.props.getSearchResultMovieList(searchData);
-      this.props.searchResultEmptyAutoComplete(searchKeyword);
+      };
+      dispatch(getSearchResultMovieList(searchData));
+      dispatch(searchResultEmptyAutoComplete(searchKeyword));
     }
-  }
+  }, [dispatch, history, parsed.search, search.searchKeyword]);
 
-  moreMovieClick() {
-    const {history} = this.props;
-    const params = history.location.search;
-    const parsed = queryString.parse(params);
-    const searchResult = this.props.searchResult;
+  const moreMovieClick = useCallback(() => {
     let searchData = {
       searchKeyword : parsed.search,
       startIndex : searchResult.startIndex + 5
     };
-    this.props.getMoreMovieList(searchData);
-  }
+    dispatch(getMoreMovieList(searchData));
+  }, [dispatch, parsed.search, searchResult.startIndex]);
 
-  render() {
-    const search = this.props.search;
-    const searchResult = this.props.searchResult;
     const stylePosition = {position:'relative'};
     return (
       <div style={stylePosition}>
         <Header
           search={search}
-          searchIconClick={this.props.searchIconClick}
-          searchInputKeyUp={this.searchInputKeyUp}
-          searchBtnClick={this.searchBtnClick}
-          logoClick={this.logoClick}
+          searchIconClick={searchIconClick}
+          searchInputKeyUp={searchInputKeyUp}
+          searchBtnClick={searchBtnClick}
+          logoClick={logoClick}
           searchResult={searchResult}
         />
         <SearchList
           search={search}
           searchResult={searchResult}
-          moreMovieClick={this.moreMovieClick}
+          moreMovieClick={moreMovieClick}
         />
       </div>
     )
-  }
 }
 
-export default connect(
-  (state) => {
-    return {
-      search: state.search.toJS(),
-      searchResult: state.searchResult.toJS()
-    };
-  },
-  (dispatch) => ({
-		setSearchState: (isSearch) => dispatch(setSearchState(isSearch)),
-    searchIconClick: () => dispatch(searchIconClick()),
-    getMovieList: (searchKeyword) => dispatch(getMovieList(searchKeyword)),
-    emptyAutoComplete: () => dispatch(emptyAutoComplete()),
-    getSearchResultMovieList: (searchData) => dispatch(getSearchResultMovieList(searchData)),
-    emptyMovieList: () => dispatch(emptyMovieList()),
-    getMoreMovieList: (searchData) => dispatch(getMoreMovieList(searchData)),
-    searchResultEmptyAutoComplete: (searchKeyword) => dispatch(searchResultEmptyAutoComplete(searchKeyword)),
-    setScrollState: (isScroll) => dispatch(setScrollState(isScroll)),
-		setLoadingState: (isLoading) => dispatch(setLoadingState(isLoading))
-  })
-)(withRouter(SearchResultContainer));
+export default SearchResultContainer;
