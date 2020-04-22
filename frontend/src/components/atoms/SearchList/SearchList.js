@@ -56,9 +56,9 @@ class SearchList extends Component {
           </ul>
           {searchResult.movieList.length > 0 && searchResult.isLastMovie === false ?
             <div className="moreMovie">
-              <button className="btn" onClick={moreMovieClick}>
+							{searchResult.isLoading ? '' : <button className="btn" onClick={moreMovieClick}>
               더보기 <i className="momentum-icon momentum-icon-long-arrow-right" />
-              </button>
+              </button>}
             </div>
           : ""}
         </div>
