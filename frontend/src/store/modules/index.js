@@ -1,13 +1,12 @@
 import { combineReducers } from 'redux';
+import randomImages from './randomImages';
+import search from './search';
+import searchResult from './searchResult';
 
-const req = require.context('.', true, /^(?!.\/index).*.js$/);
-
-const modules = {};
-
-req.keys().forEach((key) => {
-  const regex =  /.\/(.*?).js$/;
-  const moduleName = regex.test(key) && key.match(regex)[1];
-  modules[moduleName] = req(key).default;
+const rootReducer = combineReducers({
+  randomImages,
+  search,
+	searchResult
 });
 
-export default combineReducers(modules);
+export default rootReducer;
