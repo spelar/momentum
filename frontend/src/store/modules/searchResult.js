@@ -26,7 +26,7 @@ const initialState = Map({
 	isLoading: false
 });
 
-export default handleActions({
+const searchResult = handleActions({
   [RESPONSE_SEARCH_RESULT_MOVIE_LIST]: (state, action) => {
     const movieList = action.payload.items;
     const totalMovie = action.payload.total;
@@ -74,3 +74,5 @@ export default handleActions({
 		return state.set("isLoading", isLoading);
 	}
 }, initialState);
+
+export default searchResult;

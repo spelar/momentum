@@ -23,7 +23,7 @@ const initialState = Map({
   isAutoComplete: false,
 });
 
-export default handleActions({
+const search = handleActions({
 	[SET_SEARCH_STATE]: (state, action) => {
 		let isSearch = state.get("isSearch");
 		if (action.payload) {
@@ -51,3 +51,5 @@ export default handleActions({
     return state.set("autoCompleteKeywords", []).set("searchKeyword", searchKeyword).set("totalMovies", 0).set("isAutoComplete", false);
   }
 }, initialState);
+
+export default search;
