@@ -12,7 +12,7 @@ const RandomImageContainer = (props: RandomImageContainerProps) => {
 	useEffect(() => {
 		dispatch(getRandomImage(Math.floor(Math.random() * randomImageLength)));
 	},[dispatch]);
-	const randomImages = useSelector((state:RootState) => state.randomImages.toJS());
+	const randomImages = useSelector((state:RootState) => state.randomImages);
 	return (
 		<RandomImage randomImage={randomImages.randomImage}/>
 	)
