@@ -24,7 +24,7 @@ export const randomImageLength = randomMovieImages.length;
 
 const randomImages = handleActions(
 	{
-		[GET_RANDOM_IMAGE] : (state, action: { payload: number } ) => 
+		[GET_RANDOM_IMAGE] : (state, action: { payload: number }) => 
 			produce(state, draft => {
 				const randomImage = randomMovieImages[action.payload];
 				draft.randomImage = randomImage;

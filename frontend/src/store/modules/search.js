@@ -1,12 +1,12 @@
 import {createAction, handleActions} from 'redux-actions';
-import { Map } from 'immutable';
+import produce from 'immer'; 
 
-const SET_SEARCH_STATE = "SET_SEARCH_STATE";
-const SEARCH_ICON_CLICK = "SEARCH_ICON_CLICK";
-export const GET_MOVIE_LIST = "GET_MOVIE_LIST";
-const RESPONSE_MOVIE_LIST = "RESPONSE_MOVIE_LIST";
-const EMPTY_AUTO_COMPLETE = "EMPTY_AUTO_COMPLETE";
-const SEARCH_RESULT_EMPTY_AUTO_COMPLETE = "SEARCH_RESULT_EMPTY_AUTO_COMPLETE";
+const SET_SEARCH_STATE = 'search/SET_SEARCH_STATE';
+const SEARCH_ICON_CLICK = 'search/SEARCH_ICON_CLICK';
+export const GET_MOVIE_LIST = 'search/GET_MOVIE_LIST';
+const RESPONSE_MOVIE_LIST = 'search/RESPONSE_MOVIE_LIST';
+const EMPTY_AUTO_COMPLETE = 'search/EMPTY_AUTO_COMPLETE';
+const SEARCH_RESULT_EMPTY_AUTO_COMPLETE = 'search/SEARCH_RESULT_EMPTY_AUTO_COMPLETE';
 
 export const setSearchState = createAction(SET_SEARCH_STATE);
 export const searchIconClick = createAction(SEARCH_ICON_CLICK);
@@ -15,40 +15,53 @@ export const responseMovieList = createAction(RESPONSE_MOVIE_LIST);
 export const emptyAutoComplete = createAction(EMPTY_AUTO_COMPLETE);
 export const searchResultEmptyAutoComplete = createAction(SEARCH_RESULT_EMPTY_AUTO_COMPLETE)
 
-const initialState = Map({
+const initialState = {
 	isSearch: false,
   autoCompleteKeywords: [],
   searchKeyword: '',
   totalMovies: 0,
   isAutoComplete: false,
-});
+};
 
 const search = handleActions({
 	[SET_SEARCH_STATE]: (state, action) => {
-		let isSearch = state.get("isSearch");
-		if (action.payload) {
-			isSearch = true;
-		} else {
-			isSearch = false;
-		}
-		return state.set("isSearch", isSearch);
+		return produce(state, draft => {
+			if (action.payload) {
+				draft.isSearch = true;
+			} else {
+				draft.isSearch = false;
+			}
+		});
 	},
   [RESPONSE_MOVIE_LIST]: (state, action) => {
-    const autoCompleteKeywords = action.payload.items;
-    const totalMovies = action.payload.total;
-    const searchKeyword = action.payload.searchKeyword;
-		if (state.get("isSearch")) {
-			return state.set("autoCompleteKeywords", autoCompleteKeywords).set("searchKeyword", searchKeyword).set("totalMovies", totalMovies).set("isAutoComplete", true);
-		} else {
-			return state
-		}
-  },
-  [EMPTY_AUTO_COMPLETE]: (state) => {
-    return state.set("isSearch", false).set("autoCompleteKeywords", []).set("searchKeyword", '').set("totalMovies", 0).set("isAutoComplete", false);
-  },
+		return produce(state, draft => {
+			const { items, total, searchKeyword} = action.payload;
+			if (state.isSearch) {
+				draft.autoCompleteKeywords = items;
+				draft.searchKeyword = searchKeyword;
+				draft.totalMovies = total;
+				draft.isAutoComplete = true;
+			} else {
+				return state
+			}
+		});
+	},
+  [EMPTY_AUTO_COMPLETE]: (state, action) => {
+		return produce(state, draft => {
+			draft.isSearch = false;
+			draft.autoCompleteKeywords = [];
+			draft.searchKeyword = '';
+			draft.totalMovies = 0;
+			draft.isSearch = false;
+		});
+ },
   [SEARCH_RESULT_EMPTY_AUTO_COMPLETE]: (state, action) => {
-    const searchKeyword = action.payload.searchKeyword;
-    return state.set("autoCompleteKeywords", []).set("searchKeyword", searchKeyword).set("totalMovies", 0).set("isAutoComplete", false);
+		return produce(state, draft => {
+			draft.autoCompleteKeywords = [];
+			draft.searchKeyword = action.payload.searchKeyword;
+			draft.totalMovies = 0;
+			draft.isAutoComplete = false;
+		});
   }
 }, initialState);
 

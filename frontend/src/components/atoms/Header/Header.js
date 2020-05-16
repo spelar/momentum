@@ -12,8 +12,8 @@ function Header() {
 	const history = useHistory();
 	const params = history.location.search;
 	const parsed = queryString.parse(params);
-	const search = useSelector(state => state.search.toJS());
-	const searchResult = useSelector(state => state.searchResult.toJS());
+	const search = useSelector(state => state.search);
+	const searchResult = useSelector(state => state.searchResult);
 	const [movieName, setMovieName] = useState('');
 	useEffect(() => {
 		if (history.location.pathname === '/searchResult') {
