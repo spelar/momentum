@@ -13,7 +13,7 @@ export const searchIconClick = createAction(SEARCH_ICON_CLICK);
 export const getMovieList= createAction(GET_MOVIE_LIST);
 export const responseMovieList = createAction(RESPONSE_MOVIE_LIST);
 export const emptyAutoComplete = createAction(EMPTY_AUTO_COMPLETE);
-export const searchResultEmptyAutoComplete = createAction(SEARCH_RESULT_EMPTY_AUTO_COMPLETE)
+export const searchResultEmptyAutoComplete = createAction(SEARCH_RESULT_EMPTY_AUTO_COMPLETE);
 
 const initialState = {
 	isSearch: false,
