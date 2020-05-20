@@ -13,7 +13,7 @@ function SearchResultContainer() {
 	const params = history.location.search;
 	const parsed = queryString.parse(params);
 	const search = useSelector(state => state.search);
-	const searchResult = useSelector(state => state.searchResult.toJS());
+	const searchResult = useSelector(state => state.searchResult);
 
 	const handleScroll = useCallback(() => {
 		dispatch(setScrollState(true));

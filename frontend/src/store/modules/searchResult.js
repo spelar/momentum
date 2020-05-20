@@ -28,50 +28,65 @@ const initialState = {
 
 const searchResult = handleActions({
   [RESPONSE_SEARCH_RESULT_MOVIE_LIST]: (state, action) => {
-    const movieList = action.payload.items;
-    const totalMovie = action.payload.total;
-    let isLastMovie = state.get('isLastMovie');
-    if (movieList.length === totalMovie || movieList.length > totalMovie) {
-      isLastMovie = true;
-    } else {
-      isLastMovie = false;
-    }
-    return state.set('isLoading', false).set('movieList', movieList).set('isLastMovie', isLastMovie);
+		return produce(state, draft => {
+			const movieList = action.payload.items;
+			const totalMovie = action.payload.total;
+			let isLastMovie = state.isLastMovie;
+			if (movieList.length === totalMovie || movieList.length > totalMovie) {
+				isLastMovie = true;
+			} else {
+				isLastMovie = false;
+			}
+			draft.isLoading = false;
+			draft.movieList = movieList;
+			draft.isLastMovie = isLastMovie
+		});
   },
   [EMPTY_MOVIE_LIST]: (state) => {
-    return state.set('movieList', []).set('isScroll', false);
+		return produce(state, draft => {
+			draft.movieList = [];
+			draft.isScroll = false;
+		});
   },
   [RESPONSE_MORE_MOVIE_LIST]: (state, action) => {
-    let moreMovieList = action.payload.items;
-    const startIndex = action.payload.start;
-    const totalMovie = action.payload.total;
-    let movieList = state.get('movieList');
-    let isLastMovie = state.get('isLastMovie');
-    moreMovieList = movieList.concat(moreMovieList);
-    if (moreMovieList.length === totalMovie) {
-      isLastMovie = true;
-    } else {
-      isLastMovie = false;
-    }
-    return state.set('movieList', moreMovieList).set('startIndex', startIndex).set('isLastMovie', isLastMovie);
+		return produce (state, draft => {
+			let moreMovieList = action.payload.items;
+			const startIndex = action.payload.start;
+			const totalMovie = action.payload.total;
+			let movieList = state.movieList;
+			let isLastMovie = state.isLastMovie;
+			moreMovieList = movieList.concat(moreMovieList);
+			if (moreMovieList.length === totalMovie) {
+				isLastMovie = true;
+			} else {
+				isLastMovie = false;
+			}
+			draft.movieList = moreMovieList;
+			draft.startIndex = startIndex;
+			draft.isLastMovie = isLastMovie;
+		});
   },
   [SET_SCROLL_STATE]: (state, action) => {
-    let isScroll = state.get('isScroll');
-    if (action.payload) {
-      isScroll = true;
-    } else {
-      isScroll = false;
-    }
-    return state.set('isScroll', isScroll);
+		return produce(state, draft => {
+			let isScroll = state.isScroll;
+			if (action.payload) {
+				isScroll = true;
+			} else {
+				isScroll = false;
+			}
+			draft.isScroll = isScroll;
+		});
   },
 	[SET_LOADING_STATE]: (state, action) => {
-		let isLoading = state.get('isLoading');
-		if (action.payload) {
-			isLoading = true;
-		} else {
-			isLoading = false;
-		}
-		return state.set('isLoading', isLoading);
+		return produce(state, draft => {
+			let isLoading = state.isLoading;
+			if (action.payload) {
+				isLoading = true;
+			} else {
+				isLoading = false;
+			}
+			draft.isLoading = isLoading;
+		})
 	}
 }, initialState);
 
