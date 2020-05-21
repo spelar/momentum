@@ -1,4 +1,4 @@
-import {createAction, handleActions} from 'redux-actions';
+import { createReducer } from 'typesafe-actions';
 import produce from 'immer'; 
 import poster1 from 'static/images/poster1.jpg';
 import poster2 from 'static/images/poster2.jpg';
@@ -22,7 +22,7 @@ const randomMovieImages = [poster1, poster2, poster3, poster4, poster5];
 
 export const randomImageLength = randomMovieImages.length;
 
-const randomImages = handleActions(
+const randomImages = createReducer(
 	{
 		[GET_RANDOM_IMAGE] : (state, action: { payload: number }) => 
 			produce(state, draft => {
