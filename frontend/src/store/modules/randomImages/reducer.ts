@@ -1,5 +1,7 @@
-import { createReducer, createAction, ActionType } from 'typesafe-actions';
 import produce from 'immer'; 
+import { GET_RANDOM_IMAGE } from './actions';
+import { createReducer } from 'typesafe-actions';
+import { RandomImagesAction } from './types';
 import poster1 from 'static/images/poster1.jpg';
 import poster2 from 'static/images/poster2.jpg';
 import poster3 from 'static/images/poster3.jpg';
@@ -10,15 +12,9 @@ export interface RandomImagesState {
 	randomImage: string;
 }
 
-const GET_RANDOM_IMAGE = "randomImages/GET_RANDOM_IMAGE";
-
-export const getRandomImage = createAction(GET_RANDOM_IMAGE)<number>();
-
 const initialState: RandomImagesState = {
   randomImage: ''
 };
-
-type RandomImagesAction = ActionType<typeof getRandomImage>;
 
 const randomMovieImages = [poster1, poster2, poster3, poster4, poster5];
 
