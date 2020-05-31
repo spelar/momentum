@@ -6,8 +6,12 @@ export const RESPONSE_MOVIE_LIST = 'search/RESPONSE_MOVIE_LIST';
 export const EMPTY_AUTO_COMPLETE = 'search/EMPTY_AUTO_COMPLETE';
 export const SEARCH_RESULT_EMPTY_AUTO_COMPLETE = 'search/SEARCH_RESULT_EMPTY_AUTO_COMPLETE';
 
-export const setSearchState = createAction(SET_SEARCH_STATE);
-export const getMovieList= createAction(GET_MOVIE_LIST);
-export const responseMovieList = createAction(RESPONSE_MOVIE_LIST);
-export const emptyAutoComplete = createAction(EMPTY_AUTO_COMPLETE);
-export const searchResultEmptyAutoComplete = createAction(SEARCH_RESULT_EMPTY_AUTO_COMPLETE);
+export const setSearchState = createAction(SET_SEARCH_STATE)<boolean>();
+export const getMovieList= createAction(GET_MOVIE_LIST)();
+export const responseMovieList = createAction(RESPONSE_MOVIE_LIST)<{
+	items: string[];
+	total: number;
+	searchKeyword: string;
+}>();
+export const emptyAutoComplete = createAction(EMPTY_AUTO_COMPLETE)();
+export const searchResultEmptyAutoComplete = createAction(SEARCH_RESULT_EMPTY_AUTO_COMPLETE)<string>();
