@@ -2,6 +2,15 @@ import produce from 'immer';
 import { createReducer } from 'typesafe-actions';
 import { SearchResultAction } from './types';
 
+export interface SearchResultState {
+	isSearchResultPage: boolean;
+  movieList: string[];
+  startIndex: number;
+  isLastMovie: boolean;
+  isScroll: boolean;
+	isLoading: boolean;
+}
+
 const initialState = {
   isSearchResultPage: false,
   movieList: [],
@@ -11,9 +20,9 @@ const initialState = {
 	isLoading: false
 };
 
-const searchResult = handleActions({
-  [RESPONSE_SEARCH_RESULT_MOVIE_LIST]: (state, action) => {
-		return produce(state, draft => {
+const searchResult = createReducer<SearchResultState, SearchResultAction>(initialState, {
+  [RESPONSE_SEARCH_RESULT_MOVIE_LIST]: (state, action) => 
+		produce(state, draft => {
 			const movieList = action.payload.items;
 			const totalMovie = action.payload.total;
 			let isLastMovie = state.isLastMovie;
@@ -25,16 +34,14 @@ const searchResult = handleActions({
 			draft.isLoading = false;
 			draft.movieList = movieList;
 			draft.isLastMovie = isLastMovie
-		});
-  },
-  [EMPTY_MOVIE_LIST]: (state) => {
-		return produce(state, draft => {
+		}),
+  [EMPTY_MOVIE_LIST]: (state) => 
+		produce(state, draft => {
 			draft.movieList = [];
 			draft.isScroll = false;
-		});
-  },
-  [RESPONSE_MORE_MOVIE_LIST]: (state, action) => {
-		return produce (state, draft => {
+		}),
+  [RESPONSE_MORE_MOVIE_LIST]: (state, action) => 
+		produce (state, draft => {
 			let moreMovieList = action.payload.items;
 			const startIndex = action.payload.start;
 			const totalMovie = action.payload.total;
@@ -49,10 +56,9 @@ const searchResult = handleActions({
 			draft.movieList = moreMovieList;
 			draft.startIndex = startIndex;
 			draft.isLastMovie = isLastMovie;
-		});
-  },
-  [SET_SCROLL_STATE]: (state, action) => {
-		return produce(state, draft => {
+		}),
+  [SET_SCROLL_STATE]: (state, action) => 
+		produce(state, draft => {
 			let isScroll = state.isScroll;
 			if (action.payload) {
 				isScroll = true;
@@ -60,10 +66,9 @@ const searchResult = handleActions({
 				isScroll = false;
 			}
 			draft.isScroll = isScroll;
-		});
-  },
-	[SET_LOADING_STATE]: (state, action) => {
-		return produce(state, draft => {
+		}),
+	[SET_LOADING_STATE]: (state, action) => 
+		produce(state, draft => {
 			let isLoading = state.isLoading;
 			if (action.payload) {
 				isLoading = true;
@@ -72,7 +77,6 @@ const searchResult = handleActions({
 			}
 			draft.isLoading = isLoading;
 		})
-	}
-}, initialState);
+});
 
 export default searchResult;
