@@ -1,6 +1,7 @@
 import produce from 'immer'; 
 import { createReducer } from 'typesafe-actions';
 import { SearchResultAction } from './types';
+import { RESPONSE_SEARCH_RESULT_MOVIE_LIST, EMPTY_MOVIE_LIST, RESPONSE_MORE_MOVIE_LIST, SET_SCROLL_STATE, SET_LOADING_STATE } from './actions';
 
 export interface SearchResultState {
 	isSearchResultPage: boolean;
@@ -35,7 +36,7 @@ const searchResult = createReducer<SearchResultState, SearchResultAction>(initia
 			draft.movieList = movieList;
 			draft.isLastMovie = isLastMovie
 		}),
-  [EMPTY_MOVIE_LIST]: (state) => 
+  [EMPTY_MOVIE_LIST]: (state, action) => 
 		produce(state, draft => {
 			draft.movieList = [];
 			draft.isScroll = false;
