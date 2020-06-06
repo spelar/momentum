@@ -2,18 +2,21 @@ import React, { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import queryString from 'query-string';
-import Header from 'components/atoms/Header/Header'
-import SearchList from 'components/atoms/SearchList/SearchList';
-import { searchResultEmptyAutoComplete } from '../store/modules/search';
+import Header from '../components/atoms/Header/Header'
+import SearchList from '../components/atoms/SearchList/SearchList';
 import { getSearchResultMovieList, getMoreMovieList, setScrollState, setLoadingState } from '../store/modules/searchResult';
+import { RootState } from '../store/modules';
+import { searchResultEmptyAutoComplete } from '../store/modules/search';
 
-function SearchResultContainer() {
+export interface SearchResultContainerProps {}
+
+const SearchResultContainer = (props: SearchResultContainerProps) => {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const params = history.location.search;
 	const parsed = queryString.parse(params);
-	const search = useSelector(state => state.search);
-	const searchResult = useSelector(state => state.searchResult);
+	const search = useSelector((state: RootState) => state.search);
+	const searchResult = useSelector((state: RootState) => state.searchResult);
 
 	const handleScroll = useCallback(() => {
 		dispatch(setScrollState(true));
@@ -37,9 +40,8 @@ function SearchResultContainer() {
     dispatch(getMoreMovieList(searchData));
   }, [dispatch, parsed.search, searchResult.startIndex]);
 
-	const stylePosition = {position:'relative'};
 	return (
-		<div style={stylePosition}>
+		<div style={{position:'relative'}}>
 			<Header />
 			<SearchList
 				search={search}
