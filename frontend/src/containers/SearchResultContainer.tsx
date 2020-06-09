@@ -26,7 +26,7 @@ const SearchResultContainer = (props: SearchResultContainerProps) => {
     window.addEventListener('scroll', handleScroll);
 		dispatch(setLoadingState(true));
 		let searchData = {
-      searchKeyword: parsed.search
+      searchKeyword: JSON.stringify(parsed.search)
     };
 		dispatch(searchResultEmptyAutoComplete(searchData));
 		dispatch(getSearchResultMovieList(searchData));
@@ -34,7 +34,7 @@ const SearchResultContainer = (props: SearchResultContainerProps) => {
 
   const moreMovieClick = useCallback(() => {
     let searchData = {
-      searchKeyword : parsed.search,
+      searchKeyword : JSON.stringify(parsed.search),
       startIndex : searchResult.startIndex + 5
     };
     dispatch(getMoreMovieList(searchData));

@@ -49,7 +49,7 @@ function Header() {
       alert('영화 제목을 입력해주세요.')
 			dispatch(setLoadingState(true));
       let searchData = {
-        searchKeyword: parsed.search
+        searchKeyword: JSON.stringify(parsed.search) 
       };
       dispatch(getSearchResultMovieList(searchData));
     } else {
@@ -59,7 +59,7 @@ function Header() {
         searchKeyword: parsed.search
       };
       let searchKeyword = {
-        searchKeyword: search.searchKeyword
+        searchKeyword: JSON.stringify(search.searchKeyword)
       };
       dispatch(getSearchResultMovieList(searchData));
       dispatch(searchResultEmptyAutoComplete(searchKeyword));

@@ -14,4 +14,6 @@ export const responseMovieList = createAction(RESPONSE_MOVIE_LIST)<{
 	searchKeyword: string;
 }>();
 export const emptyAutoComplete = createAction(EMPTY_AUTO_COMPLETE)();
-export const searchResultEmptyAutoComplete = createAction(SEARCH_RESULT_EMPTY_AUTO_COMPLETE)<string>();
+export const searchResultEmptyAutoComplete = createAction(SEARCH_RESULT_EMPTY_AUTO_COMPLETE)<{
+	searchKeyword: string;
+}>();
