@@ -24,16 +24,15 @@ const initialState = {
 const searchResult = createReducer<SearchResultState, SearchResultAction>(initialState, {
   [RESPONSE_SEARCH_RESULT_MOVIE_LIST]: (state, action) => 
 		produce(state, draft => {
-			const movieList = action.payload.items;
-			const totalMovie = action.payload.total;
+			const { items, total } = action.payload;
 			let isLastMovie = state.isLastMovie;
-			if (movieList.length === totalMovie || movieList.length > totalMovie) {
+			if (items.length === total || items.length > total) {
 				isLastMovie = true;
 			} else {
 				isLastMovie = false;
 			}
 			draft.isLoading = false;
-			draft.movieList = movieList;
+			draft.movieList = items;
 			draft.isLastMovie = isLastMovie
 		}),
   [EMPTY_MOVIE_LIST]: (state, action) => 
@@ -43,19 +42,19 @@ const searchResult = createReducer<SearchResultState, SearchResultAction>(initia
 		}),
   [RESPONSE_MORE_MOVIE_LIST]: (state, action) => 
 		produce (state, draft => {
-			let moreMovieList = action.payload.items;
 			const startIndex = action.payload.start;
 			const totalMovie = action.payload.total;
 			let movieList = state.movieList;
 			let isLastMovie = state.isLastMovie;
 			moreMovieList = movieList.concat(moreMovieList);
-			if (moreMovieList.length === totalMovie) {
+			items = movieList.concat(items);
+			if (items.length === total) {
 				isLastMovie = true;
 			} else {
 				isLastMovie = false;
 			}
-			draft.movieList = moreMovieList;
-			draft.startIndex = startIndex;
+			draft.movieList = items;
+			draft.startIndex = start;
 			draft.isLastMovie = isLastMovie;
 		}),
   [SET_SCROLL_STATE]: (state, action) => 
