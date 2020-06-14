@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import './RandomImage.scss';
 
-const RandomImage = ({randomImage}) => {
+export interface RandomImageProps {
+	randomImage: string;
+}
+
+const RandomImage = ({randomImage}: RandomImageProps) => {
   return (
     <div className="randomImage">
       <div className="image">
@@ -22,13 +25,5 @@ const RandomImage = ({randomImage}) => {
     </div>
   )
 }
-
-RandomImage.propTypes = {
-  randomImage: PropTypes.string.isRequired
-};
-
-RandomImage.defaultProps = {
-  randomImage: ''
-};
 
 export default RandomImage;
