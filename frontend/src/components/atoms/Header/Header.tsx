@@ -3,21 +3,24 @@ import { Link, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import queryString from 'query-string';
 import './Header.scss';
-import AutoComplete from 'components/atoms/AutoComplete/AutoComplete';
-import { setSearchState, emptyAutoComplete, getMovieList, searchResultEmptyAutoComplete } from 'store/modules/search';
-import { getSearchResultMovieList, emptyMovieList, setScrollState, setLoadingState } from 'store/modules/searchResult';
+import AutoComplete from '../../../components/atoms/AutoComplete/AutoComplete';
+import { setSearchState, emptyAutoComplete, getMovieList, searchResultEmptyAutoComplete } from '../../../store/modules/search';
+import { getSearchResultMovieList, emptyMovieList, setScrollState, setLoadingState } from '../../../store/modules/searchResult';
+import { RootState } from '../../../store/modules';
 
-function Header() {
+export interface HeaderProps {};
+
+const Header = (props: HeaderProps) => {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const params = history.location.search;
 	const parsed = queryString.parse(params);
-	const search = useSelector(state => state.search);
-	const searchResult = useSelector(state => state.searchResult);
+	const search = useSelector((state:RootState) => state.search);
+	const searchResult = useSelector((state:RootState) => state.searchResult);
 	const [movieName, setMovieName] = useState('');
 	useEffect(() => {
 		if (history.location.pathname === '/searchResult') {
-			setMovieName(parsed.search);
+			setMovieName(String(parsed.search));
 		}
 	}, [history.location.pathname, parsed.search]);
 
@@ -56,7 +59,7 @@ function Header() {
 			dispatch(setLoadingState(true));
       history.push('/searchResult?search=' + encodeURIComponent(search.searchKeyword));
       let searchData = {
-        searchKeyword: parsed.search
+        searchKeyword: JSON.stringify(parsed.search)
       };
       let searchKeyword = {
         searchKeyword: JSON.stringify(search.searchKeyword)
