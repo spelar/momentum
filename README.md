@@ -16,7 +16,7 @@
     * 프론트엔드는 React, TypeScript, Redux, Redux-Saga, typesafe-actions, create-react-app, Webpack, Babel, Sass를 사용했습니다.
     * React는 페이스북과 인스타그램에서 개발한 오픈소스 자바스크립트 라이브러리입니다. React를 선택한 이유는 가상 DOM 을 사용한 어플리케이션의 성능 향상, 
     Component의 가독성이 매우 높고 간단하여 쉬운 유지 보수가 가능하고 재사용성이 높습니다. 또한 다른 프레임워크나 라이브러리와 혼용이 가능하며 광범위한 생태계를 갖추고 있어 선택했습니다.
-    * TypeScript는 
+    * 느슨한 타입의 언어인 자바스크립트를 사용해 만든 프로젝트에서는 규모가 커질수록 코드가 복잡해지고, 디버그와 테스트 공수가 증가하는 문제가 있어 이런 문제를 해결하고자 TypeScript를 사용하게 되었습니다.
     * React는 view만을 책임지는 라이브러리이고, MVC 패턴 규모가 큰 프로그램에서는 데이터를 어떻게 관리가 중요한데 Redux가 클라이언트쪽 state를 효율적으로 관리할 수 있어 사용했습니다.
     * Redux-Saga는 redux의 비동기 액션을 처리하기 위한 라이브러리입니다. redux-saga 에서는 Generator라는 것을 사용해서 function* 같은 문법을 사용하게 되는데 액션을 dispatch하기도 쉬우며, 문법 또한 직관적이어서 사용하게 됐습니다.
     * typesafe-actions는 action, action-type, reducer의 반복되는 코드를 훨씬 편하게 구현해줄 수 있고, TypeScript 환경에서 사용하기 편하며 레퍼런스 또한 많아서 사용하게 되었습니다.
