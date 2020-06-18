@@ -42,11 +42,10 @@ const searchResult = createReducer<SearchResultState, SearchResultAction>(initia
 		}),
   [RESPONSE_MORE_MOVIE_LIST]: (state, action) => 
 		produce (state, draft => {
-			const startIndex = action.payload.start;
-			const totalMovie = action.payload.total;
+			const { start, total } = action.payload;
+			let { items } = action.payload;
 			let movieList = state.movieList;
 			let isLastMovie = state.isLastMovie;
-			moreMovieList = movieList.concat(moreMovieList);
 			items = movieList.concat(items);
 			if (items.length === total) {
 				isLastMovie = true;
