@@ -1,6 +1,11 @@
-import fetch from "isomorphic-fetch";
+import fetch from 'isomorphic-fetch';
 
-export const getMovieList = (searchData) => {
+export interface searchDataState {
+	startIndex: number;
+	searchKeyword: string;
+}
+
+export const getMovieList = (searchData: searchDataState) => {
   let indexParam = "";
   if(searchData.startIndex) {
     indexParam = "&start=" + searchData.startIndex;
