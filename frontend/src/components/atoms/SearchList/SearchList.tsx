@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import './SearchList.scss';
 import PropTypes from "prop-types";
 
+export interface SearchListProps {
+	
+}
+
 class SearchList extends Component {
   render() {
     const {search, searchResult, moreMovieClick} = this.props;
@@ -67,10 +71,5 @@ class SearchList extends Component {
     );
   }
 }
-
-SearchList.propTypes = {
-  searchResult: PropTypes.object.isRequired,
-  moreMovieClick: PropTypes.func.isRequired
-};
 
 export default SearchList;
