@@ -1,11 +1,12 @@
 import produce from 'immer'; 
 import { createReducer } from 'typesafe-actions';
-import { SearchResultAction } from './types';
+import { SearchResultAction, Movie } from './types';
 import { RESPONSE_SEARCH_RESULT_MOVIE_LIST, EMPTY_MOVIE_LIST, RESPONSE_MORE_MOVIE_LIST, SET_SCROLL_STATE, SET_LOADING_STATE } from './actions';
+
 
 export interface SearchResultState {
 	isSearchResultPage: boolean;
-  movieList: string[];
+  movieList: Movie[];
   startIndex: number;
   isLastMovie: boolean;
   isScroll: boolean;

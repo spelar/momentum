@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './SearchList.scss';
 import SearchListItem from '../SearchlistItem/SearchListItem';
+import { Movie } from '../../../store/modules/searchResult';
 
 export interface SearchListProps {
 	search: {
@@ -12,7 +13,7 @@ export interface SearchListProps {
 	},
 	searchResult: {
 		isSearchResultPage: boolean;
-		movieList: string[];
+		movieList: Movie[];
 		startIndex: number;
 		isLastMovie: boolean;
 		isScroll: boolean;
@@ -39,7 +40,7 @@ const SearchList = ({search, searchResult, moreMovieClick}: SearchListProps) => 
 				{searchResult.isLoading ? '' : <div className="title">검색 결과</div>}
 				<ul>
 					<div className={searchResult.isLoading ? "loader" : ''}></div>
-					{searchResult.isLoading ? '' : (searchResult.movieList.length === 0 ? makeNoMovieList() : searchResult.movieList.map((movie, i) => (<SearchListItem />)))}
+					{searchResult.isLoading ? '' : (searchResult.movieList.length === 0 ? makeNoMovieList() : searchResult.movieList.map((movie, i) => (<SearchListItem movie={movie} key={i} />)))}
 				</ul>
 				{searchResult.movieList.length > 0 && searchResult.isLastMovie === false ?
 					<div className="moreMovie">
