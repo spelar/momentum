@@ -11,4 +11,5 @@ export interface Movie {
 	pubDate: string;
 	subtitle: string;
 	title: string;
+	userRating: string;
 }
