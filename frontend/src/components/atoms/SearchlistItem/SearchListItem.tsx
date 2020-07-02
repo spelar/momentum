@@ -1,4 +1,5 @@
 import React from 'react';
+import './SearchListItem.scss';
 import { Movie } from '../../../store/modules/searchResult';
 
 interface SearchListItemProps {
