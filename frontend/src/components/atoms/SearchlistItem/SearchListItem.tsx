@@ -7,6 +7,12 @@ interface SearchListItemProps {
 }
 
 const SearchListItem = ({movie}: SearchListItemProps) => {
+	const makeActorList = () => {
+		let actor = movie.actor.replace(/\|/gi, ", ").slice(0,-2);
+		return (
+			<span dangerouslySetInnerHTML={{__html: actor}}/>
+		)
+	};
 	return (
 		<li className="movie clearFix">
 			<a target="_blank" href={movie.link} rel="noopener noreferrer">
@@ -20,6 +26,7 @@ const SearchListItem = ({movie}: SearchListItemProps) => {
 						<span className="score" dangerouslySetInnerHTML={{__html: movie.userRating}}/>
 					</div>
 					<div className="actor">
+						{makeActorList()}
 					</div>
 				</div>
 			</a>
