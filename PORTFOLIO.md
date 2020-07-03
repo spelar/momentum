@@ -5,7 +5,7 @@
 ## 개인 포트폴리오
 - 영화검색 모바일웹 프로젝트 (https://github.com/spelar/momentum) 개발 
 - Naver Open Api 사용 (https://developers.naver.com/docs/search/movie/)
-- Heroku, NodeJS, Express, React, Webpack, Sass 사용.
+- Heroku, NodeJS, Express, React, TypeScript, Webpack, Sass 사용.
 - SVG ICON 사용
 
 ## 머니투데이
@@ -13,7 +13,7 @@
 - the300 웹  (https://the300.mt.co.kr/) 개발
 - 이벤트 페이지 (https://m.mt.co.kr/renew/visual/angerQuiz.html?MTVIEW_02) 개발
 - html5, css3(Less), jQuery 사용
-- github, zeplin 사용
+- github, zeplin, figma 사용
 
 
 ## 위메프
