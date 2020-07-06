@@ -1,11 +1,19 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './AutoComplete.scss';
 import {withRouter} from "react-router-dom";
-import PropTypes from 'prop-types';
 
-class AutoComplete extends Component {
-  render() {
-    const {search, history} = this.props;
+export interface AutoCompleteProps {
+	search: {
+		isSearch: boolean;
+		autoCompleteKeywords: string[];
+		searchKeyword: string;
+		totalMovies: number;
+		isAutoComplete: boolean;
+	},
+	history: string;
+}
+
+const AutoComplete = ({search, history}: AutoCompleteProps) => {
     const makeSearchMessage = () => {
       return (
         <div>
@@ -44,10 +52,5 @@ class AutoComplete extends Component {
       </div>
     );
   }
-}
 
-AutoComplete.propTypes = {
-  search: PropTypes.object.isRequired
-};
-
-export default  withRouter(AutoComplete);
+export default withRouter(AutoComplete);
