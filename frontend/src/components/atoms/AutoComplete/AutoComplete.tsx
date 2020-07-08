@@ -1,16 +1,20 @@
 import React from 'react';
 import './AutoComplete.scss';
-import {withRouter} from "react-router-dom";
+import { Movie } from '../../../store/modules/searchResult';
 
 export interface AutoCompleteProps {
 	search: {
 		isSearch: boolean;
-		autoCompleteKeywords: string[];
+		autoCompleteKeywords: Movie[];
 		searchKeyword: string;
 		totalMovies: number;
 		isAutoComplete: boolean;
 	},
-	history: string;
+	history: {
+		location: {
+			pathname: string;
+		}
+	}
 }
 
 const AutoComplete = ({search, history}: AutoCompleteProps) => {
@@ -53,4 +57,4 @@ const AutoComplete = ({search, history}: AutoCompleteProps) => {
     );
   }
 
-export default withRouter(AutoComplete);
+export default AutoComplete;

@@ -6,7 +6,7 @@ import { Movie } from '../../../store/modules/searchResult';
 export interface SearchListProps {
 	search: {
 		isSearch: boolean;
-		autoCompleteKeywords: string[];
+		autoCompleteKeywords: Movie[];
 		searchKeyword: string;
 		totalMovies: number;
 		isAutoComplete: boolean;
