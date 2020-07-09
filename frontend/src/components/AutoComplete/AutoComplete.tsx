@@ -1,6 +1,6 @@
 import React from 'react';
 import './AutoComplete.scss';
-import { Movie } from '../../../store/modules/searchResult';
+import { Movie } from '../../store/modules/searchResult';
 
 export interface AutoCompleteProps {
 	search: {

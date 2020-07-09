@@ -3,10 +3,10 @@ import { Link, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import queryString from 'query-string';
 import './Header.scss';
-import AutoComplete from '../../../components/atoms/AutoComplete/AutoComplete';
-import { setSearchState, emptyAutoComplete, getMovieList, searchResultEmptyAutoComplete } from '../../../store/modules/search';
-import { getSearchResultMovieList, emptyMovieList, setScrollState, setLoadingState } from '../../../store/modules/searchResult';
-import { RootState } from '../../../store/modules';
+import AutoComplete from '../../components/AutoComplete/AutoComplete';
+import { setSearchState, emptyAutoComplete, getMovieList, searchResultEmptyAutoComplete } from '../../store/modules/search';
+import { getSearchResultMovieList, emptyMovieList, setScrollState, setLoadingState } from '../../store/modules/searchResult';
+import { RootState } from '../../store/modules';
 
 export interface HeaderProps {};
 

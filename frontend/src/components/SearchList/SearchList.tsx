@@ -1,7 +1,7 @@
 import React from 'react';
 import './SearchList.scss';
 import SearchListItem from '../SearchListItem/SearchListItem';
-import { Movie } from '../../../store/modules/searchResult';
+import { Movie } from '../../store/modules/searchResult';
 
 export interface SearchListProps {
 	search: {

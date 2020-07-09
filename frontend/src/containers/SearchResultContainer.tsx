@@ -2,8 +2,8 @@ import React, { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import queryString from 'query-string';
-import Header from '../components/atoms/Header/Header'
-import SearchList from '../components/atoms/SearchList/SearchList';
+import Header from '../components/Header/Header'
+import SearchList from '../components/SearchList/SearchList';
 import { getSearchResultMovieList, getMoreMovieList, setScrollState, setLoadingState } from '../store/modules/searchResult';
 import { RootState } from '../store/modules';
 import { searchResultEmptyAutoComplete } from '../store/modules/search';

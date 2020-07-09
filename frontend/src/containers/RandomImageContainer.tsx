@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import RandomImage from '../components/atoms/RandomImage/RandomImage';
+import RandomImage from '../components/RandomImage/RandomImage';
 import { RootState } from '../store/modules';
 import { randomImageLength } from '../store/modules/randomImages/reducer';
 import { getRandomImage } from '../store/modules/randomImages/actions';
