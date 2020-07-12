@@ -52,7 +52,7 @@ const search = createReducer<SearchState, SearchAction>(initialState, {
   [SEARCH_RESULT_EMPTY_AUTO_COMPLETE]: (state, action) => 
 		produce(state, draft => {
 			draft.autoCompleteKeywords = [];
-			draft.searchKeyword = action.payload.searchKeyword;
+			draft.searchKeyword = JSON.parse(action.payload.searchKeyword);
 			draft.totalMovies = 0;
 			draft.isAutoComplete = false;
 		}),
