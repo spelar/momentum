@@ -1,7 +1,7 @@
 import produce from 'immer'; 
 import { createReducer } from 'typesafe-actions';
 import { SearchAction } from './types';
-import { SET_SEARCH_STATE, RESPONSE_MOVIE_LIST, EMPTY_AUTO_COMPLETE, SEARCH_RESULT_EMPTY_AUTO_COMPLETE } from './actions';
+import { SET_SEARCH_STATE, RESPONSE_MOVIE_LIST, EMPTY_AUTO_COMPLETE, SET_SEARCH_KEYWORD } from './actions';
 import { Movie } from '../searchResult';
 
 export interface SearchState {
@@ -49,7 +49,7 @@ const search = createReducer<SearchState, SearchAction>(initialState, {
 			draft.totalMovies = 0;
 			draft.isAutoComplete = false;
 		}),
-  [SEARCH_RESULT_EMPTY_AUTO_COMPLETE]: (state, action) => 
+  [SET_SEARCH_KEYWORD]: (state, action) => 
 		produce(state, draft => {
 			draft.autoCompleteKeywords = [];
 			draft.searchKeyword = JSON.parse(action.payload.searchKeyword);

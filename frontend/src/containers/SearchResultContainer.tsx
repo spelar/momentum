@@ -6,7 +6,7 @@ import Header from '../components/Header/Header'
 import SearchList from '../components/SearchList/SearchList';
 import { getSearchResultMovieList, getMoreMovieList, setScrollState, setLoadingState } from '../store/modules/searchResult';
 import { RootState } from '../store/modules';
-import { searchResultEmptyAutoComplete } from '../store/modules/search';
+import { setSearchKeyword } from '../store/modules/search';
 
 export interface SearchResultContainerProps {}
 
@@ -28,7 +28,7 @@ const SearchResultContainer = (props: SearchResultContainerProps) => {
 		let searchData = {
       searchKeyword: JSON.stringify(parsed.search)
     };
-		dispatch(searchResultEmptyAutoComplete(searchData));
+		dispatch(setSearchKeyword(searchData));
 		dispatch(getSearchResultMovieList(searchData));
   }, [dispatch, handleScroll, parsed.search]);
 
