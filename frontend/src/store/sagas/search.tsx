@@ -7,8 +7,14 @@ import {
 import {GET_MOVIE_LIST} from "../modules/search";
 import {GET_SEARCH_RESULT_MOVIE_LIST, GET_MORE_MOVIE_LIST} from "../modules/searchResult";
 
+export interface searchActionState {
+	type: string;
+	payload: {
+		searchKeyword: string;
+	}
+}
 
-function* getMovieListSaga(action) {
+function* getMovieListSaga(action: searchActionState) {
   yield delay(300);
   if (action.payload.searchKeyword && action.payload.searchKeyword.trim().length > 0) {
     const receiveMovieList = yield call(getMovieList, action.payload);
