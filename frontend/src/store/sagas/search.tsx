@@ -11,6 +11,7 @@ export interface searchActionState {
 	type: string;
 	payload: {
 		searchKeyword: string;
+		startIndex: number;
 	}
 }
 
