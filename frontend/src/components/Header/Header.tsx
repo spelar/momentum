@@ -35,11 +35,9 @@ const Header = (props: HeaderProps) => {
 
 	const searchInputKeyUp = useCallback((e) => {
     if (e.target.value.length > 0) {
-      let searchData = {
-        searchKeyword : e.target.value
-      };
+      let searchKeyword = e.target.value;
 			dispatch(setSearchState(true));
-      dispatch(getMovieList(searchData));
+      dispatch(getMovieList({searchKeyword}));
     } else if (e.target.value === '') {
 			dispatch(emptyAutoComplete());
 			dispatch(setScrollState(false));
