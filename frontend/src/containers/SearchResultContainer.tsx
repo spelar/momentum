@@ -25,12 +25,16 @@ const SearchResultContainer = (props: SearchResultContainerProps) => {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
 		dispatch(setLoadingState(true));
-		let searchData = {
-      searchKeyword: JSON.stringify(parsed.search)
-    };
-		dispatch(setSearchKeyword(searchData));
-		dispatch(getSearchResultMovieList(searchData));
-  }, [dispatch, handleScroll, parsed.search]);
+		if (search.searchKeyword === '') {
+			let searchKeyword = JSON.stringify(parsed.search);
+			dispatch(getSearchResultMovieList({searchKeyword}));
+			dispatch(setSearchKeyword(searchKeyword));
+		} else {
+			let searchKeyword = JSON.stringify(search.searchKeyword);
+			dispatch(getSearchResultMovieList({searchKeyword}));
+			dispatch(setSearchKeyword(searchKeyword));
+		}
+  }, [dispatch, handleScroll, parsed.search, search.searchKeyword]);
 
   const moreMovieClick = useCallback(() => {
     let searchData = {

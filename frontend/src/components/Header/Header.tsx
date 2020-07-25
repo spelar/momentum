@@ -49,20 +49,13 @@ const Header = (props: HeaderProps) => {
     if (search.searchKeyword === '') {
       alert('영화 제목을 입력해주세요.')
 			dispatch(setLoadingState(true));
-      let searchData = {
-        searchKeyword: JSON.stringify(parsed.search) 
-      };
-      dispatch(getSearchResultMovieList(searchData));
+      let searchKeyword = JSON.stringify(search.searchKeyword); 
+      dispatch(getSearchResultMovieList({searchKeyword}));
     } else {
 			dispatch(setLoadingState(true));
       history.push('/searchResult?search=' + encodeURIComponent(search.searchKeyword));
-      let searchData = {
-        searchKeyword: JSON.stringify(parsed.search)
-      };
-      let searchKeyword = {
-        searchKeyword: JSON.stringify(search.searchKeyword)
-      };
-      dispatch(getSearchResultMovieList(searchData));
+			let searchKeyword = JSON.stringify(search.searchKeyword);
+      dispatch(getSearchResultMovieList({searchKeyword}));
       dispatch(setSearchKeyword(searchKeyword));
     }
   }, [dispatch, history, parsed.search, search.searchKeyword]);
