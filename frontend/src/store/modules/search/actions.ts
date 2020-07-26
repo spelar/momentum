@@ -17,6 +17,4 @@ export const responseMovieList = createAction(RESPONSE_MOVIE_LIST)<{
 	searchKeyword: string;
 }>();
 export const emptyAutoComplete = createAction(EMPTY_AUTO_COMPLETE)();
-export const setSearchKeyword = createAction(SET_SEARCH_KEYWORD)<{
-	searchKeyword: string;
-}>();
+export const setSearchKeyword = createAction(SET_SEARCH_KEYWORD)<string>();
