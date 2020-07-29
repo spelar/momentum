@@ -3,8 +3,9 @@
 
 
 ## 개인 포트폴리오
-- 영화검색 모바일웹 프로젝트 (https://github.com/spelar/momentum) 개발 
-- Naver Open Api 사용 (https://developers.naver.com/docs/search/movie/)
+- 검색 모바일웹 프로젝트 (https://github.com/spelar/momentum) 개발 
+- Naver 영화 Open Api 사용 (https://developers.naver.com/docs/search/movie/)
+- Naver 책 Open Api 사용 (https://developers.naver.com/docs/search/book/)
 - Heroku, NodeJS, Express, React, Redux, Redux-saga, TypeScript, Immer, Webpack, Sass 사용.
 - SVG ICON 사용
 
