@@ -17,9 +17,9 @@
 
 
 ## 위메프
-- 웹 로그 개발 (https://m.wonder-shopping.com/home)
+- 원더 쇼핑 개발 (https://m.wonder-shopping.com/home)
 - 원더쇼핑 패밀리세일 이벤트페이지(맘큐, 제로투세븐) 개발 (vueJs, Sass)
-- github, zeplin 사용 
+- github, zeplin, swagger 사용 
 
 
 ## 번개장터
