@@ -3,8 +3,9 @@
 
 
 ## 개인 포트폴리오
-- 영화검색 모바일웹 프로젝트 (https://github.com/spelar/momentum) 개발 
-- Naver Open Api 사용 (https://developers.naver.com/docs/search/movie/)
+- 검색 모바일웹 프로젝트 (https://github.com/spelar/momentum) 개발 
+- Naver 영화 Open Api 사용 (https://developers.naver.com/docs/search/movie/)
+- Naver 책 Open Api 사용 (https://developers.naver.com/docs/search/book/)
 - Heroku, NodeJS, Express, React, Redux, Redux-saga, TypeScript, Immer, Webpack, Sass 사용.
 - SVG ICON 사용
 
@@ -17,9 +18,9 @@
 
 
 ## 위메프
-- 웹 로그 개발 (https://m.wonder-shopping.com/home)
+- 원더 쇼핑 개발 (https://m.wonder-shopping.com/home)
 - 원더쇼핑 패밀리세일 이벤트페이지(맘큐, 제로투세븐) 개발 (vueJs, Sass)
-- github, zeplin 사용 
+- github, zeplin, swagger 사용 
 
 
 ## 번개장터
