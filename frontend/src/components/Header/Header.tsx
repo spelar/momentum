@@ -58,7 +58,7 @@ const Header = (props: HeaderProps) => {
       dispatch(getSearchResultMovieList({searchKeyword}));
       dispatch(setSearchKeyword(searchKeyword));
     }
-  }, [dispatch, history, parsed.search, search.searchKeyword]);
+  }, [dispatch, history, search.searchKeyword]);
 
 	return (
 		<div>
