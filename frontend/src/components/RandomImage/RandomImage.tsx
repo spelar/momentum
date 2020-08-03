@@ -17,7 +17,7 @@ const RandomImage = ({randomImage}: RandomImageProps) => {
       </div>
       <div className="titleWrap">
         <h1 className="title">
-          관심있는 영화를 <br />
+          관심있는 영화와 책을 <br />
           검색해 보세요 !
         </h1>
         <Link to="/search" className="start">시작하기</Link>
