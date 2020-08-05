@@ -66,6 +66,14 @@ const Header = (props: HeaderProps) => {
 				<h1>
 					<Link to='/search' className='logo' onClick={logoClick}>Momentum</Link>
 				</h1>
+				<div className='tab'>
+					<div className='item'>
+						<Link to='' className=''>영화</Link>
+					</div>
+					<div className='item'>
+						<Link to='' className=''>책</Link>
+					</div>
+				</div>
 				<div className='headerSearch'>
 					<input className='input' onKeyUp={searchInputKeyUp} type='text' placeholder='영화를 검색해보세요.' title='검색어 입력' onChange={onChange} value={movieName} />
 					<button className='btn btnSearch' onClick={searchBtnClick}><i className='momentum-icon momentum-icon-search'><span className='screenReaderOnly'>검색</span></i></button>

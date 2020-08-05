@@ -25,6 +25,13 @@
       line-height: 48px;
     }
   }
+	.tab {
+    display: flex;
+		.item {
+			flex: 1 1 auto;
+			text-align: center;
+		}
+	}
 }
 
 .headerFixed {
