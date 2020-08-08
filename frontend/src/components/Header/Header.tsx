@@ -68,10 +68,10 @@ const Header = (props: HeaderProps) => {
 				</h1>
 				<div className='tab'>
 					<div className='item'>
-						<Link to='' className=''>영화</Link>
+						<Link to='/movie' className=''>영화</Link>
 					</div>
 					<div className='item'>
-						<Link to='' className=''>책</Link>
+						<Link to='/book' className=''>책</Link>
 					</div>
 				</div>
 				<div className='headerSearch'>
