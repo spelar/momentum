@@ -64,7 +64,7 @@ const Header = (props: HeaderProps) => {
 		<div>
 			<div className={searchResult.isScroll === true && search.isAutoComplete === false ? 'header clearFix headerFixed' : 'header clearFix'}>
 				<h1>
-					<Link to='/search' className='logo' onClick={logoClick}>Momentum</Link>
+					<Link to='/movie' className='logo' onClick={logoClick}>Momentum</Link>
 				</h1>
 				<div className='tab'>
 					<div className='item'>
