@@ -46,7 +46,7 @@ const SearchResultContainer = (props: SearchResultContainerProps) => {
 
 	return (
 		<div style={{position:'relative'}}>
-			<Header />
+			{/* <Header /> */}
 			<SearchList
 				search={search}
 				searchResult={searchResult}

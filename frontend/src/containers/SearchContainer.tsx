@@ -6,7 +6,7 @@ export interface SearchContainerProps {}
 const SearchContainer = (props: SearchContainerProps) => {
 	return (
 		<div>
-			<Header />
+			{/* <Header /> */}
 		</div>
 	)
 }

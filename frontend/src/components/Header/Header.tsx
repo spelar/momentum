@@ -8,7 +8,9 @@ import { setSearchState, emptyAutoComplete, getMovieList, setSearchKeyword } fro
 import { getSearchResultMovieList, emptyMovieList, setScrollState, setLoadingState } from '../../store/modules/searchResult';
 import { RootState } from '../../store/modules';
 
-export interface HeaderProps {};
+export interface HeaderProps {
+	name: string;
+};
 
 const Header = (props: HeaderProps) => {
 	const dispatch = useDispatch();
@@ -18,9 +20,15 @@ const Header = (props: HeaderProps) => {
 	const search = useSelector((state:RootState) => state.search);
 	const searchResult = useSelector((state:RootState) => state.searchResult);
 	const [movieName, setMovieName] = useState('');
+	const [tabName, setTabName] = useState('');
 	useEffect(() => {
 		if (history.location.pathname === '/searchResult') {
 			setMovieName(String(parsed.search));
+		}
+		if (history.location.pathname === '/movie') {
+			setTabName('movie');
+		} else {
+			setTabName('book');
 		}
 	}, [history.location.pathname, parsed.search]);
 
@@ -68,14 +76,14 @@ const Header = (props: HeaderProps) => {
 				</h1>
 				<div className='tab'>
 					<div className='item'>
-						<Link to='/movie' className=''>영화</Link>
+						<Link to='/movie' className={tabName === 'movie' ? 'on' : ''}>영화</Link>
 					</div>
 					<div className='item'>
-						<Link to='/book' className=''>책</Link>
+						<Link to='/book' className={tabName === 'book' ? 'on' : ''}>책</Link>
 					</div>
 				</div>
 				<div className='headerSearch'>
-					<input className='input' onKeyUp={searchInputKeyUp} type='text' placeholder='영화를 검색해보세요.' title='검색어 입력' onChange={onChange} value={movieName} />
+					<input className='input' onKeyUp={searchInputKeyUp} type='text' placeholder={props.name + ' 검색을 해보세요.'} title='검색어 입력' onChange={onChange} value={movieName} />
 					<button className='btn btnSearch' onClick={searchBtnClick}><i className='momentum-icon momentum-icon-search'><span className='screenReaderOnly'>검색</span></i></button>
 				</div>
 			</div>

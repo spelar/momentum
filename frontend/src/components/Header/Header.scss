@@ -30,9 +30,17 @@
 		background-color: #fff;
 		.item {
 			flex: 1 1 auto;
-			padding: 10px 0px;
 			text-align: center;
-			box-sizing: border-box;
+			a {
+				display: block;
+				padding: 10px 0px;
+				box-sizing: border-box;
+			}
+			a.on {
+				color: #fff;
+				background-color: $green-dark-50;
+				font-weight: bold;
+			}
 		}
 		.item:first-child {
 			border-right: 1px solid #eee;
