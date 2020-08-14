@@ -5,7 +5,7 @@ export interface BookContainerProps {}
 
 const BookContainer = (props: BookContainerProps) => {
 	return (
-		<Header name='책' />
+		<Header name='책을' />
 	)
 }
 

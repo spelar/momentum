@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './AutoComplete.scss';
 import { Movie } from '../../store/modules/searchResult';
 
@@ -14,15 +14,16 @@ export interface AutoCompleteProps {
 		location: {
 			pathname: string;
 		}
-	}
+	},
+	name: string;
 }
 
-const AutoComplete = ({search, history}: AutoCompleteProps) => {
+const AutoComplete = ({search, history, name}: AutoCompleteProps) => {
     const makeSearchMessage = () => {
       return (
         <div>
           <p className="message">
-            <strong>관심있는 영화를<br />
+            <strong>관심있는 {name}<br />
               검색해 보세요 !</strong>
           </p>
         </div>
