@@ -9,10 +9,10 @@ import { getSearchResultMovieList, emptyMovieList, setScrollState, setLoadingSta
 import { RootState } from '../../store/modules';
 
 export interface HeaderProps {
-	name: string;
+	type: string;
 };
 
-const Header = (props: HeaderProps) => {
+const Header = ({type}: HeaderProps) => {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const params = history.location.search;
@@ -83,12 +83,12 @@ const Header = (props: HeaderProps) => {
 					</div>
 				</div>
 				<div className='headerSearch'>
-					<input className='input' onKeyUp={searchInputKeyUp} type='text' placeholder={props.name + ' 검색을 해보세요.'} title='검색어 입력' onChange={onChange} value={movieName} />
+					<input className='input' onKeyUp={searchInputKeyUp} type='text' placeholder={type === 'movie' ? '영화를 검색해 보세요' : '책을 검색해 보세요.'} title='검색어 입력' onChange={onChange} value={movieName} />
 					<button className='btn btnSearch' onClick={searchBtnClick}><i className='momentum-icon momentum-icon-search'><span className='screenReaderOnly'>검색</span></i></button>
 				</div>
 			</div>
 			<AutoComplete
-				name={props.name}
+				type={type}
 				search={search}
 				history={history}
 			/>
