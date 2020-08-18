@@ -45,7 +45,11 @@ const Header = ({type}: HeaderProps) => {
     if (e.target.value.length > 0) {
       let searchKeyword = e.target.value;
 			dispatch(setSearchState(true));
-      dispatch(getMovieList({searchKeyword}));
+			if (type === 'movie') {
+				dispatch(getMovieList({searchKeyword}));
+			} else {
+
+			}
     } else if (e.target.value === '') {
 			dispatch(emptyAutoComplete());
 			dispatch(setScrollState(false));
@@ -68,6 +72,11 @@ const Header = ({type}: HeaderProps) => {
     }
   }, [dispatch, history, search.searchKeyword]);
 
+	const tabClick = useCallback(() => {
+		dispatch(emptyMovieList());
+    dispatch(emptyAutoComplete());
+	}, [dispatch]);
+
 	return (
 		<div>
 			<div className={searchResult.isScroll === true && search.isAutoComplete === false ? 'header clearFix headerFixed' : 'header clearFix'}>
@@ -76,10 +85,10 @@ const Header = ({type}: HeaderProps) => {
 				</h1>
 				<div className='tab'>
 					<div className='item'>
-						<Link to='/movie' className={tabName === 'movie' ? 'on' : ''}>영화</Link>
+						<Link to='/movie' className={tabName === 'movie' ? 'on' : ''} onClick={tabClick}>영화</Link>
 					</div>
 					<div className='item'>
-						<Link to='/book' className={tabName === 'book' ? 'on' : ''}>책</Link>
+						<Link to='/book' className={tabName === 'book' ? 'on' : ''} onClick={tabClick}>책</Link>
 					</div>
 				</div>
 				<div className='headerSearch'>
