@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './AutoComplete.scss';
 import { Movie } from '../../store/modules/searchResult';
 
