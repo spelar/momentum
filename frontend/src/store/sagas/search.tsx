@@ -4,7 +4,7 @@ import * as searchResultSearchActions from '../modules/searchResult';
 import {
   getMovieList
 } from "../../lib/api/search";
-import {GET_MOVIE_LIST} from "../modules/search";
+import { GET_MOVIE_LIST } from "../modules/search";
 import {GET_SEARCH_RESULT_MOVIE_LIST, GET_MORE_MOVIE_LIST} from "../modules/searchResult";
 
 export interface searchActionState {
@@ -32,8 +32,19 @@ function* getMovieListSaga(action: searchActionState) {
   }
 }
 
+function* getBookListSaga(action: searchActionState) {
+	yield delay(300);
+	try {
+		const receiveBookList = yield call(getBookList, action.payload);
+
+	} catch (error) {
+		console.log(error);
+	}
+}
+
 export function* movieListSaga() {
   yield takeLatest(searchActions.GET_MOVIE_LIST, getMovieListSaga);
   yield takeLatest(searchResultSearchActions.GET_SEARCH_RESULT_MOVIE_LIST, getMovieListSaga);
   yield takeLatest(searchResultSearchActions.GET_MORE_MOVIE_LIST, getMovieListSaga);
+	yield takeLatest(searchActions.GET_BOOK_LIST, getBookListSaga);
 }

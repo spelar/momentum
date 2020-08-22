@@ -12,3 +12,7 @@ export const getMovieList = (searchData: searchDataState) => {
   }
   return fetch('/movies/?query=' + encodeURIComponent(searchData.searchKeyword) + indexParam).then(res => res.json());
 }
+
+export const getBookList = (searchData: searchDataState) => {
+	return fetch('/books/?query=' + encodeURIComponent(searchData.searchKeyword)).then(res => res.json());
+}

@@ -56,6 +56,10 @@ const search = createReducer<SearchState, SearchAction>(initialState, {
 			draft.totalMovies = 0;
 			draft.isAutoComplete = false;
 		}),
+	// [RESPONSE_BOOK_LIST]: (state, action) => 
+	// 	produce(state, draft => {
+
+	// 	}),
 });
 
 export default search;
