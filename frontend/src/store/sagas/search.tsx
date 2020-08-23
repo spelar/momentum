@@ -2,7 +2,7 @@ import { put, call, takeLatest, delay } from 'redux-saga/effects'
 import * as searchActions from '../modules/search';
 import * as searchResultSearchActions from '../modules/searchResult';
 import {
-  getMovieList
+  getMovieList, getBookList
 } from "../../lib/api/search";
 import { GET_MOVIE_LIST } from "../modules/search";
 import {GET_SEARCH_RESULT_MOVIE_LIST, GET_MORE_MOVIE_LIST} from "../modules/searchResult";
@@ -36,6 +36,7 @@ function* getBookListSaga(action: searchActionState) {
 	yield delay(300);
 	try {
 		const receiveBookList = yield call(getBookList, action.payload);
+		console.log(receiveBookList)
 
 	} catch (error) {
 		console.log(error);
