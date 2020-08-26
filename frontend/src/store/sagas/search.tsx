@@ -37,7 +37,6 @@ function* getBookListSaga(action: searchActionState) {
 	try {
 		const receiveBookList = yield call(getBookList, action.payload);
 		console.log(receiveBookList)
-
 	} catch (error) {
 		console.log(error);
 	}

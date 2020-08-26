@@ -20,7 +20,7 @@ const RandomImage = ({randomImage}: RandomImageProps) => {
           관심있는 영화와 책을 <br />
           검색해 보세요 !
         </h1>
-        <Link to="/search" className="start">시작하기</Link>
+        <Link to="/movie" className="start">시작하기</Link>
       </div>
     </div>
   )

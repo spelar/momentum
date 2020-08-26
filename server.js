@@ -33,7 +33,12 @@ app.get('/movies/', function (req, res) {
 });
 
 app.get('/books/', function (req, res) {
-  const api_url = 'https://openapi.naver.com/v1/search/book.json?query=' + encodeURI(req.query.query); // json 결과
+	let indexParam = "";
+  if(req.query.start) {
+    indexParam = "&start=" + req.query.start;
+  }
+
+  const api_url = 'https://openapi.naver.com/v1/search/book.json?query=' + encodeURI(req.query.query) + '&display=5' + indexParam; // json 결과
   const options = {
     url: api_url,
     headers: {'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret}
