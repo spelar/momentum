@@ -4,15 +4,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import queryString from 'query-string';
 import './Header.scss';
 import AutoComplete from '../../components/AutoComplete/AutoComplete';
-import { setSearchState, emptyAutoComplete, getMovieList, setSearchKeyword, getBookList } from '../../store/modules/search';
+import { setSearchState, emptyAutoComplete, getMovieList, setSearchKeyword, getBookList, setSearchType } from '../../store/modules/search';
 import { getSearchResultMovieList, emptyMovieList, setScrollState, setLoadingState } from '../../store/modules/searchResult';
 import { RootState } from '../../store/modules';
 
-export interface HeaderProps {
-	type: string;
-};
+export interface HeaderProps {};
 
-const Header = ({type}: HeaderProps) => {
+const Header = (props: HeaderProps) => {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const params = history.location.search;
@@ -20,15 +18,14 @@ const Header = ({type}: HeaderProps) => {
 	const search = useSelector((state:RootState) => state.search);
 	const searchResult = useSelector((state:RootState) => state.searchResult);
 	const [movieName, setMovieName] = useState('');
-	const [tabName, setTabName] = useState('');
 	useEffect(() => {
 		if (history.location.pathname === '/searchResult') {
 			setMovieName(String(parsed.search));
 		}
 		if (history.location.pathname === '/movie') {
-			setTabName('movie');
+			dispatch(setSearchType('movie'));
 		} else {
-			setTabName('book');
+			dispatch(setSearchType('book'));
 		}
 	}, [history.location.pathname, parsed.search]);
 
@@ -45,7 +42,7 @@ const Header = ({type}: HeaderProps) => {
     if (e.target.value.length > 0) {
       let searchKeyword = e.target.value;
 			dispatch(setSearchState(true));
-			if (type === 'movie') {
+			if (search.searchType === 'movie') {
 				dispatch(getMovieList({searchKeyword}));
 			} else {
 				dispatch(getBookList({searchKeyword}));
@@ -54,7 +51,7 @@ const Header = ({type}: HeaderProps) => {
 			dispatch(emptyAutoComplete());
 			dispatch(setScrollState(false));
     }
-  }, [dispatch, type]);
+  }, [dispatch, search.searchType]);
 
 	const searchBtnClick = useCallback(() => {
     dispatch(emptyMovieList());
@@ -85,19 +82,19 @@ const Header = ({type}: HeaderProps) => {
 				</h1>
 				<div className='tab'>
 					<div className='item'>
-						<Link to='/movie' className={tabName === 'movie' ? 'on' : ''} onClick={tabClick}>영화</Link>
+						<Link to='/movie' className={search.searchType === 'movie' ? 'on' : ''} onClick={tabClick}>영화</Link>
 					</div>
 					<div className='item'>
-						<Link to='/book' className={tabName === 'book' ? 'on' : ''} onClick={tabClick}>책</Link>
+						<Link to='/book' className={search.searchType === 'book' ? 'on' : ''} onClick={tabClick}>책</Link>
 					</div>
 				</div>
 				<div className='headerSearch'>
-					<input className='input' onKeyUp={searchInputKeyUp} type='text' placeholder={type === 'movie' ? '영화를 검색해 보세요' : '책을 검색해 보세요.'} title='검색어 입력' onChange={onChange} value={movieName} />
+					<input className='input' onKeyUp={searchInputKeyUp} type='text' placeholder={search.searchType === 'movie' ? '영화를 검색해 보세요' : '책을 검색해 보세요.'} title='검색어 입력' onChange={onChange} value={movieName} />
 					<button className='btn btnSearch' onClick={searchBtnClick}><i className='momentum-icon momentum-icon-search'><span className='screenReaderOnly'>검색</span></i></button>
 				</div>
 			</div>
 			<AutoComplete
-				type={type}
+				searchType={search.searchType}
 				search={search}
 				history={history}
 			/>

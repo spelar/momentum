@@ -15,15 +15,15 @@ export interface AutoCompleteProps {
 			pathname: string;
 		}
 	},
-	type: string;
+	searchType: string;
 }
 
-const AutoComplete = ({search, history, type}: AutoCompleteProps) => {
+const AutoComplete = ({search, history, searchType}: AutoCompleteProps) => {
     const makeSearchMessage = () => {
       return (
         <div>
           <p className="message">
-            <strong>관심있는 {type === 'movie' ? '영화를' : '책을'}<br />
+            <strong>관심있는 {searchType === 'movie' ? '영화를' : '책을'}<br />
               검색해 보세요 !</strong>
           </p>
         </div>
