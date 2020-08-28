@@ -5,7 +5,7 @@ export interface MovieContainerProps {}
 
 const MovieContainer = (props: MovieContainerProps) => {
 	return (
-		<Header type='movie' />
+		<Header />
 	)
 }
 
