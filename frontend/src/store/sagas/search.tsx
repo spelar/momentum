@@ -2,7 +2,7 @@ import { put, call, takeLatest, delay } from 'redux-saga/effects'
 import * as searchActions from '../modules/search';
 import * as searchResultSearchActions from '../modules/searchResult';
 import {
-  getMovieList, getBookList
+  getList
 } from "../../lib/api/search";
 import { GET_LIST } from "../modules/search";
 import {GET_SEARCH_RESULT_MOVIE_LIST, GET_MORE_MOVIE_LIST} from "../modules/searchResult";
@@ -15,10 +15,10 @@ export interface searchActionState {
 	}
 }
 
-function* getMovieListSaga(action: searchActionState) {
+function* getListSaga(action: searchActionState) {
   yield delay(300);
   if (action.payload.searchKeyword && action.payload.searchKeyword.trim().length > 0) {
-    const receiveMovieList = yield call(getMovieList, action.payload);
+    const receiveMovieList = yield call(getList, action.payload);
     if (action.payload.searchKeyword) {
       receiveMovieList.searchKeyword = action.payload.searchKeyword;
     }
@@ -32,19 +32,8 @@ function* getMovieListSaga(action: searchActionState) {
   }
 }
 
-function* getBookListSaga(action: searchActionState) {
-	yield delay(300);
-	try {
-		const receiveBookList = yield call(getBookList, action.payload);
-		console.log(receiveBookList)
-	} catch (error) {
-		console.log(error);
-	}
-}
-
 export function* movieListSaga() {
-  yield takeLatest(searchActions.GET_LIST, getMovieListSaga);
-  yield takeLatest(searchResultSearchActions.GET_SEARCH_RESULT_MOVIE_LIST, getMovieListSaga);
-  yield takeLatest(searchResultSearchActions.GET_MORE_MOVIE_LIST, getMovieListSaga);
-	yield takeLatest(searchActions.GET_BOOK_LIST, getBookListSaga);
+  yield takeLatest(searchActions.GET_LIST, getListSaga);
+  yield takeLatest(searchResultSearchActions.GET_SEARCH_RESULT_MOVIE_LIST, getListSaga);
+  yield takeLatest(searchResultSearchActions.GET_MORE_MOVIE_LIST, getListSaga);
 }

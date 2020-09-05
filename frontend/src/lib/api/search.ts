@@ -5,7 +5,7 @@ export interface searchDataState {
 	searchKeyword: string;
 }
 
-export const getMovieList = (searchData: searchDataState) => {
+export const getList = (searchData: searchDataState) => {
   let indexParam = "";
   if(searchData.startIndex) {
     indexParam = "&start=" + searchData.startIndex;
