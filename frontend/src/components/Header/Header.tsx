@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import queryString from 'query-string';
 import './Header.scss';
 import AutoComplete from '../../components/AutoComplete/AutoComplete';
-import { setSearchState, emptyAutoComplete, getList, setSearchKeyword, getBookList, setSearchType } from '../../store/modules/search';
+import { setSearchState, emptyAutoComplete, getList, setSearchKeyword, setSearchType } from '../../store/modules/search';
 import { getSearchResultMovieList, emptyMovieList, setScrollState, setLoadingState } from '../../store/modules/searchResult';
 import { RootState } from '../../store/modules';
 
@@ -42,11 +42,7 @@ const Header = (props: HeaderProps) => {
     if (e.target.value.length > 0) {
       let searchKeyword = e.target.value;
 			dispatch(setSearchState(true));
-			if (search.searchType === 'movie') {
-				dispatch(getList({searchKeyword}));
-			} else {
-				dispatch(getBookList({searchKeyword}));
-			}
+			dispatch(getList({searchKeyword}));
     } else if (e.target.value === '') {
 			dispatch(emptyAutoComplete());
 			dispatch(setScrollState(false));
