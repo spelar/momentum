@@ -11,34 +11,13 @@ const port = process.env.PORT || 4000;
 
 app.use(express.static(path.resolve(__dirname, 'frontend/build')));
 
-app.get('/movies/', function (req, res) {
+app.get('/:searchType/', function (req, res) {
+	let searchType = req.params.searchType;
   let indexParam = "";
   if(req.query.start) {
     indexParam = "&start=" + req.query.start;
   }
-  const api_url = 'https://openapi.naver.com/v1/search/movie.json?query=' + encodeURI(req.query.query) + '&display=5' + indexParam; // json 결과
-  const options = {
-    url: api_url,
-    headers: {'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret}
-  };
-  request.get(options, (error, response, body) => {
-    if (!error && response.statusCode == 200) {
-      res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
-      res.end(body);
-    } else {
-      res.status(response.statusCode).end();
-      console.log('error = ' + response.statusCode);
-    }
-  });
-});
-
-app.get('/books/', function (req, res) {
-	let indexParam = "";
-  if(req.query.start) {
-    indexParam = "&start=" + req.query.start;
-  }
-
-  const api_url = 'https://openapi.naver.com/v1/search/book.json?query=' + encodeURI(req.query.query) + '&display=5' + indexParam; // json 결과
+  const api_url = 'https://openapi.naver.com/v1/search/' + searchType + '.json?query=' + encodeURI(req.query.query) + '&display=5' + indexParam; // json 결과
   const options = {
     url: api_url,
     headers: {'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret}

@@ -10,5 +10,5 @@ export const getList = (searchData: searchDataState) => {
   if(searchData.startIndex) {
     indexParam = "&start=" + searchData.startIndex;
   }
-  return fetch('/movies/?query=' + encodeURIComponent(searchData.searchKeyword) + indexParam).then(res => res.json());
+  return fetch('/movie/?query=' + encodeURIComponent(searchData.searchKeyword) + indexParam).then(res => res.json());
 }
