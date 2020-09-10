@@ -12,7 +12,7 @@
 ## 머니투데이
 - 머니S 모바일웹 (https://m.moneys.mt.co.kr/) 개발
 - the300 웹  (https://the300.mt.co.kr/) 개발
-- 이벤트 페이지 (https://m.mt.co.kr/renew/visual/angerQuiz.html?MTVIEW_02) 개발
+- 서비스별 CMS 개발
 - html5, css3(Less), jQuery 사용
 - git, zeplin, figma 사용
 
