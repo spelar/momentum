@@ -27,7 +27,7 @@ const Header = (props: HeaderProps) => {
 		} else {
 			dispatch(setSearchType('book'));
 		}
-	}, [history.location.pathname, parsed.search]);
+	}, [history.location.pathname, parsed.search, dispatch]);
 
 	const logoClick = useCallback(() => {
     dispatch(emptyMovieList());
@@ -47,7 +47,7 @@ const Header = (props: HeaderProps) => {
 			dispatch(emptyAutoComplete());
 			dispatch(setScrollState(false));
     }
-  }, [dispatch, search.searchType]);
+  }, [dispatch]);
 
 	const searchBtnClick = useCallback(() => {
     dispatch(emptyMovieList());
