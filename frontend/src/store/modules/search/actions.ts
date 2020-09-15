@@ -12,6 +12,7 @@ export const SET_SEARCH_TYPE = 'SET_SEARCH_TYPE';
 export const setSearchState = createAction(SET_SEARCH_STATE)<boolean>();
 export const getList= createAction(GET_LIST)<{
 	searchKeyword: string;
+	searchType: string;
 }>();
 export const responseMovieList = createAction(RESPONSE_MOVIE_LIST)<{
 	items: Movie[];

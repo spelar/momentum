@@ -40,14 +40,17 @@ const Header = (props: HeaderProps) => {
 
 	const searchInputKeyUp = useCallback((e) => {
     if (e.target.value.length > 0) {
-      let searchKeyword = e.target.value;
+			let searchData = {
+				searchKeyword: e.target.value,
+				searchType: search.searchType
+			}
 			dispatch(setSearchState(true));
-			dispatch(getList({searchKeyword}));
+			dispatch(getList(searchData));
     } else if (e.target.value === '') {
 			dispatch(emptyAutoComplete());
 			dispatch(setScrollState(false));
     }
-  }, [dispatch]);
+  }, [dispatch, search]);
 
 	const searchBtnClick = useCallback(() => {
     dispatch(emptyMovieList());
