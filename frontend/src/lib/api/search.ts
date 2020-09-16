@@ -3,6 +3,7 @@ import fetch from 'isomorphic-fetch';
 export interface searchDataState {
 	startIndex: number;
 	searchKeyword: string;
+	searchType: string;
 }
 
 export const getList = (searchData: searchDataState) => {

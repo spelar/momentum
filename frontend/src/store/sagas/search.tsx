@@ -12,12 +12,14 @@ export interface searchActionState {
 	payload: {
 		searchKeyword: string;
 		startIndex: number;
+		searchType: string;
 	}
 }
 
 function* getListSaga(action: searchActionState) {
   yield delay(300);
-  if (action.payload.searchKeyword && action.payload.searchKeyword.trim().length > 0) {
+	try {
+		if (action.payload.searchKeyword && action.payload.searchKeyword.trim().length > 0) {
     const receiveMovieList = yield call(getList, action.payload);
     if (action.payload.searchKeyword) {
       receiveMovieList.searchKeyword = action.payload.searchKeyword;
@@ -30,6 +32,9 @@ function* getListSaga(action: searchActionState) {
       yield put(searchResultSearchActions.responseMoreMovieList(receiveMovieList));
     }
   }
+	} catch (error) {
+		console.log(error);
+	}
 }
 
 export function* movieListSaga() {
