@@ -7,9 +7,9 @@ export interface searchDataState {
 }
 
 export const getList = (searchData: searchDataState) => {
-  let indexParam = "";
-  if(searchData.startIndex) {
-    indexParam = "&start=" + searchData.startIndex;
+  let indexParam = '';
+  if (searchData.startIndex) {
+    indexParam = '&start=' + searchData.startIndex;
   }
-  return fetch('/movie/?query=' + encodeURIComponent(searchData.searchKeyword) + indexParam).then(res => res.json());
+  return fetch('/' + searchData.searchType + '/?query=' + encodeURIComponent(searchData.searchKeyword) + indexParam).then(res => res.json());
 }
