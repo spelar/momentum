@@ -31,15 +31,15 @@ const AutoComplete = ({search, history, searchType}: AutoCompleteProps) => {
     };
 
     const makeSearchList = () => {
-      return search.autoCompleteKeywords.map((movie, i) => {
+      return search.autoCompleteKeywords.map((item, i) => {
         return (
           <li key={'movie' + i} className="movie clearFix">
-            <a target="_blank" href={movie.link} rel="noopener noreferrer"> 
-              {movie.image !== "" ? <div className="image"><img src={movie.image} alt="영화 포스터" /></div> : <div className="image noimage"><span /></div>}
+            <a target="_blank" href={item.link} rel="noopener noreferrer"> 
+              {item.image !== "" ? <div className="image"><img src={item.image} alt={searchType === 'movie' ? '영화 포스터' : '책 표지 이미지'} /></div> : <div className="image noimage"><span /></div>}
               <div className="info">
                 <div className="clearFix">
-                  <h2 dangerouslySetInnerHTML={{__html: movie.title}} />
-                  <span className="pubDate" dangerouslySetInnerHTML={{__html: movie.pubDate}} />
+                  <h2 dangerouslySetInnerHTML={{__html: item.title}} />
+                  <span className="pubDate" dangerouslySetInnerHTML={{__html: item.pubDate}} />
                 </div>
               </div>
             </a>
