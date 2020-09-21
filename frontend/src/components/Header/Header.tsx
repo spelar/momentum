@@ -93,7 +93,6 @@ const Header = (props: HeaderProps) => {
 				</div>
 			</div>
 			<AutoComplete
-				searchType={search.searchType}
 				search={search}
 				history={history}
 			/>
