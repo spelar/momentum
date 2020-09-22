@@ -1,10 +1,10 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import BookContainer from './containers/BookContainer';
-import MovieContainer from './containers/MovieContainer';
 const RandomImageContainer = lazy(() => import('./containers/RandomImageContainer'));
 const SearchContainer = lazy(() => import('./containers/SearchContainer'));
 const SearchResultContainer = lazy(() => import('./containers/SearchResultContainer'));
+const MovieContainer = lazy(() => import('./containers/MovieContainer'));
+const BookContainer = lazy(() => import('./containers/BookContainer'));
 
 const App = () => (
 	<Router>
