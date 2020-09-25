@@ -11,5 +11,5 @@ export const getList = (searchData: searchDataState) => {
   if (searchData.startIndex) {
     indexParam = '&start=' + searchData.startIndex;
   }
-  return fetch('/' + searchData.searchType + '/?query=' + encodeURIComponent(searchData.searchKeyword) + indexParam).then(res => res.json());
+  return fetch(`/${searchData.searchType}/?query=${encodeURIComponent(searchData.searchKeyword)}${indexParam}`).then(res => res.json());
 }
