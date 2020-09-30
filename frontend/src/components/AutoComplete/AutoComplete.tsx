@@ -1,11 +1,11 @@
 import React from 'react';
 import './AutoComplete.scss';
-import { Movie } from '../../store/modules/searchResult';
+import { Item } from '../../store/modules/searchResult';
 
 export interface AutoCompleteProps {
 	search: {
 		isSearch: boolean;
-		autoCompleteKeywords: Movie[];
+		autoCompleteKeywords: Item[];
 		searchKeyword: string;
 		totalMovies: number;
 		isAutoComplete: boolean;
@@ -33,7 +33,7 @@ const AutoComplete = ({search, history}: AutoCompleteProps) => {
     const makeSearchList = () => {
       return search.autoCompleteKeywords.map((item, i) => {
         return (
-          <li key={'movie' + i} className="movie clearFix">
+          <li key={'item' + i} className="item clearFix">
             <a target="_blank" href={item.link} rel="noopener noreferrer"> 
               {item.image !== "" ? <div className="image"><img src={item.image} alt={search.searchType === 'movie' ? '영화 포스터' : '책 표지 이미지'} /></div> : <div className="image noimage"><span /></div>}
               <div className="info">
