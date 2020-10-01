@@ -1,5 +1,5 @@
 import { createAction } from "typesafe-actions";
-import { Movie } from "../searchResult";
+import { Item } from "../searchResult";
 
 export const SET_SEARCH_STATE = 'search/SET_SEARCH_STATE';
 export const GET_LIST = 'search/GET_LIST';
@@ -15,7 +15,7 @@ export const getList= createAction(GET_LIST)<{
 	searchType: string;
 }>();
 export const responseMovieList = createAction(RESPONSE_MOVIE_LIST)<{
-	items: Movie[];
+	items: Item[];
 	total: number;
 	searchKeyword: string;
 }>();

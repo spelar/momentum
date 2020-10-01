@@ -1,9 +1,9 @@
 import React from 'react';
 import './SearchListItem.scss';
-import { Movie } from '../../store/modules/searchResult';
+import { Item } from '../../store/modules/searchResult';
 
 interface SearchListItemProps {
-	movie: Movie;
+	movie: Item;
 }
 
 const SearchListItem = ({movie}: SearchListItemProps) => {

@@ -1,19 +1,19 @@
 import React from 'react';
 import './SearchList.scss';
 import SearchListItem from '../SearchListItem/SearchListItem';
-import { Movie } from '../../store/modules/searchResult';
+import { Item } from '../../store/modules/searchResult';
 
 export interface SearchListProps {
 	search: {
 		isSearch: boolean;
-		autoCompleteKeywords: Movie[];
+		autoCompleteKeywords: Item[];
 		searchKeyword: string;
 		totalMovies: number;
 		isAutoComplete: boolean;
 	},
 	searchResult: {
 		isSearchResultPage: boolean;
-		movieList: Movie[];
+		movieList: Item[];
 		startIndex: number;
 		isLastMovie: boolean;
 		isScroll: boolean;

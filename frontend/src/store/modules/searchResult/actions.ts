@@ -1,5 +1,5 @@
 import { createAction } from "typesafe-actions";
-import { Movie } from "./types";
+import { Item } from "./types";
 
 export const GET_SEARCH_RESULT_MOVIE_LIST = 'GET_SEARCH_RESULT_MOVIE_LIST';
 export const RESPONSE_SEARCH_RESULT_MOVIE_LIST = 'RESPONSE_SEARCH_RESULT_MOVIE_LIST';
@@ -13,7 +13,7 @@ export const getSearchResultMovieList = createAction(GET_SEARCH_RESULT_MOVIE_LIS
 	searchKeyword: string;
 }>();
 export const responseSearchResultMovieList = createAction(RESPONSE_SEARCH_RESULT_MOVIE_LIST)<{
-	items: Movie[];
+	items: Item[];
 	total: number;
 }>();
 export const emptyMovieList = createAction(EMPTY_MOVIE_LIST)();
@@ -22,7 +22,7 @@ export const getMoreMovieList = createAction(GET_MORE_MOVIE_LIST)<{
 	startIndex: number;
 }>();
 export const responseMoreMovieList = createAction(RESPONSE_MORE_MOVIE_LIST)<{
-	items: Movie[];
+	items: Item[];
 	start: number;
 	total: number;
 }>();

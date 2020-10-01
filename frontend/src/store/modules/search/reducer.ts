@@ -2,11 +2,11 @@ import produce from 'immer';
 import { createReducer } from 'typesafe-actions';
 import { SearchAction } from './types';
 import { SET_SEARCH_STATE, RESPONSE_MOVIE_LIST, EMPTY_AUTO_COMPLETE, SET_SEARCH_KEYWORD, SET_SEARCH_TYPE } from './actions';
-import { Movie } from '../searchResult';
+import { Item } from '../searchResult';
 
 export interface SearchState {
 	isSearch: boolean;
-	autoCompleteKeywords: Movie[];
+	autoCompleteKeywords: Item[];
   searchKeyword: string;
   totalMovies: number;
   isAutoComplete: boolean;

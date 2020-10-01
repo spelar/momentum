@@ -3,7 +3,7 @@ import * as actions from './actions';
 
 export type SearchResultAction = ActionType<typeof actions>;
 
-export interface Movie {
+export interface Item {
 	actor: string;
 	director: string;
 	image: string;
