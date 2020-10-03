@@ -5,7 +5,7 @@ import queryString from 'query-string';
 import './Header.scss';
 import AutoComplete from '../../components/AutoComplete/AutoComplete';
 import { setSearchState, emptyAutoComplete, getList, setSearchKeyword, setSearchType } from '../../store/modules/search';
-import { getSearchResultMovieList, emptyMovieList, setScrollState, setLoadingState } from '../../store/modules/searchResult';
+import { getSearchResultMovieList, emptyList, setScrollState, setLoadingState } from '../../store/modules/searchResult';
 import { RootState } from '../../store/modules';
 
 export interface HeaderProps {};
@@ -30,7 +30,7 @@ const Header = (props: HeaderProps) => {
 	}, [history.location.pathname, parsed.search, dispatch]);
 
 	const logoClick = useCallback(() => {
-    dispatch(emptyMovieList());
+    dispatch(emptyList());
     dispatch(emptyAutoComplete());
   }, [dispatch]);
 
@@ -53,7 +53,7 @@ const Header = (props: HeaderProps) => {
   }, [dispatch, search]);
 
 	const searchBtnClick = useCallback(() => {
-    dispatch(emptyMovieList());
+    dispatch(emptyList());
     if (search.searchKeyword === '') {
       alert('영화 제목을 입력해주세요.')
 			dispatch(setLoadingState(true));
@@ -69,7 +69,7 @@ const Header = (props: HeaderProps) => {
   }, [dispatch, history, search.searchKeyword]);
 
 	const tabClick = useCallback(() => {
-		dispatch(emptyMovieList());
+		dispatch(emptyList());
     dispatch(emptyAutoComplete());
 	}, [dispatch]);
 
