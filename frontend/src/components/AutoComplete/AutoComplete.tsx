@@ -7,7 +7,7 @@ export interface AutoCompleteProps {
 		isSearch: boolean;
 		autoCompleteKeywords: Item[];
 		searchKeyword: string;
-		totalMovies: number;
+		total: number;
 		isAutoComplete: boolean;
 		searchType: string;
 	},

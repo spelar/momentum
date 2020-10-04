@@ -8,7 +8,7 @@ export interface SearchState {
 	isSearch: boolean;
 	autoCompleteKeywords: Item[];
   searchKeyword: string;
-  totalMovies: number;
+  total: number;
   isAutoComplete: boolean;
 	searchType: string;
 }
@@ -17,7 +17,7 @@ const initialState: SearchState = {
 	isSearch: false,
   autoCompleteKeywords: [],
   searchKeyword: '',
-  totalMovies: 0,
+  total: 0,
   isAutoComplete: false,
 	searchType: ''
 };
@@ -37,7 +37,7 @@ const search = createReducer<SearchState, SearchAction>(initialState, {
 			if (state.isSearch) {
 				draft.autoCompleteKeywords = items;
 				draft.searchKeyword = searchKeyword;
-				draft.totalMovies = total;
+				draft.total = total;
 				draft.isAutoComplete = true;
 			} else {
 				return state
@@ -48,14 +48,14 @@ const search = createReducer<SearchState, SearchAction>(initialState, {
 			draft.isSearch = false;
 			draft.autoCompleteKeywords = [];
 			draft.searchKeyword = '';
-			draft.totalMovies = 0;
+			draft.total = 0;
 			draft.isAutoComplete = false;
 		}),
   [SET_SEARCH_KEYWORD]: (state, action) => 
 		produce(state, draft => {
 			draft.autoCompleteKeywords = [];
 			draft.searchKeyword = JSON.parse(action.payload);
-			draft.totalMovies = 0;
+			draft.total = 0;
 			draft.isAutoComplete = false;
 		}),
 	[SET_SEARCH_TYPE]: (state, action) => 
