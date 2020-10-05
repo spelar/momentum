@@ -20,10 +20,10 @@ export interface SearchListProps {
 		isScroll: boolean;
 		isLoading: boolean;
 	},
-	moreMovieClick:() => void;
+	moreItemClick:() => void;
 }
 
-const SearchList = ({search, searchResult, moreMovieClick}: SearchListProps) => {
+const SearchList = ({search, searchResult, moreItemClick}: SearchListProps) => {
 	const makeNoMovieList = () => {
 		return (
 			<div>
@@ -45,7 +45,7 @@ const SearchList = ({search, searchResult, moreMovieClick}: SearchListProps) => 
 				</ul>
 				{searchResult.movieList.length > 0 && searchResult.isLastMovie === false ?
 					<div className="moreMovie">
-						{searchResult.isLoading ? '' : <button className="btn" onClick={moreMovieClick}>
+						{searchResult.isLoading ? '' : <button className="btn" onClick={moreItemClick}>
 						더보기 <i className="momentum-icon momentum-icon-long-arrow-right" />
 						</button>}
 					</div>

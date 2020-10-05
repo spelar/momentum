@@ -36,7 +36,7 @@ const SearchResultContainer = (props: SearchResultContainerProps) => {
 		}
   }, [dispatch, handleScroll, parsed.search, search.searchKeyword]);
 
-  const moreMovieClick = useCallback(() => {
+  const moreItemClick = useCallback(() => {
     let searchData = {
       searchKeyword : JSON.stringify(parsed.search),
       startIndex : searchResult.startIndex + 5
@@ -50,7 +50,7 @@ const SearchResultContainer = (props: SearchResultContainerProps) => {
 			<SearchList
 				search={search}
 				searchResult={searchResult}
-				moreMovieClick={moreMovieClick}
+				moreItemClick={moreItemClick}
 			/>
 		</div>
 	)
