@@ -15,7 +15,7 @@ export interface SearchListProps {
 	searchResult: {
 		isSearchResultPage: boolean;
 		movieList: Item[];
-		startIndex: number;
+		startIndex: number; 
 		isLastMovie: boolean;
 		isScroll: boolean;
 		isLoading: boolean;
@@ -27,7 +27,7 @@ const SearchList = ({search, searchResult, moreItemClick}: SearchListProps) => {
 	const makeNoMovieList = () => {
 		return (
 			<div>
-				<p className="noMovieListMessage">
+				<p className="noItemListMessage">
 					<strong>검색 결과가 없습니다.</strong>
 				</p>
 			</div>
@@ -44,7 +44,7 @@ const SearchList = ({search, searchResult, moreItemClick}: SearchListProps) => {
 					{searchResult.isLoading ? '' : (searchResult.movieList.length === 0 ? makeNoMovieList() : searchResult.movieList.map((movie, i) => (<SearchListItem movie={movie} key={i} />)))}
 				</ul>
 				{searchResult.movieList.length > 0 && searchResult.isLastMovie === false ?
-					<div className="moreMovie">
+					<div className="moreItem">
 						{searchResult.isLoading ? '' : <button className="btn" onClick={moreItemClick}>
 						더보기 <i className="momentum-icon momentum-icon-long-arrow-right" />
 						</button>}
