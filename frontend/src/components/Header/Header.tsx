@@ -17,10 +17,10 @@ const Header = (props: HeaderProps) => {
 	const parsed = queryString.parse(params);
 	const search = useSelector((state:RootState) => state.search);
 	const searchResult = useSelector((state:RootState) => state.searchResult);
-	const [movieName, setMovieName] = useState('');
+	const [inputValue, setInputValue] = useState('');
 	useEffect(() => {
 		if (history.location.pathname === '/searchResult') {
-			setMovieName(String(parsed.search));
+			setInputValue(String(parsed.search));
 		}
 		if (history.location.pathname === '/movie') {
 			dispatch(setSearchType('movie'));
@@ -35,7 +35,7 @@ const Header = (props: HeaderProps) => {
   }, [dispatch]);
 
 	const onChange = useCallback((e) => {
-    setMovieName(e.target.value);
+    setInputValue(e.target.value);
 	}, []);
 
 	const searchInputKeyUp = useCallback((e) => {
@@ -88,7 +88,7 @@ const Header = (props: HeaderProps) => {
 					</div>
 				</div>
 				<div className='headerSearch'>
-					<input className='input' onKeyUp={searchInputKeyUp} type='text' placeholder={search.searchType === 'movie' ? '영화를 검색해 보세요' : '책을 검색해 보세요.'} title='검색어 입력' onChange={onChange} value={movieName} />
+					<input className='input' onKeyUp={searchInputKeyUp} type='text' placeholder={search.searchType === 'movie' ? '영화를 검색해 보세요' : '책을 검색해 보세요.'} title='검색어 입력' onChange={onChange} value={inputValue} />
 					<button className='btn btnSearch' onClick={searchBtnClick}><i className='momentum-icon momentum-icon-search'><span className='screenReaderOnly'>검색</span></i></button>
 				</div>
 			</div>
