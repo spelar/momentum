@@ -37,7 +37,7 @@ function* getListSaga(action: searchActionState) {
 	}
 }
 
-export function* movieListSaga() {
+export function* dataListSaga() {
   yield takeLatest(searchActions.GET_LIST, getListSaga);
   yield takeLatest(searchResultSearchActions.GET_SEARCH_RESULT_MOVIE_LIST, getListSaga);
   yield takeLatest(searchResultSearchActions.GET_MORE_MOVIE_LIST, getListSaga);

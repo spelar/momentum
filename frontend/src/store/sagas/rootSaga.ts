@@ -1,10 +1,10 @@
 import { all } from 'redux-saga/effects'
 import {
-  movieListSaga
+  dataListSaga
 } from './search';
 
 export function* rootSaga() {
   yield all([
-    movieListSaga()
+    dataListSaga()
   ])
 }
