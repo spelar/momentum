@@ -11,6 +11,7 @@ export const SET_LOADING_STATE = 'SET_LOADING_STATE';
 
 export const getSearchResultMovieList = createAction(GET_SEARCH_RESULT_MOVIE_LIST)<{
 	searchKeyword: string;
+	searchType: string;
 }>();
 export const responseSearchResultMovieList = createAction(RESPONSE_SEARCH_RESULT_MOVIE_LIST)<{
 	items: Item[];

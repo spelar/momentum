@@ -27,11 +27,19 @@ const SearchResultContainer = (props: SearchResultContainerProps) => {
 		dispatch(setLoadingState(true));
 		if (search.searchKeyword === '') {
 			let searchKeyword = JSON.stringify(parsed.search);
-			dispatch(getSearchResultMovieList({searchKeyword}));
+			let searchData = {
+				searchKeyword: JSON.stringify(parsed.search),
+				searchType: search.searchType
+			}
+			dispatch(getSearchResultMovieList(searchData));
 			dispatch(setSearchKeyword(searchKeyword));
 		} else {
 			let searchKeyword = JSON.stringify(search.searchKeyword);
-			dispatch(getSearchResultMovieList({searchKeyword}));
+			let searchData = {
+				searchKeyword: JSON.stringify(parsed.search),
+				searchType: search.searchType
+			}
+			dispatch(getSearchResultMovieList(searchData));
 			dispatch(setSearchKeyword(searchKeyword));
 		}
   }, [dispatch, handleScroll, parsed.search, search.searchKeyword]);
@@ -46,7 +54,7 @@ const SearchResultContainer = (props: SearchResultContainerProps) => {
 
 	return (
 		<div style={{position:'relative'}}>
-			{/* <Header /> */}
+			<Header />
 			<SearchList
 				search={search}
 				searchResult={searchResult}
