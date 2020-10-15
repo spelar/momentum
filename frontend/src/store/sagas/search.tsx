@@ -5,7 +5,7 @@ import {
   getList
 } from "../../lib/api/search";
 import { GET_LIST } from "../modules/search";
-import {GET_SEARCH_RESULT_MOVIE_LIST, GET_MORE_MOVIE_LIST} from "../modules/searchResult";
+import {GET_SEARCH_RESULT_ITEM_LIST, GET_MORE_MOVIE_LIST} from "../modules/searchResult";
 
 export interface searchActionState {
 	type: string;
@@ -26,7 +26,7 @@ function* getListSaga(action: searchActionState) {
     }
     if (action.type === GET_LIST) {
       yield put(searchActions.responseMovieList(receiveMovieList));
-    } else if (action.type === GET_SEARCH_RESULT_MOVIE_LIST) {
+    } else if (action.type === GET_SEARCH_RESULT_ITEM_LIST) {
       yield put(searchResultSearchActions.responseSearchResultMovieList(receiveMovieList));
     } else if (action.type === GET_MORE_MOVIE_LIST) {
       yield put(searchResultSearchActions.responseMoreMovieList(receiveMovieList));
@@ -39,6 +39,6 @@ function* getListSaga(action: searchActionState) {
 
 export function* dataListSaga() {
   yield takeLatest(searchActions.GET_LIST, getListSaga);
-  yield takeLatest(searchResultSearchActions.GET_SEARCH_RESULT_MOVIE_LIST, getListSaga);
+  yield takeLatest(searchResultSearchActions.GET_SEARCH_RESULT_ITEM_LIST, getListSaga);
   yield takeLatest(searchResultSearchActions.GET_MORE_MOVIE_LIST, getListSaga);
 }

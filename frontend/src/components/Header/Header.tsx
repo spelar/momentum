@@ -5,7 +5,7 @@ import queryString from 'query-string';
 import './Header.scss';
 import AutoComplete from '../../components/AutoComplete/AutoComplete';
 import { setSearchState, emptyAutoComplete, getList, setSearchKeyword, setSearchType } from '../../store/modules/search';
-import { getSearchResultMovieList, emptyList, setScrollState, setLoadingState } from '../../store/modules/searchResult';
+import { getSearchResultItemList, emptyList, setScrollState, setLoadingState } from '../../store/modules/searchResult';
 import { RootState } from '../../store/modules';
 
 export interface HeaderProps {};
@@ -61,7 +61,7 @@ const Header = (props: HeaderProps) => {
 				searchKeyword: search.searchKeyword,
 				searchType: search.searchType
 			}
-      dispatch(getSearchResultMovieList(searchData));
+      dispatch(getSearchResultItemList(searchData));
     } else {
 			dispatch(setLoadingState(true));
       history.push('/searchResult?search=' + encodeURIComponent(search.searchKeyword));
@@ -70,7 +70,7 @@ const Header = (props: HeaderProps) => {
 				searchKeyword: search.searchKeyword,
 				searchType: search.searchType
 			}
-      dispatch(getSearchResultMovieList(searchData));
+      dispatch(getSearchResultItemList(searchData));
       dispatch(setSearchKeyword(searchKeyword));
     }
   }, [dispatch, history, search.searchKeyword]);
