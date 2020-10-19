@@ -75,9 +75,14 @@ const Header = (props: HeaderProps) => {
     }
   }, [dispatch, history, search.searchKeyword]);
 
-	const tabClick = useCallback(() => {
+	const tabClick = useCallback((searchType) => {
 		dispatch(emptyList());
     dispatch(emptyAutoComplete());
+		if (searchType=== 'movie') {
+			dispatch(setSearchType('movie'));
+		} else {
+			dispatch(setSearchType('book'));
+		}
 	}, [dispatch]);
 
 	return (
@@ -88,10 +93,10 @@ const Header = (props: HeaderProps) => {
 				</h1>
 				<div className='tab'>
 					<div className='item'>
-						<Link to='/movie' className={search.searchType === 'movie' ? 'on' : ''} onClick={tabClick}>영화</Link>
+						<Link to='/movie' className={search.searchType === 'movie' ? 'on' : ''} onClick={() => tabClick('영화')}>영화</Link>
 					</div>
 					<div className='item'>
-						<Link to='/book' className={search.searchType === 'book' ? 'on' : ''} onClick={tabClick}>책</Link>
+						<Link to='/book' className={search.searchType === 'book' ? 'on' : ''} onClick={() => tabClick('책')}>책</Link>
 					</div>
 				</div>
 				<div className='headerSearch'>
