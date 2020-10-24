@@ -75,10 +75,10 @@ const Header = (props: HeaderProps) => {
     }
   }, [dispatch, history, search.searchKeyword]);
 
-	const tabClick = useCallback((searchType) => {
+	const tabClick = useCallback((tabName) => {
 		dispatch(emptyList());
     dispatch(emptyAutoComplete());
-		if (searchType=== 'movie') {
+		if (tabName=== 'movie') {
 			dispatch(setSearchType('movie'));
 		} else {
 			dispatch(setSearchType('book'));
