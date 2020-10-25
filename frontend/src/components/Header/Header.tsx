@@ -73,7 +73,7 @@ const Header = (props: HeaderProps) => {
       dispatch(getSearchResultItemList(searchData));
       dispatch(setSearchKeyword(searchKeyword));
     }
-  }, [dispatch, history, search.searchKeyword]);
+  }, [dispatch, history, search.searchKeyword, search.searchType]);
 
 	const tabClick = useCallback((tabName) => {
 		dispatch(emptyList());
