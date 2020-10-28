@@ -64,7 +64,7 @@ const Header = (props: HeaderProps) => {
       dispatch(getSearchResultItemList(searchData));
     } else {
 			dispatch(setLoadingState(true));
-      history.push('/searchResult?search=' + encodeURIComponent(search.searchKeyword));
+      history.push('/searchResult?searchType=' + search.searchType + '&q=' + encodeURIComponent(search.searchKeyword));
 			let searchKeyword = JSON.stringify(search.searchKeyword);
 			let searchData = {
 				searchKeyword: search.searchKeyword,
