@@ -20,7 +20,7 @@ const Header = (props: HeaderProps) => {
 	const [inputValue, setInputValue] = useState('');
 	useEffect(() => {
 		if (history.location.pathname === '/searchResult') {
-			setInputValue(String(parsed.search));
+			setInputValue(String(parsed.q));
 		}
 		if (history.location.pathname === '/movie') {
 			dispatch(setSearchType('movie'));
