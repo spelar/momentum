@@ -19,13 +19,12 @@ const Header = (props: HeaderProps) => {
 	const searchResult = useSelector((state:RootState) => state.searchResult);
 	const [inputValue, setInputValue] = useState('');
 	useEffect(() => {
-		if (history.location.pathname === '/searchResult') {
-			setInputValue(String(parsed.q));
-		}
 		if (history.location.pathname === '/movie') {
 			dispatch(setSearchType('movie'));
-		} else {
+		} else if (history.location.pathname === '/book') {
 			dispatch(setSearchType('book'));
+		} else {
+			setInputValue(String(parsed.q));
 		}
 	}, [history.location.pathname, parsed.search, dispatch]);
 
