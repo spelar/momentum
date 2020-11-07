@@ -26,9 +26,9 @@ const SearchResultContainer = (props: SearchResultContainerProps) => {
     window.addEventListener('scroll', handleScroll);
 		dispatch(setLoadingState(true));
 		if (search.searchKeyword === '') {
-			let searchKeyword = JSON.stringify(parsed.search);
+			let searchKeyword = JSON.stringify(parsed.q);
 			let searchData = {
-				searchKeyword: JSON.stringify(parsed.search),
+				searchKeyword: JSON.stringify(parsed.q),
 				searchType: search.searchType
 			}
 			dispatch(getSearchResultItemList(searchData));
@@ -36,21 +36,22 @@ const SearchResultContainer = (props: SearchResultContainerProps) => {
 		} else {
 			let searchKeyword = JSON.stringify(search.searchKeyword);
 			let searchData = {
-				searchKeyword: JSON.stringify(parsed.search),
+				searchKeyword: JSON.stringify(parsed.q),
 				searchType: search.searchType
 			}
 			dispatch(getSearchResultItemList(searchData));
 			dispatch(setSearchKeyword(searchKeyword));
+			debugger
 		}
-  }, [dispatch, handleScroll, parsed.search, search.searchKeyword, search.searchType]);
+  }, [dispatch, handleScroll, parsed.q, search.searchKeyword, search.searchType]);
 
   const moreItemClick = useCallback(() => {
     let searchData = {
-      searchKeyword : JSON.stringify(parsed.search),
+      searchKeyword : JSON.stringify(parsed.q),
       startIndex : searchResult.startIndex + 5
     };
     dispatch(getMoreMovieList(searchData));
-  }, [dispatch, parsed.search, searchResult.startIndex]);
+  }, [dispatch, parsed.q, searchResult.startIndex]);
 
 	return (
 		<div style={{position:'relative'}}>
