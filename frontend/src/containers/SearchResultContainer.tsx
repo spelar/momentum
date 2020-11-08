@@ -41,7 +41,6 @@ const SearchResultContainer = (props: SearchResultContainerProps) => {
 			}
 			dispatch(getSearchResultItemList(searchData));
 			dispatch(setSearchKeyword(searchKeyword));
-			debugger
 		}
   }, [dispatch, handleScroll, parsed.q, search.searchKeyword, search.searchType]);
 
