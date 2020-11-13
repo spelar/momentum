@@ -41,7 +41,7 @@ const SearchList = ({search, searchResult, moreItemClick}: SearchListProps) => {
 				{searchResult.isLoading ? '' : <div className="title">검색 결과</div>}
 				<ul>
 					<div className={searchResult.isLoading ? "loader" : ''}></div>
-					{searchResult.isLoading ? '' : (searchResult.searchList.length === 0 ? makeNoMovieList() : searchResult.searchList.map((movie, i) => (<SearchListItem movie={movie} key={i} />)))}
+					{searchResult.isLoading ? '' : (searchResult.searchList.length === 0 ? makeNoMovieList() : searchResult.searchList.map((item, i) => (<SearchListItem item={item} key={i} />)))}
 				</ul>
 				{searchResult.searchList.length > 0 && searchResult.isLastMovie === false ?
 					<div className="moreItem">
