@@ -28,8 +28,8 @@ const SearchResultContainer = (props: SearchResultContainerProps) => {
 		if (search.searchKeyword === '') {
 			let searchKeyword = JSON.stringify(parsed.q);
 			let searchData = {
-				searchKeyword: JSON.stringify(parsed.q),
-				searchType: search.searchType
+				searchKeyword: String(parsed.q),
+				searchType: String(parsed.searchType)
 			}
 			dispatch(getSearchResultItemList(searchData));
 			dispatch(setSearchKeyword(searchKeyword));
@@ -42,7 +42,7 @@ const SearchResultContainer = (props: SearchResultContainerProps) => {
 			dispatch(getSearchResultItemList(searchData));
 			dispatch(setSearchKeyword(searchKeyword));
 		}
-  }, [dispatch, handleScroll, parsed.q, search.searchKeyword, search.searchType]);
+  }, [dispatch, handleScroll, parsed.q, search.searchType]);
 
   const moreItemClick = useCallback(() => {
     let searchData = {
