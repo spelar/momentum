@@ -42,7 +42,7 @@ const SearchResultContainer = (props: SearchResultContainerProps) => {
 			dispatch(getSearchResultItemList(searchData));
 			dispatch(setSearchKeyword(searchKeyword));
 		}
-  }, [dispatch, handleScroll, parsed.q, search.searchType]);
+  }, [dispatch, handleScroll, parsed.q, parsed.searchType, search.searchType]);
 
   const moreItemClick = useCallback(() => {
     let searchData = {

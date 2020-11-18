@@ -26,7 +26,7 @@ const Header = (props: HeaderProps) => {
 		} else {
 			setInputValue(String(parsed.q));
 		}
-	}, [history.location.pathname, parsed.search, dispatch]);
+	}, [history.location.pathname, parsed.search, dispatch, parsed.q]);
 
 	const logoClick = useCallback(() => {
     dispatch(emptyList());
