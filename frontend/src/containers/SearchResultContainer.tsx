@@ -6,7 +6,7 @@ import Header from '../components/Header/Header'
 import SearchList from '../components/SearchList/SearchList';
 import { getSearchResultItemList, getMoreMovieList, setScrollState, setLoadingState } from '../store/modules/searchResult';
 import { RootState } from '../store/modules';
-import { setSearchKeyword } from '../store/modules/search';
+import { setSearchKeyword, setSearchType } from '../store/modules/search';
 
 export interface SearchResultContainerProps {}
 
@@ -30,6 +30,11 @@ const SearchResultContainer = (props: SearchResultContainerProps) => {
 			let searchData = {
 				searchKeyword: String(parsed.q),
 				searchType: String(parsed.searchType)
+			}
+			if (parsed.searchType === 'movie') {
+				dispatch(setSearchType('movie'));
+			} else {
+				dispatch(setSearchType('book'));
 			}
 			dispatch(getSearchResultItemList(searchData));
 			dispatch(setSearchKeyword(searchKeyword));
