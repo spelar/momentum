@@ -8,7 +8,7 @@ export interface SearchResultState {
 	isSearchResultPage: boolean;
   searchList: Item[];
   startIndex: number;
-  isLastMovie: boolean;
+  isLastItem: boolean;
   isScroll: boolean;
 	isLoading: boolean;
 }
@@ -17,7 +17,7 @@ const initialState = {
   isSearchResultPage: false,
   searchList: [],
   startIndex: 1,
-  isLastMovie: false,
+  isLastItem: false,
   isScroll: false,
 	isLoading: false
 };
@@ -26,15 +26,15 @@ const searchResult = createReducer<SearchResultState, SearchResultAction>(initia
   [RESPONSE_SEARCH_RESULT_MOVIE_LIST]: (state, action) => 
 		produce(state, draft => {
 			const { items, total } = action.payload;
-			let isLastMovie = state.isLastMovie;
+			let isLastItem = state.isLastItem;
 			if (items.length === total || items.length > total) {
-				isLastMovie = true;
+				isLastItem = true;
 			} else {
-				isLastMovie = false;
+				isLastItem = false;
 			}
 			draft.isLoading = false;
 			draft.searchList = items;
-			draft.isLastMovie = isLastMovie
+			draft.isLastItem = isLastItem
 		}),
   [EMPTY_LIST]: (state, action) => 
 		produce(state, draft => {
@@ -46,16 +46,16 @@ const searchResult = createReducer<SearchResultState, SearchResultAction>(initia
 			const { start, total } = action.payload;
 			let { items } = action.payload;
 			let searchList = state.searchList;
-			let isLastMovie = state.isLastMovie;
+			let isLastItem = state.isLastItem;
 			items = searchList.concat(items);
 			if (items.length === total) {
-				isLastMovie = true;
+				isLastItem = true;
 			} else {
-				isLastMovie = false;
+				isLastItem = false;
 			}
 			draft.searchList = items;
 			draft.startIndex = start;
-			draft.isLastMovie = isLastMovie;
+			draft.isLastItem = isLastItem;
 		}),
   [SET_SCROLL_STATE]: (state, action) => 
 		produce(state, draft => {
