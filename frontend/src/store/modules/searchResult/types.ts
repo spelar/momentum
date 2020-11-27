@@ -9,6 +9,7 @@ export interface Item {
 	image: string;
 	link: string;
 	pubDate: string;
+	pubdate: string;
 	subtitle: string;
 	title: string;
 	userRating: string;

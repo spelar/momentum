@@ -39,7 +39,7 @@ const AutoComplete = ({search, history}: AutoCompleteProps) => {
               <div className="info">
                 <div className="clearFix">
                   <h2 dangerouslySetInnerHTML={{__html: item.title}} />
-                  <span className="pubDate" dangerouslySetInnerHTML={{__html: item.pubDate}} />
+                  <span className="pubDate" dangerouslySetInnerHTML={{__html: item.pubDate || item.pubdate}} />
                 </div>
               </div>
             </a>
