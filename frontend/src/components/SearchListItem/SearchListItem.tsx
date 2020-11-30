@@ -7,11 +7,13 @@ interface SearchListItemProps {
 }
 
 const SearchListItem = ({item}: SearchListItemProps) => {
-	const makeActorList = () => {
-		let actor = item.actor.replace(/\|/gi, ", ").slice(0,-2);
-		return (
-			<span dangerouslySetInnerHTML={{__html: actor}}/>
-		)
+	const makePersonList = () => {
+		if (item.actor !== undefined) {
+			let actor = item.actor.replace(/\|/gi, ", ").slice(0,-2);
+			return (
+				<span dangerouslySetInnerHTML={{__html: actor}}/>
+			)
+		}
 	};
 	return (
 		<li className="movie clearFix">
@@ -25,8 +27,8 @@ const SearchListItem = ({item}: SearchListItemProps) => {
 						<i className="momentum-icon momentum-icon-star" />
 						<span className="score" dangerouslySetInnerHTML={{__html: item.userRating}}/>
 					</div>
-					<div className="actor">
-						{makeActorList()}
+					<div className="person">
+						{makePersonList()}
 					</div>
 				</div>
 			</a>
