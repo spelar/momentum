@@ -5,6 +5,7 @@ export type SearchResultAction = ActionType<typeof actions>;
 
 export interface Item {
 	actor: string;
+	author: string;
 	director: string;
 	image: string;
 	link: string;

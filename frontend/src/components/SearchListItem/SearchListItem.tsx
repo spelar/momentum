@@ -12,6 +12,11 @@ const SearchListItem = ({item}: SearchListItemProps) => {
 			let actor = item.actor.replace(/\|/gi, ", ").slice(0,-2);
 			return (
 				<span dangerouslySetInnerHTML={{__html: actor}}/>
+			) 
+		} else if (item.author !== undefined) {
+			let author = item.author.replace(/\|/gi, ", ");
+			return (
+				<span dangerouslySetInnerHTML={{__html: author}}/>
 			)
 		}
 	};
