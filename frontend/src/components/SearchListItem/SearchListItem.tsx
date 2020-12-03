@@ -1,22 +1,25 @@
 import React from 'react';
 import './SearchListItem.scss';
 import { Item } from '../../store/modules/searchResult';
+import search from '../../store/modules/search';
 
 interface SearchListItemProps {
+	searchType: string;
 	item: Item;
 }
 
-const SearchListItem = ({item}: SearchListItemProps) => {
+const SearchListItem = ({item, searchType}: SearchListItemProps) => {
 	const makePersonList = () => {
-		if (item.actor !== undefined) {
-			let actor = item.actor.replace(/\|/gi, ", ").slice(0,-2);
+		let personName = '';
+		if (searchType === 'movie') {
+			personName = item.actor.replace(/\|/gi, ", ").slice(0,-2);
 			return (
-				<span dangerouslySetInnerHTML={{__html: actor}}/>
+				<span dangerouslySetInnerHTML={{__html: personName}}/>
 			) 
-		} else if (item.author !== undefined) {
-			let author = item.author.replace(/\|/gi, ", ");
+		} else if (searchType === 'book') {
+		 personName = item.author.replace(/\|/gi, ", ");
 			return (
-				<span dangerouslySetInnerHTML={{__html: author}}/>
+				<span dangerouslySetInnerHTML={{__html: personName}}/>
 			)
 		}
 	};
