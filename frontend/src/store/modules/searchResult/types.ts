@@ -14,4 +14,6 @@ export interface Item {
 	subtitle: string;
 	title: string;
 	userRating: string;
+	price: string;
+	discount: string;
 }

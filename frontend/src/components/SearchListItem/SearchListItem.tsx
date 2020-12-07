@@ -9,21 +9,6 @@ interface SearchListItemProps {
 }
 
 const SearchListItem = ({item, searchType}: SearchListItemProps) => {
-	// const makePersonList = () => {
-	// 	let personName = '';
-	// 	if (searchType === 'movie') {
-	// 		personName = item.actor.replace(/\|/gi, ", ").slice(0,-2);
-	// 		return (
-	// 			<span dangerouslySetInnerHTML={{__html: personName}}/>
-	// 		) 
-	// 	} else if (searchType === 'book') {
-	// 	 personName = item.author.replace(/\|/gi, ", ");
-	// 		return (
-	// 			<span dangerouslySetInnerHTML={{__html: personName}}/>
-	// 		)
-	// 	}
-	// };
-
 	const makeMovieItem = () => {
 		return (
 			<div>
@@ -42,7 +27,20 @@ const SearchListItem = ({item, searchType}: SearchListItemProps) => {
 	}
 
 	const makeBookItem =() => {
-
+		return (
+			<div>
+				<div className="clearFix">
+					<h2 dangerouslySetInnerHTML={{__html: item.title}} /><span className="pubDate"> (<span dangerouslySetInnerHTML={{__html: item.pubDate}} />)</span>
+				</div>
+				<div className="userRating">
+					<span className="score lineThrough" dangerouslySetInnerHTML={{__html: item.price}}/>
+					<span dangerouslySetInnerHTML={{__html: item.discount}} />
+				</div>
+				<div className="person">
+					<span dangerouslySetInnerHTML={{__html: item.author.replace(/\|/gi, ", ")}}/>
+				</div>
+			</div>
+		);
 	}
 	return (
 		<li className="movie clearFix">
@@ -50,16 +48,6 @@ const SearchListItem = ({item, searchType}: SearchListItemProps) => {
 				{item.image !== "" ? <div className="image"><img src={item.image} alt="영화 포스터" /></div> : <div className="image noimage"><span /></div>}
 				<div className="info">
 					{searchType === 'movie' ? makeMovieItem() : makeBookItem()}
-					{/* <div className="clearFix">
-						<h2 dangerouslySetInnerHTML={{__html: item.title}} /><span className="pubDate"> (<span dangerouslySetInnerHTML={{__html: item.pubDate}} />)</span>
-					</div>
-					<div className="userRating">
-						<i className="momentum-icon momentum-icon-star" />
-						<span className="score" dangerouslySetInnerHTML={{__html: item.userRating}}/>
-					</div>
-					<div className="person">
-						{makePersonList()}
-					</div> */}
 				</div>
 			</a>
 		</li>
