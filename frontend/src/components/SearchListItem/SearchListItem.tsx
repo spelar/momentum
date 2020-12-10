@@ -30,7 +30,7 @@ const SearchListItem = ({item, searchType}: SearchListItemProps) => {
 		return (
 			<div>
 				<div className="clearFix">
-					<h2 dangerouslySetInnerHTML={{__html: item.title}} /><span className="pubDate"> (<span dangerouslySetInnerHTML={{__html: item.pubDate}} />)</span>
+					<h2 dangerouslySetInnerHTML={{__html: item.title}} /><span className="pubDate"> (<span dangerouslySetInnerHTML={{__html: item.pubdate}} />)</span>
 				</div>
 				<div className="userRating">
 					<span className="score lineThrough" dangerouslySetInnerHTML={{__html: item.price}}/>
