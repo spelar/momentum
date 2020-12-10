@@ -33,8 +33,13 @@ const SearchListItem = ({item, searchType}: SearchListItemProps) => {
 					<h2 dangerouslySetInnerHTML={{__html: item.title}} /><span className="pubDate"> (<span dangerouslySetInnerHTML={{__html: item.pubdate}} />)</span>
 				</div>
 				<div className="userRating">
-					<span className="score lineThrough" dangerouslySetInnerHTML={{__html: item.price}}/>
-					<span dangerouslySetInnerHTML={{__html: item.discount}} />
+					{item.discount === '' ? 
+						<span className="score" dangerouslySetInnerHTML={{__html: item.price}}/> :
+						<div>
+							<span className="score lineThrough" dangerouslySetInnerHTML={{__html: item.price}}/>
+							<span dangerouslySetInnerHTML={{__html: item.discount}} /> 
+						</div> 
+					}
 				</div>
 				<div className="person">
 					<span dangerouslySetInnerHTML={{__html: item.author.replace(/\|/gi, ", ")}}/>
