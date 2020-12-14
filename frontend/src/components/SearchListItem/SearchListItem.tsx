@@ -48,7 +48,7 @@ const SearchListItem = ({item, searchType}: SearchListItemProps) => {
 		);
 	}
 	return (
-		<li className="movie clearFix">
+		<li className="searhListItem clearFix">
 			<a target="_blank" href={item.link} rel="noopener noreferrer">
 				{item.image !== "" ? <div className="image"><img src={item.image} alt="영화 포스터" /></div> : <div className="image noimage"><span /></div>}
 				<div className="info">
