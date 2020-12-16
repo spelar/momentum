@@ -12,7 +12,7 @@ const SearchListItem = ({item, searchType}: SearchListItemProps) => {
 	const makeMovieItem = () => {
 		return (
 			<div>
-				<div className="clearFix">
+				<div>
 					<h2 dangerouslySetInnerHTML={{__html: item.title}} /><span className="pubDate"> (<span dangerouslySetInnerHTML={{__html: item.pubDate}} />)</span>
 				</div>
 				<div className="userRating">
@@ -29,7 +29,7 @@ const SearchListItem = ({item, searchType}: SearchListItemProps) => {
 	const makeBookItem =() => {
 		return (
 			<div>
-				<div className="clearFix">
+				<div>
 					<h2 dangerouslySetInnerHTML={{__html: item.title}} /><span className="pubDate"> (<span dangerouslySetInnerHTML={{__html: item.pubdate}} />)</span>
 				</div>
 				<div className="userRating">
