@@ -52,10 +52,11 @@ const SearchResultContainer = (props: SearchResultContainerProps) => {
   const moreItemClick = useCallback(() => {
     let searchData = {
       searchKeyword : JSON.stringify(parsed.q),
-      startIndex : searchResult.startIndex + 5
+      startIndex : searchResult.startIndex + 5,
+			searchType: search.searchType
     };
     dispatch(getMoreMovieList(searchData));
-  }, [dispatch, parsed.q, searchResult.startIndex]);
+  }, [dispatch, parsed.q, searchResult.startIndex, search.searchType]);
 
 	return (
 		<div style={{position:'relative'}}>
