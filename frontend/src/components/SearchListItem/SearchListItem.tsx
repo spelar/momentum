@@ -36,8 +36,8 @@ const SearchListItem = ({item, searchType}: SearchListItemProps) => {
 					{item.discount === '' ? 
 						<span className="score" dangerouslySetInnerHTML={{__html: item.price}}/> :
 						<div>
-							<span className="score lineThrough" dangerouslySetInnerHTML={{__html: item.price}}/>
-							<span dangerouslySetInnerHTML={{__html: item.discount}} /> 
+							<span className="score lineThrough" dangerouslySetInnerHTML={{__html: item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}}/>
+							<span dangerouslySetInnerHTML={{__html: item.discount.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}} /> 
 						</div> 
 					}
 				</div>
