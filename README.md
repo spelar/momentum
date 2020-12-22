@@ -7,7 +7,7 @@
 ## 사용 기술
 
 * 배포
-    * 배포는 Heroku를 사용했습니다. Heroku는 Node.js로 서버에 올릴 수 있고 git push로 depolying 할 수 있어서 사용했습니다.
+    * 배포는 Heroku(https://www.heroku.com/)를 사용했습니다. Heroku는 Node.js로 서버에 올릴 수 있고 git push로 depolying 할 수 있어서 사용했습니다.
 
 * 백엔드
     * 서버는 Node.js, Express를 사용해서 구현했습니다.
