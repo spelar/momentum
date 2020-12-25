@@ -40,6 +40,7 @@ const searchResult = createReducer<SearchResultState, SearchResultAction>(initia
 		produce(state, draft => {
 			draft.searchList = [];
 			draft.isScroll = false;
+			draft.startIndex = 1;
 		}),
   [RESPONSE_MORE_MOVIE_LIST]: (state, action) => 
 		produce (state, draft => {
