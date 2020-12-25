@@ -13,6 +13,9 @@
 - 머니S 모바일웹 (https://m.moneys.mt.co.kr/) 개발
 - the300 웹  (https://the300.mt.co.kr/) 개발
 - 서비스별 CMS 개발
+- 웹 표준, 웹 접근성 준수
+- 반응형 웹 개발
+- 크로스 브라우징 (Ie10, Ie11, Chrome, Safari, Firefox, Opera)
 - html5, css3(Less), jQuery 사용
 - git, zeplin, figma 사용
 
@@ -20,7 +23,9 @@
 ## 위메프
 - 원더 쇼핑 개발 (https://m.wonder-shopping.com/home)
 - 원더쇼핑 패밀리세일 이벤트페이지(맘큐, 제로투세븐) 개발 (vueJs, Sass)
+- 웹 표준, 웹 접근성 준수
 - github, zeplin, swagger 사용 
+- webpack 사용
 
 
 ## 번개장터
