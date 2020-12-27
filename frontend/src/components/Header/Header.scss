@@ -31,17 +31,25 @@
 		background-color: $red-base;
 		.item {
 			flex: 1 1 auto;
+			width: 50%;
 			background-color: $white-base;
 			text-align: center;
 			a {
 				display: block;
 				padding: 10px 0px;
 				box-sizing: border-box;
+				i {
+					display: none;
+				}
 			}
 			a.on {
 				color: #fff;
 				background-color: $green-dark-50;
 				font-weight: bold;
+				i {
+					display: inline-block;
+					margin-left: 2px;
+				}
 			}
 		}
 		.item:first-child {
