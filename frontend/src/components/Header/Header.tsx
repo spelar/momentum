@@ -54,7 +54,7 @@ const Header = (props: HeaderProps) => {
 	const searchBtnClick = useCallback(() => {
     dispatch(emptyList());
     if (search.searchKeyword === '') {
-      alert('영화 제목을 입력해주세요.')
+      alert('검색어를 입력해주세요.')
 			dispatch(setLoadingState(true));
       let searchData = {
 				searchKeyword: search.searchKeyword,
