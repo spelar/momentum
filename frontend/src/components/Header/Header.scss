@@ -3,7 +3,7 @@
 .header {
   width: 100%;
   height: auto;
-  background-color: $red-base;
+  background-color: $momentum-color;
   .logo {
     height: 48px;
     padding-left: 15px;
@@ -28,11 +28,11 @@
 	.tab {
     display: flex;
 		padding: 0 15px;
-		background-color: $red-base;
+		background-color: $momentum-color;
 		.item {
 			flex: 1 1 auto;
 			width: 50%;
-			background-color: $white-base;
+			background-color: $gray-base;
 			text-align: center;
 			a {
 				display: block;
@@ -43,17 +43,18 @@
 				}
 			}
 			a.on {
-				color: #fff;
-				background-color: $green-dark-50;
+				color: #000;
+				background-color: $white-base;
 				font-weight: bold;
 				i {
 					display: inline-block;
 					margin-left: 2px;
+					color: $momentum-color;
 				}
 			}
 		}
 		.item:first-child {
-			border-right: 1px solid #eee;
+			border-right: 1px solid #b9b9b9;
 		}
 	}
 }
@@ -68,12 +69,11 @@
   position: relative;
   width: 100%;
   padding: 10px 15px 10px;
-  background-color: $red-base;
+  background-color: $momentum-color;
 	box-sizing: border-box;
   .input {
     padding-right: 42px;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-radius: 4px;
   }
   .btnSearch {
     position: absolute;
@@ -81,11 +81,13 @@
     right: 14px;
     width: 42px;
     height: 42px;
-    background-color: $green-dark-50;
+    background-color: $gray-base;
+		border-left: 1px solid #b9b9b9;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     .momentum-icon {
-      color: $white-base;
+			margin-left: -3px;
+      color: #8c8c8c;
       font-size: 24px;
     }
   }
