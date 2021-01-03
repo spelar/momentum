@@ -11,7 +11,7 @@ const port = process.env.PORT || 4000;
 
 app.use(express.static(path.resolve(__dirname, 'frontend/build')));
 
-app.get('/:searchType/', function (req, res) {
+app.get('/:searchType?', function (req, res) {
 	let searchType = req.params.searchType;
   let indexParam = "";
   if(req.query.start) {
