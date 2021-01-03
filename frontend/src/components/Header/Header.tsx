@@ -55,12 +55,6 @@ const Header = (props: HeaderProps) => {
     dispatch(emptyList());
     if (search.searchKeyword === '') {
       alert('검색어를 입력해주세요.')
-			dispatch(setLoadingState(true));
-      let searchData = {
-				searchKeyword: search.searchKeyword,
-				searchType: search.searchType
-			}
-      dispatch(getSearchResultItemList(searchData));
     } else {
 			dispatch(setLoadingState(true));
       history.push('/searchResult?searchType=' + search.searchType + '&q=' + encodeURIComponent(search.searchKeyword));
