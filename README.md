@@ -4,7 +4,7 @@
    * 영화 : https://developers.naver.com/docs/search/movie/
    * 책 : https://developers.naver.com/docs/search/book/
 * UI
-<img width="294" alt="momentum1" src="https://user-images.githubusercontent.com/17353901/103605795-2d42c900-4f58-11eb-9684-895d87ae5611.png"><img width="300" alt="momentum2" src="https://user-images.githubusercontent.com/17353901/103605799-303db980-4f58-11eb-83cc-ad5e1a60bf96.png"><img width="301" alt="momentum3" src="https://user-images.githubusercontent.com/17353901/103605804-3338aa00-4f58-11eb-8896-6358f86a77fb.png"><img width="293" alt="momentum4" src="https://user-images.githubusercontent.com/17353901/103605806-359b0400-4f58-11eb-8a03-e68c0c640dc4.png">
+   * <img width="318" alt="momentum1" src="https://user-images.githubusercontent.com/17353901/103608568-fcb25d80-4f5e-11eb-97d1-53df81d3b819.png"><img width="320" alt="momentum2" src="https://user-images.githubusercontent.com/17353901/103608571-fe7c2100-4f5e-11eb-880a-a3855f908601.png"><img width="319" alt="momentum3" src="https://user-images.githubusercontent.com/17353901/103608574-01771180-4f5f-11eb-9837-7686fce3b503.png"><img width="318" alt="momentum4" src="https://user-images.githubusercontent.com/17353901/103608590-089e1f80-4f5f-11eb-8f7a-e400d5c70916.png">
 
 ## 사용 기술
 
