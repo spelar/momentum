@@ -4,6 +4,7 @@ import RandomImage from '../components/RandomImage/RandomImage';
 import { RootState } from '../store/modules';
 import { randomImageLength } from '../store/modules/randomImages/reducer';
 import { getRandomImage } from '../store/modules/randomImages/actions';
+import { Helmet } from 'react-helmet';
 
 export interface RandomImageContainerProps {}
 
@@ -14,7 +15,12 @@ const RandomImageContainer = (props: RandomImageContainerProps) => {
 	},[dispatch]);
 	const randomImages = useSelector((state:RootState) => state.randomImages);
 	return (
-		<RandomImage randomImage={randomImages.randomImage}/>
+		<>
+			<Helmet>
+				 <title>Intro - Momentum</title>
+			</Helmet>
+			<RandomImage randomImage={randomImages.randomImage}/>
+		</>
 	)
 }
 

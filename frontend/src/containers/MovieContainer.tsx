@@ -1,11 +1,17 @@
 import React from 'react';
 import Header from '../components/Header/Header';
+import { Helmet } from 'react-helmet';
 
 export interface MovieContainerProps {}
 
 const MovieContainer = (props: MovieContainerProps) => {
 	return (
-		<Header />
+		<>
+			<Helmet>
+				 <title>영화 검색</title>
+			</Helmet>
+			<Header />
+		</>
 	)
 }
 

@@ -7,6 +7,7 @@ import SearchList from '../components/SearchList/SearchList';
 import { getSearchResultItemList, getMoreMovieList, setScrollState, setLoadingState } from '../store/modules/searchResult';
 import { RootState } from '../store/modules';
 import { setSearchKeyword, setSearchType } from '../store/modules/search';
+import { Helmet } from 'react-helmet';
 
 export interface SearchResultContainerProps {}
 
@@ -60,6 +61,9 @@ const SearchResultContainer = (props: SearchResultContainerProps) => {
 
 	return (
 		<div style={{position:'relative'}}>
+			<Helmet>
+				 <title>검색 결과</title>
+			</Helmet>
 			<Header />
 			<SearchList
 				search={search}
