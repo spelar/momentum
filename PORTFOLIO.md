@@ -10,9 +10,9 @@
 - SVG ICON 사용
 
 ## 머니투데이
-- 머니S 모바일웹 (https://m.moneys.mt.co.kr/) 개발
-- the300 웹  (https://the300.mt.co.kr/) 개발
-- 서비스별 CMS 개발
+- 머니S 모바일웹 (https://m.moneys.mt.co.kr/) UI 개발
+- the300 웹  (https://the300.mt.co.kr/) UI 개발
+- 서비스별 CMS UI 개발
 - 웹 표준, 웹 접근성 준수
 - 반응형 웹 개발
 - 크로스 브라우징 (Ie10, Ie11, Chrome, Safari, Firefox, Opera)
@@ -21,16 +21,16 @@
 
 
 ## 위메프
-- 원더 쇼핑 개발 (https://m.wonder-shopping.com/home)
-- 원더쇼핑 패밀리세일 이벤트페이지(맘큐, 제로투세븐) 개발 (vueJs, Sass)
+- 원더 쇼핑 FrontEnd 개발 (https://m.wonder-shopping.com/home)
+- 원더쇼핑 패밀리세일 이벤트페이지(맘큐, 제로투세븐) FrontEnd 개발 (vueJs, Sass)
 - 웹 표준, 웹 접근성 준수
 - github, zeplin, swagger 사용 
 - webpack 사용
 
 
 ## 번개장터
-- 번개카 웹사이트 (http://dealer.buncar.co.kr) 개발
-- 번개장터 웹, 모바일웹 사이트 (http://m.bunjang.co.kr/) 개발
+- 번개장터 웹, 모바일웹 사이트 (http://m.bunjang.co.kr/) FrontEnd 개발
+- 번개카 웹사이트 (http://dealer.buncar.co.kr) FrontEnd 개발
 - 번개장터 웹 리뉴얼 프로젝트 진행 (django, React 사용)
 - 웹 표준, 웹 접근성 준수
 - 반응형 웹 개발
@@ -42,8 +42,8 @@
 
 
 ## 넥슨
-- 마비노기 웹사이트 (http://mabinogi.nexon.com/page/main/index.asp) 개발
-- 마비노기 아이템샵 (http://mabinogi.nexon.com/ItemShop/product_list.asp) 개발
+- 마비노기 웹사이트 (http://mabinogi.nexon.com/page/main/index.asp) UI 개발
+- 마비노기 아이템샵 (http://mabinogi.nexon.com/ItemShop/product_list.asp) UI 개발
 - 웹 표준, 웹 접근성 준수
 - 크로스 브라우징 (Ie7, IE8, Ie9, Ie10, Ie11, Chrome, Safari, Firefox, Opera)
 - jQuery 사용
@@ -51,8 +51,8 @@
 
 
 ## 다방
-- 다방 웹사이트 (http://dabangapp.com/) 개발
-- 다방 모바일웹 사이트 (http://m.dabangapp.com/) 개발
+- 다방 웹사이트 (http://dabangapp.com/) FrontEnd 개발
+- 다방 모바일웹 사이트 (http://m.dabangapp.com/) FrontEnd 개발
 - 웹 표준, 웹 접근성 준수
 - 크로스 브라우징 (Ie9, Ie10, Ie11, Chrome, Safari, Firefox, Opera)
 - 반응형 웹 개발
