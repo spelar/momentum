@@ -5,7 +5,7 @@
    * 책 : https://developers.naver.com/docs/search/book/
 
 * UI
-   * <img width="319" alt="momentum1" src="https://user-images.githubusercontent.com/17353901/104534255-497cef00-5657-11eb-8759-b8dd25a05153.png"><img width="318" alt="momentum2" src="https://user-images.githubusercontent.com/17353901/104534264-4c77df80-5657-11eb-98e2-5210d228f4d9.png">
+<img width="650" alt="momentum1" src="https://user-images.githubusercontent.com/17353901/104537560-877d1180-565d-11eb-88da-ef98869c5947.png">
 
    
 ## 사용 기술
