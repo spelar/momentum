@@ -1,7 +1,6 @@
 import React from 'react';
 import './SearchListItem.scss';
 import { Item } from '../../store/modules/searchResult';
-import search from '../../store/modules/search';
 
 interface SearchListItemProps {
 	searchType: string;
