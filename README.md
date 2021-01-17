@@ -3,6 +3,10 @@
 * Naver Open Api를 사용해서 영화, 책 검색 서비스를 만들었습니다.
    * 영화 : https://developers.naver.com/docs/search/movie/
    * 책 : https://developers.naver.com/docs/search/book/
+
+* UI
+<img width="650" alt="momentum1" src="https://user-images.githubusercontent.com/17353901/104537560-877d1180-565d-11eb-88da-ef98869c5947.png">
+
    
 ## 사용 기술
 
