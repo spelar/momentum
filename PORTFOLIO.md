@@ -17,7 +17,7 @@
 - 반응형 웹 개발
 - 크로스 브라우징 (Ie10, Ie11, Chrome, Safari, Firefox, Opera)
 - html5, css3(Less), jQuery 사용
-- git, zeplin, figma 사용
+- git, Jira, Confluence, zeplin, figma, photoshop 사용
 
 
 ## 위메프
@@ -39,6 +39,7 @@
 - 앱내 웹뷰 개발 
 - CSS 전처리 Sass를 사용하여 UI Component 개발 (Button, Table, Form, Font, Color, Icon,Card, Modal, Alert, Grid 등등)
 - 웹 성능 최적화 (CDN적용, 정적 파일 minify 및 브라우저 캐시 사용, 이미지 sprite, CSS Component화, 웹 이미지 한번 더 압축, 배경 이미지는 PNG지양하고 JPG사용)
+- photoshop 사용
 
 
 ## 넥슨
@@ -48,6 +49,7 @@
 - 크로스 브라우징 (Ie7, IE8, Ie9, Ie10, Ie11, Chrome, Safari, Firefox, Opera)
 - jQuery 사용
 - vanilla CSS를 사용하여 UI Component화 (grid, badge, table, header, footer, page 등등)
+- photoshop 사용
 
 
 ## 다방
@@ -60,6 +62,7 @@
 - React, Grunt, Underscore 사용
 - CSS 전처리 Less를 사용하여 UI Component 개발 (Button, Table, Form, Font, Color, Icon,Card, Modal, Alert, Grid 등등)
 - 앱네 웹뷰 개발
+- photoshop 사용
 
 
 ## 써니베일
